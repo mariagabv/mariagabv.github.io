@@ -1,5 +1,11 @@
 (./README.md)
 
-This is a special page that displays information at github.com/<yourname>/<yourname>.github.io
+I'm learning how to use github pages with using Voita's blog!
 
-It won't affect the site itself.
+@misc{voita2020nlpCourse,
+title={ {NLP} {C}ourse {F}or {Y}ou},
+url={https://lena-voita.github.io/nlp_course.html},
+author={Elena Voita},
+year={2020},
+month={Sep}
+}
