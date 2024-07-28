@@ -6,7 +6,7 @@ description: I'm María Velasco and I am learning about github pages.
 <!-- (comment) the image below can be found in img folder of this very project-->
 <!--![i_am_a_fox](./img/people/igueldo.jpeg){: style="float: right; margin: 0px 20px; width: 180px;" name="fox"}-->
 <!--![i_am_a_fox](./img/people/igueldo.jpeg){: style="float: right; margin: 0px 20px; width: 180px;" name="fox"}-->
-![i_am_a_fox](./img/people/igueldo.jpeg){: style="float: right; margin: 0px 20px; width: 400px; border-radius: 30%" name="fox"}
+![i_am_a_fox](./img/people/igueldo.jpeg){: style="float: right; margin: 0px 20px; width: 600px; border-radius: 30%" name="fox"}
 
 
 <!-- <a href= onMouseOver="document.readmore_1.src='/img/people/foxie.jpeg';" onMouseOut="document.readmore_1.src='/img/people/igueldo.jpeg;">
