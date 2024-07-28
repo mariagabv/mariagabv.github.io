@@ -4,13 +4,13 @@ description: I'm María Velasco and I am learning about github pages. This is Vo
 ---
 
 <!-- (comment) the image below can be found in img folder of this very project-->
-#<!--![i_am_a_fox](./img/people/lena_large-min.png){: style="float: right; margin: 0px 20px; width: 180px;" name="fox"}-->
-#<!--![i_am_a_fox](./img/people/orange_lena-min.jpg){: style="float: right; margin: 0px 20px; width: 180px;" name="fox"}-->
+<!--![i_am_a_fox](./img/people/igueldo.jpeg){: style="float: right; margin: 0px 20px; width: 180px;" name="fox"}-->
+<!--![i_am_a_fox](./img/people/igueldo.jpeg){: style="float: right; margin: 0px 20px; width: 180px;" name="fox"}-->
 ![i_am_a_fox](./img/people/igueldo.jpeg){: style="float: right; margin: 0px 20px; width: 250px; border-radius: 50%" name="fox"}
 
 
-<!-- <a href= onMouseOver="document.readmore_1.src='/img/people/foxie.jpeg';" onMouseOut="document.readmore_1.src='/img/people/orange_lena-min.jpg';">
-<img src="/img/people/orange_lena-min.jpg" name="readmore_1" width=204px height=240px></a> -->
+<!-- <a href= onMouseOver="document.readmore_1.src='/img/people/foxie.jpeg';" onMouseOut="document.readmore_1.src='/img/people/igueldo.jpeg;">
+<img src="/img/people/igueldo.jpeg" name="readmore_1" width=204px height=240px></a> -->
 
 
 I am Elena (Lena) Voita, a __Research Scientist__ at [__FAIR__](https://ai.facebook.com) working on Analysis and Interpetability for NLP. 
