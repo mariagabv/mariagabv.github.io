@@ -1,5 +1,4 @@
--
-  layout: article
+- layout: article
   paper-type: article
   selected: y
   year: 2022
@@ -16,10 +15,10 @@
   conf_year: 
   slides:
   abstract: >
-Machine Translation (MT) leaves no translation student indifferent. Despite its scarce presence in study programmes, its use in the market is on the rise. Among the different free online translators, DeepL has become the most popular for supposedly producing more natural and idiomatic texts. In this work, we explain possible reasons why DeepL has achieved such a good reputation. Moreover, we use the DQF-MQM metric to evaluate Deepl’s output of the muster test to become a translator at the EU. The negative result of this evaluation indicates that the output would not pass the test to become a translator at the EU nor be published in a Spanish newspaper and allows us to establish a series of recurring errors that can be considered for future evaluations.
+    Machine Translation (MT) leaves no translation student indifferent. Despite its scarce presence in study programmes, its use in the market is on the rise. Among the different free online translators, DeepL has become the most popular for supposedly producing more natural and idiomatic texts. In this work, we explain possible reasons why DeepL has achieved such a good reputation. Moreover, we use the DQF-MQM metric to evaluate Deepl’s output of the muster test to become a translator at the EU. The negative result of this evaluation indicates that the output would not pass the test to become a translator at the EU nor be published in a Spanish newspaper and allows us to establish a series of recurring errors that can be considered for future evaluations.
   bibtex: >
     @article{garcia2022deepl,
-  title={DeepL a prueba: evaluaci{\'o}n y an{\'a}lisis de la traducci{\'o}n al espa{\~n}ol del art{\'\i}culo" Die eiserne Kanzlerin" seg{\'u}n la tipolog{\'\i}a de errores DQF-MQM},
-  author={Garc{\'\i}a-Abadillo Velasco, Mar{\'\i}a},
-  year={2022}
-}
+      title={DeepL a prueba: evaluaci{\'o}n y an{\'a}lisis de la traducci{\'o}n al espa{\~n}ol del art{\'\i}culo" Die eiserne Kanzlerin" seg{\'u}n la tipolog{\'\i}a de errores DQF-MQM},
+      author={Garc{\'\i}a-Abadillo Velasco, Mar{\'\i}a},
+      year={2022}
+    }
