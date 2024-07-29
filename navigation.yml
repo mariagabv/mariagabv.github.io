@@ -1,0 +1,25 @@
+# main links links
+main:
+    - title: "Blog"
+    # url: /cv/
+    url: posts.html
+
+  - title: "CV"
+    # url: /cv/
+    url: /files/cv_en.pdf
+  
+  - title: "Publications"
+    url: papers.html
+    # url: https://scholar.google.es/citations?user=xxxxxxxx=en
+        
+  - title: "NLP Course | For you"
+    url: nlp_course.html
+
+  # - title: "Talks"
+  #   url: /talks/    
+
+  # - title: "Teaching"
+  #   url: /teaching/    
+    
+  # - title: "Guide"
+  #   url: /markdown/
