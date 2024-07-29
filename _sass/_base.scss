@@ -158,15 +158,15 @@ pre {
     max-width:         calc(800px - (#{$spacing-unit} * 2));
     margin-right: auto;
     margin-left: auto;
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
     @extend %clearfix;
 
     @include media-query($on-laptop) {
         max-width: -webkit-calc(800px - (#{$spacing-unit}));
         max-width:         calc(800px - (#{$spacing-unit}));
-        padding-right: 0;
-        padding-left: 0;
+        padding-right: $spacing-unit / 3;
+        padding-left: $spacing-unit / 3;
     }
 }
 
