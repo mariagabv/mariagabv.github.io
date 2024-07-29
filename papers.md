@@ -6,7 +6,7 @@ menu: yes
 order: 3
 ---
 
-This are my first papers!
+These are my first papers!
 
 
 {% assign hashes = (site.data.papers) %}
