@@ -150,23 +150,21 @@ pre {
 
 
 
-/**
+/*
  * Wrapper
  */
 .wrapper {
-    max-width: -webkit-calc(800px - (#{$spacing-unit} * 2));
-    max-width:         calc(800px - (#{$spacing-unit} * 2));
+    max-width: 100%; // Remove the calc function and set max-width to 100%
     margin-right: auto;
     margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
+    padding-right: 0; // Remove padding to eliminate side spaces
+    padding-left: 0; // Remove padding to eliminate side spaces
     @extend %clearfix;
 
     @include media-query($on-laptop) {
-        max-width: -webkit-calc(800px - (#{$spacing-unit}));
-        max-width:         calc(800px - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
+        max-width: 100%; // Ensure the max-width remains 100% on smaller screens as well
+        padding-right: 0; // Remove padding to eliminate side spaces on smaller screens
+        padding-left: 0; // Remove padding to eliminate side spaces on smaller screens
     }
 }
 
