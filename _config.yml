@@ -4,7 +4,7 @@ title: María Velasco
 email: magarcaa@gmail.com
 github: mariagabv
 description: > # this symbol means ignore newlines until "baseurl:"
-    Hi! I am María and I am learning to use github pages.
+    Hi! I am María and this is my webpage.
 baseurl: "" # keep blank unless you're using sub-paths
 url: "http://mariagabv.github.io" # the base hostname & protocol for your site
 #paginate: 3
