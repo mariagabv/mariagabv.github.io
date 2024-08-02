@@ -1,8 +1,8 @@
 ---
 layout: lecture
-title: Word Embeddings
+title: Motivación
 description: >
-Methods for learning word vectors: from count-based to prediction-based, including the most recent results.
+RAG en español para La Solana. ¿Por qué?.
 ---
 
 
@@ -12,7 +12,7 @@ Methods for learning word vectors: from count-based to prediction-based, includi
     <a class="active" href="../nlp_course.html" style="font-weight: bold;">
         <img height="18" class='sidebar_ico' src="../resources/lectures/ico/course_logo.png" style="margin-right: 8px;margin-left: 8px;margin-top: 4px;"/>
         NLP Course <font color="#92bf32" id="for_you_in_sidebar">| For You</font></a>
-  <a  href="#main_content"  style="font-weight: bold;">Word Embeddings</a>
+  <a  href="#main_content"  style="font-weight: bold;">Motivación</a>
     <a href="#one_hot_vectors">One-Hot Vectors</a>
   <a href="#distributional_semantics">Distributional Semantics</a>
     <a href="#pre_neural">Count-Based Methods</a>
@@ -251,7 +251,7 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 <div class="wrapper" id="main_page_content">
-    <div class="header"><h1>Word Embeddings</h1></div>
+    <div class="header"><h1>Motivación</h1></div>
 
 <div class="main_content" id="main_content">
 
@@ -259,10 +259,56 @@ for (i = 0; i < dropdown.length; i++) {
 
     <img height="200" src="../resources/lectures/word_emb/word_repr_intro-min.png"
          style="float:right; margin-left: 25px; max-width:60%"/>
-    <p>The way machine learning models "<font face="arial">see</font>" data is different from how we (humans) do. For example, we can easily
-    understand the text <span class="data_text" style="font-weight:bold;">"I saw a cat"</span>,
-        but our models can not - they need vectors of features.
-        Such vectors, or <font face="arial">word embeddings</font>, are representations of words which can be fed into your model.
+    <p>Objetivos principales: 
+1.  Construir un asistente conversacional para la conservación de la memoria histórica y tradiciones en La Solana.
+2.  Evaluar la viabilidad de crear un asistente conversacional utilizando los recursos disponibles (datos sobre La Solana y software de código abierto).
+
+Contribuciones principales:
+1.  Crear de un testset para la evaluación automática del modelo.
+2.  Recopilar y procesar recursos de alto interés histórico-cultural.
+3.  Promover la digitalización en el entorno rural al crear una hoja de ruta general para otras localidades.
+
+Metodología:
+1.  Crear un modelo RAG en flowise (cómo? Siguiendo solo los videos?)
+2.  Hacer experimentos con distintos conjuntos de datos (todo el corpus, solo gacetas, gacetas+blogspot…)
+ 
+La invención de la escritura marca el paso de la Prehistoria a la Historia. Esto nos cuentan en nuestros primeros años de educación obligatoria y esto es lo que solemos recordar cuando tenemos que demostrar nuestros conocimientos de culturilla general en juegos de mesa de preguntas y respuestas. Sin embargo, la invención de la escritura se puede analizar desde muchos puntos de vista; en esta entrada, vamos a tratarla como la primera tarea de la que se encargó el campo de estudio que hoy se conoce como Procesamiento del Lenguaje Natural (PLN, NLP por sus siglas en inglés).
+
+En el presente, este amplísimo campo cubre todo lo relacionado con cómo los ordenadores “entienden”, gestionan o producen las lenguas que hablamos las personas, tanto en su forma escrita como oral. Para muchos, los modelos del lenguaje generativos como los (Chat)GPT son los productos más conocidos que han surgido en esta área. Esas interfaces capaces de resumir textos, escribir poesía o solucionar problemas matemáticos. Pero no hace tantos años tanto en la Industria como en la Academia se empleó mucho tiempo y esfuerzo en crear algoritmos que, por ejemplo:
+
+• lematicen automáticamente la raíz de las palabras (¿cómo hacemos que un ordenador sepa si la forma verbal “fui” pertenece al verbo “ser” o al verbo “ir”?),
+• reconozcan automáticamente nombres propios (¿cómo hacemos que un ordenador entienda que “María” o “Madrid” son nombres propios?)
+• o categoría gramatical de la siguiente palabra en una oración (¿es la palabra “como” la primera persona del singular del verbo “comer” o es una conjunción como en “todo está como antes”)?
+• representen palabras y sus significados en forma numérica para que los ordenadores puedan manejarlas 
+
+Hace miles de años, las personas tuvieron que enfrentarse al reto de asignar símbolos escritos a información que hasta entonces solo se transmitía de forma oral. Con la escritura, el intercambio de información ya no sería efímero, sino que podría perdurar y ser transportado. Sin embargo, esto requería un cierto entendimiento comunitario, ciertas reglas y estándares para que todos entendieran que cierto símbolo se refería a cierto sonido. Hoy en día, el campo del Procesamiento del Lenguaje Natural se ocupa, entre otros, de conseguir que las personas se comuniquen con ordenadores igual que lo hacen con humanos.
+
+Como decimos, el área de estudio de PLN es enorme. Navegar por este vasto en busca de un tema para un Trabajo de Fin de Máster puede ser una tarea ardua, especialmente si uno no le hace ascos a ningún campo. Así que esta autora, para liberarse del asfixiante peso de la libre elección, echó mano de las principales plataformas de búsqueda de empleo y dejar que lo más demandado en la industria tomara la decisión por ella. Cuál fue su sorpresa cuando se topó con una beca para el trabajo de fin de estudios en la sede de Stuttgart de la Sociedad Fraunhofer (una importantísima red de institutos de origen alemán conocida por sus inventos, como el airbag o el formato MP3):
+
+In der industriellen Instandhaltung herrscht ein massiver Fachkräftemangel. Das Wissen wird nicht an den Nachwuchs und an Nicht-Experten weitergegeben. Deshalb sollen neue, innovative Technologien für das Wissensmanagement und den Wissenstransfer erprobt und eingesetzt werden. Eine solche Technologie ist der Chatbot. In dieser Abschlussarbeit soll ein Maintenance-Chatbot entwickelt werden, der die Rolle eines erfahrenen Instandhalters übernimmt.
+
+[En Alemania] hay una aguda escasez de mano de obra cualificada para el Mantenimiento Industrial. Los conocimientos técnicos no se están trasmitiendo ni a las siguientes generaciones ni a legos en la materia, lo que invita a investigar y poner en práctica nuevas tecnologías para gestionar y transferir el saber y pericia de los expertos. Un ejemplo de dichas tecnologías son los asistentes conversacionales. En este Trabajo de Fin de Grado o Máster proponemos desarrollar un chatbot especializado en el Mantenimiento Industrial que ocupe el papel de un curtido técnico superior.
+
+Esta descripción puede suscitar diferentes cuestiones de ámbito político, laboral o social, pero a centrémonos en otra quizá no tan relacionada:
+• ¿qué otras áreas del conocimiento se perderán porque no se están transmitiendo en la actualidad a las nuevas generaciones?
+
+Cómo no, algunas tuvieron que pensar en su pueblo, su historia y sus mayores. Porque, siendo sinceros, ¿cuántos jóvenes…
+
+•  … reconocemos la función de las piedras que se ven en la siguiente imagen? 
+•  … sabemos que significa el refrán “En buen año, o malo, pavas hay en mayo”? 
+
+• … saben quién pronunció las emotivas palabras “Ahora veré, [Solaneros], si tenéis en el cuello lana o pelo (…)” y por qué fue un personaje tan relevante para nuestra villa?
+
+• … saben desde cuándo disfrutamos de la facilidad de abrir un grifo y tener agua en nuestras propias casas? ¿Cómo se gestionaba antiguamente los suministros de agua?
+• … saben qué es la pleita y cómo se diferencia de la cordeta o el ramal?
+• … conocemos qué pasó en nuestro pueblo durante importantes episodios históricos, como la Reconquista, la Guerra de la Independencia, la Guerra Civil, la Transición?
+
+Algunas de estas de estas preguntas nos las podrían resolver rápidamente nuestros abuelos, otras se encuentran ya en los libros de Historia. En cualquier caso, son cuestiones que una persona nacida en el siglo xxi probablemente no sabría responder. Ahora bien: ¿si un renombrado centro de investigación mundial plantea solucionar su falta de transmisión de conocimiento técnico a las nuevas generaciones con un chatbot, por qué nuestro pueblo no puede disponer de una misma tecnología capaz de responder las preguntas planteadas anteriormente? 
+
+Y en especial ¿cómo conseguimos que un ordenador aprenda una información que gran parte de la población no posee?
+
+Esta última es una pregunta para el siguiente capítulo: Colección de datos. Sigue leyendo!
+
     </p>
 
     <br>
