@@ -9,6 +9,70 @@ Methods for learning word vectors: from count-based to prediction-based, includi
 
 
 
+<div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
+   style="text-align:center;font-size:30px;padding:0px;">⇤</a>
+    <a class="active" href="#main_page_content" style="font-weight: bold;">
+        <img height="36" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 4px;margin-top: 4px;"/>
+        
+        RAG en <font color="#C43116" id="for_you_in_sidebar"> español</font></a> 
+        <!--<font color="#92bf32" id="for_you_in_sidebar">| For You</font></a>
+    <a href="#whats_inside">Sobre este curso</a>-->
+
+
+    <div class="dropdown-scope">
+           <a class="dropdown-btn active_caret" >RAG en español
+            <i class="fa fa-caret-down" style="color: #C43116;"></i>
+          </a>
+          <div class="dropdown-container" style="display:block;">
+              <a href="#preview_word_emb"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                Motivación</a>
+              <a href="#preview_text_clf"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  Recopilación de datos</a>
+                  <!-- 
+              <a href="#preview_lang_models"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  ¿Qué significa RAG?</a>
+              <a href="#preview_seq2seq_attn"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  Creación del modelo</a>
+              <a href="#preview_transfer"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  Evaluación</a>-->
+                <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+
+          </div>
+    </div>
+
+<!-- CREATES A NEW SECTION
+    <div class="dropdown-scope">
+           <a class="dropdown-btn active_caret" >Conclusión
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container" style="display:block;">
+              <a href="#supplementary"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+        Convolutional Networks</a>
+
+          </div>
+    </div>
+-->
+
+</div>
+
+    <div class="sidebar" id="sidebar_small" style="background-color: #f5f5f5;">
+
+    <a class="active" onclick="openNav()" style="text-align:center;">☰</a>
+        <a href="#main_page_content" style="text-align:center; font-size:20px;color:#C43116"> <i class="fa fa-home"></i></a>
+        <!--<a href="#whats_inside" style="text-align:center; font-size:20px;color:#7ca81e"> <i class="fa fa-search"></i></a>-->
+        <!--<a href="#whats_inside_lectures" id="sidebar_analysis"> <img height="25" src="../resources/lectures/ico/analysis_empty.png"/></a>
+<div class="extra_components">
+    <a href="#whats_inside_research_thinking" id="sidebar_research_thinking"><img height="30" src="../resources/lectures/ico/bulb_empty.png"/></a>
+    <a href="#whats_inside_related_papers" id="sidebar_related_papers"><img height="22" src="../resources/lectures/ico/book_empty.png"/></a>
+  <a href="#whats_inside_fun" id="sidebar_fun"><img height="30" src="../resources/lectures/ico/fun_empty.png" /></a>-->
+    <a href="#lectures" style="text-align:center; font-size:20px;color:#C43116"> <i class="fa fa-list-ul"></i></a>
+</div>
+
+    </div>
+
+
 <script>
 function openNav() {
   document.getElementById("sidebar").style.display = "block";
@@ -34,12 +98,14 @@ function onResize() {
   }
   else {
      document.getElementById("sidebar").style.display = "none";
-     document.getElementById("sidebar_small").style.display = "block";
+    document.getElementById("sidebar_small").style.display = "block";
+
   }
 }
 window.onresize = onResize;
 onResize();
 </script>
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
