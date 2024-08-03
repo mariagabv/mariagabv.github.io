@@ -6,15 +6,38 @@ Methods for learning word vectors: from count-based to prediction-based, includi
 ---
 
 
- <div class="sidebar" id="sidebar">
+<div class="sidebar" id="sidebar">
     <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
    style="text-align:center;font-size:30px;padding:0px;">⇤</a>
-    <a class="active" href="../nlp_course.html" style="font-weight: bold;">
-        <img height="18" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 8px;margin-left: 8px;margin-top: 4px;"/>
-        RAG en <font color="#C43116" id="for_you_in_sidebar"> español</font></a>
-  <a  href="#main_content"  style="font-weight: bold;">Motivación</a>
+    <a class="active" href="#main_page_content" style="font-weight: bold;">
+        <img height="36" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 4px;margin-top: 4px;"/>
+        
+        RAG en <font color="#C43116" id="for_you_in_sidebar"> español</font></a> 
+        <!--<font color="#92bf32" id="for_you_in_sidebar">| For You</font></a>
+    <a href="#whats_inside">Sobre este curso</a>-->
 
-</div>
+
+    <div class="dropdown-scope">
+           <a class="dropdown-btn active_caret" >RAG en español
+            <i class="fa fa-caret-down" style="color: #C43116;"></i>
+          </a>
+          <div class="dropdown-container" style="display:block;">
+              <a href="#preview_word_emb"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                Motivación</a>
+              <a href="#preview_text_clf"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  Recopilación de datos</a>
+                  <!-- 
+              <a href="#preview_lang_models"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  ¿Qué significa RAG?</a>
+              <a href="#preview_seq2seq_attn"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  Creación del modelo</a>
+              <a href="#preview_transfer"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                  Evaluación</a>-->
+                <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+
+          </div>
+    </div>
 
 
 
@@ -208,7 +231,7 @@ for (i = 0; i < dropdown.length; i++) {
 
 <div id="intro">
 
-    <img height="200" src="../resources/lectures/word_emb/word_repr_intro-min.png"
+    <img height="200" src="../resources/lectures/motivación/ñ.png"
          style="float:right; margin-left: 25px; max-width:60%"/>
     <p>La invención de la escritura marca el paso de la Prehistoria a la Historia. Esto nos cuentan en nuestros primeros años de educación obligatoria y esto es lo que solemos recordar cuando tenemos que demostrar nuestros conocimientos de culturilla general en juegos de mesa de preguntas y respuestas. Sin embargo, la invención de la escritura se puede analizar desde muchos puntos de vista; en esta entrada, vamos a tratarla como la primera tarea de la que se encargó el campo de estudio que hoy se conoce como Procesamiento del Lenguaje Natural (PLN, NLP por sus siglas en inglés).
     </p>
