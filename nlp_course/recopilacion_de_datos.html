@@ -231,127 +231,93 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
-        <div id="dataset_info_lasolananews" style="margin-left:20px;">
-            <details>
-                <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
-                <div  class="data_text" style="font-size:15px;">
-                    <br>
+<div>
+    <input type="radio" id="lasolanews_radio" name="dataset" value="LaSolanaNews" onclick="showDataset('lasolanews')" checked>
+    <label for="lasolanews_radio">LaSolanaNews</label>
+
+    <input type="radio" id="sst_radio" name="dataset" value="IMDb Review" onclick="showDataset('sst')">
+    <label for="sst_radio">IMDb Review</label>
+</div>
+
+<div id="dataset_info_lasolananews" style="margin-left:20px;">
+    <details>
+        <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+        <div  class="data_text" style="font-size:15px;">
+            <br>
             <p>LaSolanaNews dataset is a collection of 1093 newspaper articles in Spanish about the town of La Solana (Ciudad Real, Castilla-La Mancha) from March 2010 until February 2024. It emerges as an attempt to promote digitalization in rural areas, laying the groundwork for its use in more advanced NLP task in the future, such us text classification, author prediction or finetuning RAG models.</p>
-
-            </div>
-            </details>
-          
         </div>
-
-
-        <div class="carousel" id="carousel_lasolananews_examples"
-     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
-     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
-
-            <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Etiqueta</u>: cultura<br/>
-                     <u>Autor</u>: María Muñoz<br/>
-                     <u>Fecha</u>:2023-07-04<br/>
-
-                     <u>Título</u>:<br/>
-                     Más de 10.000 personas pasaron por el 'Oasis Sound' en su segunda edición
-                     </p>
-             </div>
-         </center>
-         </div>
-
-
-           <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Etiqueta</u>: sociedad<br/>
-                     <u>Autor</u>: Paulino Sánchez<br/>
-                     <u>Fecha</u>:2010-03-17<br/>
-
-                     <u>Título</u>:<br/>
-                     Paqui Ruiz: "La TDT supondrá un cambio como lo fue el paso del blanco y negro al color"
-                     </p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Etiqueta</u>: deporte<br/>
-                     <u>Autor</u>: Aurelio Maroto<br/>
-                     <u>Fecha</u>:2017-10-04<br/>
-
-                     <u>Título</u>:<br/>
-                     La Solana huye de euforias en vísperas del clásico contra el Manzanares
-                     </p>
-             </div>
-         </center>
-         </div>
+    </details>
 </div>
 
+<div class="carousel" id="carousel_lasolananews_examples"
+    data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+    style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+    <div class="carousel-cell" style="width:100%"><center>
+        <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+background-color: #f5f5f5;">
+            <p style="padding:10px;font-family:courier; font-size:15px;">
+                <u>Etiqueta</u>: cultura<br/>
+                <u>Autor</u>: María Muñoz<br/>
+                <u>Fecha</u>:2023-07-04<br/>
 
-
-                <div id="dataset_info_sst" style="margin-left:20px;">
-            <details>
-                <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
-                <div  class="data_text" style="font-size:15px;">
-                    <br>
-            <p>SST is a sentiment classification dataset
-            </div>
-            </details>
-            <p>Look how sentiment of a sentence is composed from its parts.</p>
+                <u>Título</u>:<br/>
+                Más de 10.000 personas pasaron por el 'Oasis Sound' en su segunda edición
+            </p>
         </div>
-        <div class="carousel" id="carousel_sst_examples"
-     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
-     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+    </center>
+    </div>
 
-            <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 3<br/>
-
-                     <u>Review</u>:<br/>
-                     Makes even the claustrophobic on-board quarters seem fun .
-                     </p>
-             </div>
-         </center>
-         </div>
-
-
-           <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 1<br/>
-
-                     <u>Review</u>:<br/>
-                     Ultimately feels empty and unsatisfying , like swallowing a Communion wafer without the wine .
-                     </p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 5<br/>
-                     <u>Review</u>:<br/>
-                     A quiet treasure -- a film to be savored .
-                     </p>
-             </div>
-         </center>
-         </div>
-
+    <!-- Add more LaSolanaNews examples here -->
 </div>
-    <br><br>
+
+<div id="dataset_info_sst" style="margin-left:20px; display: none;">
+    <details>
+        <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+        <div  class="data_text" style="font-size:15px;">
+            <br>
+            <p>SST is a sentiment classification dataset.</p>
+        </div>
+    </details>
+    <p>Look how sentiment of a sentence is composed from its parts.</p>
+</div>
+
+<div class="carousel" id="carousel_sst_examples"
+    data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+    style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px; display: none;">
+    <div class="carousel-cell" style="width:100%"><center>
+        <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+background-color: #f5f5f5;">
+            <p style="padding:10px;font-family:courier; font-size:15px;">
+                <u>Label</u>: 3<br/>
+                <u>Review</u>:<br/>
+                Makes even the claustrophobic on-board quarters seem fun .
+            </p>
+        </div>
+    </center>
+    </div>
+
+    <!-- Add more SST examples here -->
+</div>
+
+<script>
+    function showDataset(dataset) {
+        // Hide all datasets
+        document.getElementById('dataset_info_lasolananews').style.display = 'none';
+        document.getElementById('carousel_lasolananews_examples').style.display = 'none';
+        document.getElementById('dataset_info_sst').style.display = 'none';
+        document.getElementById('carousel_sst_examples').style.display = 'none';
+
+        // Show the selected dataset
+        if (dataset === 'lasolanews') {
+            document.getElementById('dataset_info_lasolananews').style.display = 'block';
+            document.getElementById('carousel_lasolananews_examples').style.display = 'block';
+        } else if (dataset === 'sst') {
+            document.getElementById('dataset_info_sst').style.display = 'block';
+            document.getElementById('carousel_sst_examples').style.display = 'block';
+        }
+    }
+</script>
+
         
 
 <script>
