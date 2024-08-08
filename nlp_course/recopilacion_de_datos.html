@@ -227,7 +227,7 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
-        <div id="dataset_info_sst" style="margin-left:20px;">
+        <div id="dataset_info_lasolananews" style="margin-left:20px;">
             <details>
                 <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
@@ -237,6 +237,8 @@ for (i = 0; i < dropdown.length; i++) {
             </div>
             </details>
         </div>
+
+
         <div class="carousel" id="carousel_lasolananews_examples"
      data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
      style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
@@ -295,63 +297,62 @@ for (i = 0; i < dropdown.length; i++) {
 
 </div>
 
-        <div id="dataset_info_imdb" style="margin-left:20px;">
+                <div id="dataset_info_sst" style="margin-left:20px;">
             <details>
                 <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
-            <p>IMDb is a large dataset of informal movie reviews from the Internet Movie Database.
-                The collection allows no more than 30 reviews per movie. The dataset contains an even number
-                of positive and negative reviews, so randomly guessing yields 50% accuracy.
-                The reviews are highly polarized: they are only negative (with the highest score 4 out of 10)
-                or positive (with the lowest score 7 out of 10).
+            <p>SST is a sentiment classification dataset which consists of movie reviews
+                (from Rotten Tomatoes html files). The dataset consists of parse trees of the sentences,
+                and not only entire sentences, but also smaller phrases have a sentiment label.</p>
+
+
+                <p>There are five labels: 1 (very negative), 2 (negative), 3 (neutral), 4 (positive),
+                and 5 (very positive) (alternatively, labels can be 0-4). Depending on the used labels, you can get either
+                    binary <strong>SST-2</strong> dataset (if you only consider positivity
+                    and negativity) or fine-grained sentiment <strong>SST-5</strong> (when using all labels).</p>
+
+            <p>Note that the dataset size mentioned above (8.5k/2.2k/1.1k for train/dev/test) is in the number of
+            sentences. However, it also has 215,154 phrases that compose each sentence in the dataset.
             </p>
-                <p>For more details, see <a href="https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf" target="_blank">
-                    the original paper</a>.</p>
+            <p>For more details, see <a href="https://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf" target="_blank">
+            the original paper</a>.</p>
             </div>
             </details>
+            <p>Look how sentiment of a sentence is composed from its parts.</p>
         </div>
-        <div class="carousel" id="carousel_imdb_examples"
+        <div class="carousel" id="carousel_sst_examples"
      data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
      style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
 
-          <div class="carousel-cell" style="width:100%"><center>
+            <div class="carousel-cell" style="width:100%"><center>
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: negative<br/><br/>
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: 3<br/>
 
-                     <u>Review</u><br/>
-                    Hobgoblins .... Hobgoblins .... where do I begin?!?<br /><br />This film gives Manos -
-                     The Hands of Fate and Future War a run for their money as the worst film ever made .
-                     This one is fun to laugh at , where as Manos was just painful to watch . Hobgoblins will
-                     end up in a time capsule somewhere as the perfect movie to describe the term : " 80 's cheeze " .
-                     The acting ( and I am using this term loosely ) is atrocious , the Hobgoblins are some of the worst
-                     puppets you will ever see , and the garden tool fight has to be seen to be believed .
-                     The movie was the perfect vehicle for MST3 K , and that version is the only way to watch this mess .
-                     This movie gives Mike and the bots lots of ammunition to pull some of the funniest one -
-                     liners they have ever done . If you try to watch this without the help of Mike and the bots .....
-                     God help you ! ! </p>
+                     <u>Review</u>:<br/>
+                     Makes even the claustrophobic on-board quarters seem fun .
+                     </p>
              </div>
+              <img height=250 src="../resources/lectures/text_clf/intro/sst_tree_claustrophobic-min.png"
+         style="" class="center"/>
          </center>
          </div>
 
 
-          <div class="carousel-cell" style="width:100%"><center>
+           <div class="carousel-cell" style="width:100%"><center>
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Label</u>: 1<br/>
 
-                     <u>Review</u><br/>
-                    One of my favorite movies I saw at preview in Seattle . Tom Hulce was amazing , with out words could
-                     convey his feelings / thoughts . I actually sent Mike Ferrell some donation money to help the film
-                     get distributed . It is good . System says I need more lines but do not want to give away plot stuff .
-                     I was in the audience in Seattle with Hulce and director , a writer I think and Mike Ferrell .
-                     They talked for about an hour afterwords . Not really a dry eye in the house . Why Hollywood continues
-                     to be stupid I do not know . ( actually I do know , it is our fault , look what we watch)Well you get
-                     what you pay for guys . Get this and see it with someone special . It is a gem . </p>
+                     <u>Review</u>:<br/>
+                     Ultimately feels empty and unsatisfying , like swallowing a Communion wafer without the wine .
+                     </p>
              </div>
+              <img height=250 src="../resources/lectures/text_clf/intro/sst_tree_communion_wafer-min.png"
+         style="" class="center"/>
          </center>
          </div>
 
@@ -359,23 +360,24 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: negative<br/><br/>
+                     <u>Label</u>: 5<br/>
 
-                     <u>Review</u><br/>
-                   Okay , if you have a couple hours to waste , or if you just really hate your life , I would say watch
-                     this movie . If anything it 's good for a few laughs . Not only do you have obese , topless natives ,
-                     but also special effects so bad they are probably outlawed in most states . Seriuosly ,
-                     the rating of ' PG ' is pretty humorous too , once you see the Native Porn Extravaganza .
-                     I would n't give this movie to my retarded nephew . You could n't even show this to Iraqi
-                     prisoners without violating the Geneva Convention . The plot is sketchy , and cliché , and dumb ,
-                     and stupid . The acting is horrible , and the ending is so painful to watch I actually began pouring
-                     salt into my eye just to take my mind off of the idiocy filling my TV screen . </p>
+                     <u>Review</u>:<br/>
+                     A quiet treasure -- a film to be savored .
+                     </p>
+             </div>
+              <img height=250 src="../resources/lectures/text_clf/intro/sst_tree_treasure_savored-min.png"
+         style="" class="center"/>
          </center>
          </div>
-</div>
 
-        </div>
-    <br><br>
+
+
+
+
+
+
+</div>
 
         
 
