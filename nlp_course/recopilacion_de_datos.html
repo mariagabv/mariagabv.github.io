@@ -219,17 +219,204 @@ for (i = 0; i < dropdown.length; i++) {
         <fieldset class="data_text" style="border: 1px solid #d8e8b5;border-radius:5px;margin-left:20px;">
             <legend><font color="#79a123"><strong>Pick a dataset</strong></font></legend>
 
-              <input type="radio" id="dataset_example_lasolananews" name="dataset_example" value="sst" checked  onclick="pickDatasetExample()">
-              <label for="dataset_example_lasolananews"  style="margin-right:15px;">LaSolanaNews</label>
-
               <input type="radio" id="dataset_example_imdb" name="dataset_example" value="imdb" onclick="pickDatasetExample()">
               <label for="dataset_example_imdb"  style="margin-right:15px;">IMDb Review</label>
+
+              <input type="radio" id="dataset_example_lasolananews" name="dataset_example" value="sst" checked  onclick="pickDatasetExample()">
+              <label for="dataset_example_lasolananews"  style="margin-right:15px;">LaSolanaNews</label>
 
         </fieldset>
 
 <br>
 
 
+
+        <div id="dataset_info_imdb" style="margin-left:20px;">
+            <details>
+                <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>IMDb is a large dataset of informal movie reviews from the Internet Movie Database.
+                The collection allows no more than 30 reviews per movie. The dataset contains an even number
+                of positive and negative reviews, so randomly guessing yields 50% accuracy.
+                The reviews are highly polarized: they are only negative (with the highest score 4 out of 10)
+                or positive (with the lowest score 7 out of 10).
+            </p>
+                <p>For more details, see <a href="https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf" target="_blank">
+                    the original paper</a>.</p>
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_imdb_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: positive<br/><br/>
+
+                     <u>Review</u><br/>
+                    One of my favorite movies I saw at preview in Seattle . Tom Hulce was amazing , with out words could
+                     convey his feelings / thoughts . I actually sent Mike Ferrell some donation money to help the film
+                     get distributed . It is good . System says I need more lines but do not want to give away plot stuff .
+                     I was in the audience in Seattle with Hulce and director , a writer I think and Mike Ferrell .
+                     They talked for about an hour afterwords . Not really a dry eye in the house . Why Hollywood continues
+                     to be stupid I do not know . ( actually I do know , it is our fault , look what we watch)Well you get
+                     what you pay for guys . Get this and see it with someone special . It is a gem . </p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: negative<br/><br/>
+
+                     <u>Review</u><br/>
+                   I always found Betsy Drake rather creepy , and this movie reinforces that . As another review said ,
+                     this is a stalker movie that is n't very funny . I watched it because it has CG in it ,
+                     but he hardly gets any screen time . It 's no " North by Northwest " ... </p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: positive<br/><br/>
+
+                     <u>Review</u><br/>
+                   I loved This Movie . When I saw it on Febuary 3rd I knew I had to buy It ! ! ! It comes out to buy
+                     on July 24th ! ! ! It has cool deaths scenes , Hot girls , great cast , good story , good
+                     acting . Great Slasher Film . the Movies is about some serial killer killing off four girls .
+                     SEE this movies</p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: positive<br/><br/>
+
+                     <u>Review</u><br/>
+                   This is one of the most interesting movies I have ever seen . I love the backwoods feel of this movie .
+                     The movie is very realistic and believable . This seems to take place in another era , maybe
+                     the late 60 's or early 70 's . Henry Thomas works well with the young baby . Very moving story
+                     and worth a look .</p>
+             </div>
+         </center>
+         </div>
+
+
+
+</div>
+
+
+
+
+
+
+<div id="dataset_info_lasolananews" style="margin-left:20px;">
+            <details>
+                <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>IMDb is a large dataset of informal movie reviews from the Internet Movie Database.
+                The collection allows no more than 30 reviews per movie. The dataset contains an even number
+                of positive and negative reviews, so randomly guessing yields 50% accuracy.
+                The reviews are highly polarized: they are only negative (with the highest score 4 out of 10)
+                or positive (with the lowest score 7 out of 10).
+            </p>
+                <p>For more details, see <a href="https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf" target="_blank">
+                    the original paper</a>.</p>
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_lasolananews_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: positive<br/><br/>
+
+                     <u>Review</u><br/>
+                    One of my favorite movies I saw at preview in Seattle . Tom Hulce was amazing , with out words could
+                     convey his feelings / thoughts . I actually sent Mike Ferrell some donation money to help the film
+                     get distributed . It is good . System says I need more lines but do not want to give away plot stuff .
+                     I was in the audience in Seattle with Hulce and director , a writer I think and Mike Ferrell .
+                     They talked for about an hour afterwords . Not really a dry eye in the house . Why Hollywood continues
+                     to be stupid I do not know . ( actually I do know , it is our fault , look what we watch)Well you get
+                     what you pay for guys . Get this and see it with someone special . It is a gem . </p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: negative<br/><br/>
+
+                     <u>Review</u><br/>
+                   I always found Betsy Drake rather creepy , and this movie reinforces that . As another review said ,
+                     this is a stalker movie that is n't very funny . I watched it because it has CG in it ,
+                     but he hardly gets any screen time . It 's no " North by Northwest " ... </p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: positive<br/><br/>
+
+                     <u>Review</u><br/>
+                   I loved This Movie . When I saw it on Febuary 3rd I knew I had to buy It ! ! ! It comes out to buy
+                     on July 24th ! ! ! It has cool deaths scenes , Hot girls , great cast , good story , good
+                     acting . Great Slasher Film . the Movies is about some serial killer killing off four girls .
+                     SEE this movies</p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Label</u>: positive<br/><br/>
+
+                     <u>Review</u><br/>
+                   This is one of the most interesting movies I have ever seen . I love the backwoods feel of this movie .
+                     The movie is very realistic and believable . This seems to take place in another era , maybe
+                     the late 60 's or early 70 's . Henry Thomas works well with the young baby . Very moving story
+                     and worth a look .</p>
+             </div>
+         </center>
+         </div>
+
+
+
+</div>
 
 
         
