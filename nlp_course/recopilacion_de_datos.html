@@ -4,111 +4,36 @@ title: Text Classification
 description: Text classification from classical approaches to neural networks.
 ---
 
-
 <div class="sidebar" id="sidebar">
-    <div class="sidebar_components">
-<a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
+    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
    style="text-align:center;font-size:30px;padding:0px;">⇤</a>
-   <a class="active" href="../nlp_course.html" style="font-weight: bold;">
-        <img height="18" class='sidebar_ico' src="../resources/lectures/ico/course_logo.png" style="margin-right: 8px;margin-left: 8px;margin-top: 4px;"/>
-        NLP Course <font color="#92bf32" id="for_you_in_sidebar">| For You</font></a>
-        <a href="#main_content" style="font-weight: bold;">Text Classification</a>
-        <a href="#intro">Intro and Datasets</a>
+    <a class="active" href="#main_page_content" style=" align-items: center; font-weight: bold;">
+    <img height="32" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 0px;margin-top: -4px;"/>
+        RAG en   <font color="#C43116" id="for_you_in_sidebar">español</font></a>
 
 
-        <div class="dropdown-scope">
-           <a class="dropdown-btn">General View
+    <div class="dropdown-scope">
+      <a href="motivación.html">Motivación</a>
+          
+           <a class="dropdown-btn" style="font-weight: bold;">Recopilación de datos
             <i class="fa fa-caret-down"></i>
           </a>
           <div class="dropdown-container">
-              <a href="#general_view"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
-                    Features + Classifier</a>
-              <a href="#generative_discriminative"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
-                  Generative vs Discriminative</a>
+              <a href="#que_es_pnl"><span style="margin-right:15px;font-size:14px;">&#8226;</span>¿Qué es el PNL?</a>
+              <a href="#pnl_preservar_tradicion"><span style="margin-right:15px;font-size:14px;">&#8226;</span>¿Puede el PNL ayudar a preservar la cultura, tradiciones y memoria histórica de nuestros pueblos?</a>
           </div>
-        </div>
+          <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+          
 
-
-        <div class="dropdown-scope">
-           <a class="dropdown-btn" >Classical Methods
-            <i class="fa fa-caret-down"></i>
           </a>
-          <div class="dropdown-container">
-              <a href="#naive_bayes"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
-                  Naive Bayes</a>
-                <a href="#logistic_regression"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
-                    MaxEnt (Logistic Regression)</a>
-              <a href="#svm"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
-                    SVM</a>
-          </div>
-        </div>
-
-
-
-        <div class="dropdown-scope">
-           <a class="dropdown-btn" >Neural Networks
-            <i class="fa fa-caret-down"></i>
-          </a>
-          <div class="dropdown-container">
-              <a href="#nn_high_level"><span style="margin-right:15px;font-size:14px;">&#8226;</span>High-Level Pipeline</a>
-              <a href="#nn_training"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Training</a>
-              <a href="#nn_models"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Models: (Weighted) BOE</a>
-              <a href="#nn_models_rnn"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Models: Recurrent</a>
-              <a href="#nn_models_cnn"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Models: Convolutional</a>
-          </div>
-        </div>
-
-        <a href="#multi_label">Multi-Label Classification</a>
-
-         <div class="dropdown-scope">
-           <a class="dropdown-btn" >Practical Tips
-            <i class="fa fa-caret-down"></i>
-          </a>
-          <div class="dropdown-container">
-              <a href="#practical_tips"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Embeddings: Take Pretrained</a>
-              <a href="#data_augmentation"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Data Augmentation</a>
-
 
           </div>
-        </div>
 
-
-<a href="#analysis_interpretability" id="sidebar_analysis">Analysis and Interpretability
-    <img height="25" src="../resources/lectures/ico/analysis_empty.png" class="sidebar_ico"/></a>
-<div class="extra_components">
-    <a href="#research_thinking" id="sidebar_research_thinking">Research Thinking
-        <img height="30" src="../resources/lectures/ico/bulb_empty.png" class="sidebar_ico"/></a>
-    <!--<hr color="#b7db67">-->
-
-    <a href="#related_papers" id="sidebar_related_papers">Related Papers
-        <img height="22" src="../resources/lectures/ico/book_empty.png" class="sidebar_ico"/></a>
-    <!--<hr color="#b7db67">-->
-
-  <a href="#have_fun" id="sidebar_fun">Have Fun! <img height="30" src="../resources/lectures/ico/fun_empty.png" class="sidebar_ico"/></a>
-</div>
-</div>
-</div>
+    </div>
 
 
 
-<div class="sidebar" id="sidebar_small">
-
-  <a class="active" onclick="openNav()" style="text-align:center;">☰</a>
-    <a href="../nlp_course.html" style="font-weight: bold;">
-        <img height="20" src="../resources/lectures/ico/course_logo.png" style="margin-right: 8px;margin-left: 8px;"/></a>
-    <a href="#main_page_content" style="text-align:center; font-size:20px;color:#7ca81e"> <i class="fa fa-home"></i></a>
-
-<a href="#analysis_interpretability" id="sidebar_analysis"> <img height="25" src="../resources/lectures/ico/analysis_empty.png"/></a>
-<div class="extra_components">
-    <a href="#research_thinking" id="sidebar_research_thinking"><img height="30" src="../resources/lectures/ico/bulb_empty.png"/></a>
-    <!--<hr color="#b7db67">-->
-
-    <a href="#related_papers" id="sidebar_related_papers"><img height="22" src="../resources/lectures/ico/book_empty.png"/></a>
-    <!--<hr color="#b7db67">-->
-
-  <a href="#have_fun" id="sidebar_fun"><img height="30" src="../resources/lectures/ico/fun_empty.png" /></a>
-</div>
-</div>
 
 
 <script>
