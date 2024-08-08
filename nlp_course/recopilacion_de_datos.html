@@ -14,7 +14,7 @@ description: Text classification from classical approaches to neural networks.
 
     <div class="dropdown-scope">
       <a href="motivación.html">Motivación</a>
-      
+
           
            <a class="dropdown-btn" style="font-weight: bold;">Recopilación de datos
             <i class="fa fa-caret-down"></i>
@@ -95,7 +95,7 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 <div class="wrapper" id="main_page_content">
-    <div class="header"><h1>Text Classification</h1></div>
+    <div class="header"><h1>Recopilación de datos</h1></div>
 
 <div class="main_content" id="main_content">
 
@@ -107,22 +107,17 @@ for (i = 0; i < dropdown.length; i++) {
               <div class="carousel-cell" style="width:100%"><center>
                     <img width=70% src="../resources/lectures/text_clf/intro/example_movie-min.png"/></center>
                   <p style="text-align:center;margin-left:30px;margin-right:30px;">
-                      Multi-class classification:<br> many labels, only one correct</p>
+                      Clasificación multiclase:<br> hay muchas etiquetas, pero solo una es correcta</p>
               </div>
               <div class="carousel-cell" style="width:100%"><center>
                     <img width=70% src="../resources/lectures/text_clf/intro/example_mail-min.png"/></center>
                   <p style="text-align:center;margin-left:30px;margin-right:30px;">
-                      Binary classification:<br> two labels, only one correct</p>
+                      Clasificación binaria:<br> hay dos etiquetas y solo una de ellas es correcta</p>
               </div>
               <div class="carousel-cell" style="width:100%"><center>
                     <img width=70% src="../resources/lectures/text_clf/intro/example_twitter-min.png"/></center>
                   <p style="text-align:center;margin-left:30px;margin-right:30px;">
-                      Multi-label classification:<br> many labels, several can be correct</p>
-              </div>
-              <div class="carousel-cell" style="width:100%"><center>
-                    <img width=70% src="../resources/lectures/text_clf/intro/example_document-min.png"/></center>
-                  <p style="text-align:center;margin-left:30px;margin-right:30px;">
-                      Multi-class classification:<br> many labels, only one correct</p>
+                      Clasificación multiclase:<br> hay muchas etiquetas y varias pueden ser correctas</p>
               </div>
       </div>
 
@@ -174,81 +169,23 @@ for (i = 0; i < dropdown.length; i++) {
 
 
   <tr>
-    <td style="text-align:left;"><a href="https://nlp.stanford.edu/sentiment/index.html" target="_blank">SST</a></td>
-    <td>sentiment</td>
-      <td>5 or 2</td>
-      <td>8.5k / 1.1k</td>
-
-      <td>19</td>
-  </tr>
-
-  <tr>
     <td style="text-align:left;"><a href="https://ai.stanford.edu/~amaas/data/sentiment/" target="_blank">IMDb Review</a></td>
-    <td>sentiment</td>
+    <td>opinión</td>
     <td>2</td>
       <td>25k / 25k</td>
       <td>271</td>
   </tr>
 
-  <tr>
-    <td style="text-align:left;"><a href="https://www.kaggle.com/yelp-dataset/yelp-dataset" target="_blank">Yelp Review</font></td>
-    <td>sentiment</td>
-    <td>5 or 2</td>
-      <td>650k / 50k</td>
-      <td>179</td>
-  </tr>
-
-   <tr>
-    <td style="text-align:left;"><a href="https://www.kaggle.com/bittlingmayer/amazonreviews" target="_blank">Amazon Review</font></td>
-    <td>sentiment</td>
-    <td>5 or 2</td>
-      <td>3m / 650k</td>
-      <td>79</td>
-  </tr>
-
-   <tr>
-    <td style="text-align:left;"><a href="https://cogcomp.seas.upenn.edu/Data/QA/QC/" target="_blank">TREC</a></td>
-
-      <td>question</td>
-    <td>6</td>
-      <td>5.5k / 0.5k</td>
-      <td>10</td>
-  </tr>
-
-    <tr>
-        <td style="text-align:left;"><a href="https://www.kaggle.com/soumikrakshit/yahoo-answers-dataset" target="_blank">Yahoo! Answers</a></td>
-    <td>question</td>
-    <td>10</td>
-      <td>1.4m / 60k</td>
-      <td>131</td>
-  </tr>
 
    <tr>
       <td style="text-align:left;">
-        <a href="http://groups.di.unipi.it/~gulli/AG_corpus_of_news_articles.html" target="_blank">AG’s News</a></td>
-      <td>topic</td>
-      <td>4</td>
-      <td>120k / 7.6k</td>
-      <td>44</td>
+        <a href="https://www.kaggle.com/datasets/mgabve/lasolananews" target="_blank">LaSolanaNews</a></td>
+      <td>tema</td>
+      <td>7</td>
+      <td>1093</td>
+      <td>200</td>
   </tr>
 
-
-   <tr>
-      <td style="text-align:left;"><a href="http://www.sogou.com/labs/resource/cs.php" target="_blank">Sogou News</a></td>
-      <td>topic</td>
-      <td>6</td>
-      <td>54k / 6k</td>
-      <td>737</td>
-  </tr>
-
-
-   <tr>
-      <td style="text-align:left;"><a href="https://wiki.dbpedia.org/services-resources/dbpedia-data-set-2014" target="_blank">DBPedia</a></td>
-      <td>topic</td>
-      <td>14</td>
-      <td>560k / 70k</td>
-      <td>67</td>
-  </tr>
 
 
 </table>
@@ -270,8 +207,8 @@ for (i = 0; i < dropdown.length; i++) {
             below you can look at the examples from different datasets.</p>
 
     <br>
-    <img height="20" src="../resources/lectures/ico/paw_empty.png" style="float:left; margin-top:-10px;"/>
-    <div class="box_green_left">
+    <!-- <img height="20" src="../resources/lectures/ico/paw_empty.png" style="float:left; margin-top:-10px;"/>
+    <div class="box_green_left">-->
 
         <div class="text_box_green">
           <p class="data_text"><u>How to:</u> pick a dataset and look at the examples to get a feeling of the task.
@@ -282,33 +219,11 @@ for (i = 0; i < dropdown.length; i++) {
             <legend><font color="#79a123"><strong>Pick a dataset</strong></font></legend>
 
               <input type="radio" id="dataset_example_sst" name="dataset_example" value="sst" checked  onclick="pickDatasetExample()">
-              <label for="dataset_example_sst"  style="margin-right:15px;">SST</label>
+              <label for="dataset_example_sst"  style="margin-right:15px;">LaSolanaNews</label>
 
               <input type="radio" id="dataset_example_imdb" name="dataset_example" value="imdb" onclick="pickDatasetExample()">
               <label for="dataset_example_imdb"  style="margin-right:15px;">IMDb Review</label>
 
-              <input type="radio" id="dataset_example_yelp" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
-              <label for="dataset_example_yelp"  style="margin-right:15px;">Yelp Review</label>
-
-             <input type="radio" id="dataset_example_amazon" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
-              <label for="dataset_example_amazon"  style="margin-right:15px;">Amazon Review</label>
-
-            <br>
-
-              <input type="radio" id="dataset_example_trec" name="dataset_example" value="trec" onclick="pickDatasetExample()">
-              <label for="dataset_example_trec" style="margin-right:15px;">TREC</label>
-
-              <input type="radio" id="dataset_example_yahoo" name="dataset_example" value="yahoo" onclick="pickDatasetExample()">
-              <label for="dataset_example_yahoo" style="margin-right:15px;">Yahoo! Answers</label>
-
-              <input type="radio" id="dataset_example_ag_news" name="dataset_example" value="ag_news" onclick="pickDatasetExample()">
-              <label for="dataset_example_ag_news"  style="margin-right:15px;">AG's News</label>
-
-              <input type="radio" id="dataset_example_sogou_news" name="dataset_example" value="sogou_news" onclick="pickDatasetExample()">
-              <label for="dataset_example_sogou_news"  style="margin-right:15px;">Sogou News</label>
-
-              <input type="radio" id="dataset_example_dbpedia" name="dataset_example" value="dbpedia" onclick="pickDatasetExample()">
-              <label for="dataset_example_dbpedia"  style="margin-right:15px;">DBPedia</label>
         </fieldset>
 
 <br>
