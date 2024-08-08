@@ -94,9 +94,13 @@ for (i = 0; i < dropdown.length; i++) {
 <div class="wrapper" id="main_page_content">
     <div class="header"><h1>Recopilación de datos</h1></div>
 
-<div class="main_content" id="main_content">
+<div id="estructurad_vs_desestructurado">
+<h2>Datos estructurados vs. datos no estructurados</h2>
 
-<div id="intro">
+    <p class="data_text" style="color:#888;">Los datos son el oro del siglo xxi (...).</p>
+
+<div id="datos_estructurados">
+<h2>Ejemplo de datos estructurados</h2>
 
 
      <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true }'
@@ -289,6 +293,7 @@ for (i = 0; i < dropdown.length; i++) {
              </div>
          </center>
          </div>
+</div>
 
 
 
@@ -424,46 +429,14 @@ carousels.forEach(function(elem) {
 </div>
 
 
-<div id="estructurad_vs_desestructurado">
-<h2>Datos estructurados vs. datos no estructurados</h2>
-
-    <p class="data_text" style="color:#888;">Here we provide a general view on classification and
-        introduce the notation.
-        This section applies to both classical and neural approaches.</p>
 
 
-    <p>We assume that we have a collection of documents with ground-truth labels.
-        The input of a classifier is a document \(x=(x_1, \dots, x_n)\) with tokens
-    \((x_1, \dots, x_n)\), the output is a label \(y\in 1\dots k\).
-    Usually, a classifier estimates probability distribution over classes,
-    and we want the probability of the correct class to be the highest.</p>
 
+    <div id="ejemplo_datos_estructurados">
 
-    <div id="general_view_1">
+    <h2>Ejemplos de datos estructurados</h2>
 
-    <h2>Get Feature Representation and Classify</h2>
-
-        <p>Text classifiers have the following structure:</p>
-        <img src="../resources/lectures/text_clf/general/idea-min.png"
-             style="max-width:55%; margin-bottom:10px;margin-left:30px; float:right;"/>
-
-            <ul>
-        <li><font face="arial">feature extractor</font><br>
-        A feature extractor can be
-            either manually defined (as in
-            <a href="#classical_approaches">classical approaches</a>)
-            or learned (e.g., with <a href="#neural_approaches">neural networks</a>).
-        </li>
-        <li><font face="arial">classifier</font><br>
-        A classifier has to assign class probabilities given feature representation of a text.
-            The most common way to do this is using <a href="#logistic_regression">logistic regression</a>,
-            but other variants are also possible (e.g., <a href="#naive_bayes">Naive Bayes</a> classifier or
-            <a href="#svm">SVM</a>).
-        </li>
-    </ul>
-
-        <p>In this lecture, we'll mostly be looking at different ways to build feature
-        representation of a text and to use this representation to get class probabilities.</p>
+        
 
     </div>
 
