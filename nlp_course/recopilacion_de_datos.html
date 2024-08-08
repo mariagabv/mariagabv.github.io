@@ -236,6 +236,7 @@ for (i = 0; i < dropdown.length; i++) {
 
             </div>
             </details>
+          
         </div>
 
 
@@ -295,7 +296,7 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
-</div>
+
 
                 <div id="dataset_info_sst" style="margin-left:20px;">
             <details>
@@ -335,8 +336,6 @@ for (i = 0; i < dropdown.length; i++) {
                      Makes even the claustrophobic on-board quarters seem fun .
                      </p>
              </div>
-              <img height=250 src="../resources/lectures/text_clf/intro/sst_tree_claustrophobic-min.png"
-         style="" class="center"/>
          </center>
          </div>
 
@@ -351,8 +350,6 @@ for (i = 0; i < dropdown.length; i++) {
                      Ultimately feels empty and unsatisfying , like swallowing a Communion wafer without the wine .
                      </p>
              </div>
-              <img height=250 src="../resources/lectures/text_clf/intro/sst_tree_communion_wafer-min.png"
-         style="" class="center"/>
          </center>
          </div>
 
@@ -361,13 +358,10 @@ for (i = 0; i < dropdown.length; i++) {
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
                      <u>Label</u>: 5<br/>
-
                      <u>Review</u>:<br/>
                      A quiet treasure -- a film to be savored .
                      </p>
              </div>
-              <img height=250 src="../resources/lectures/text_clf/intro/sst_tree_treasure_savored-min.png"
-         style="" class="center"/>
          </center>
          </div>
 
@@ -385,15 +379,8 @@ for (i = 0; i < dropdown.length; i++) {
 var carousels = [document.getElementById('carousel_lasolananews_examples'),
                     document.getElementById('carousel_imdb_examples')];
 
-var infos = [document.getElementById('dataset_info_sst'),
-                    document.getElementById('dataset_info_imdb'),
-                    document.getElementById('dataset_info_yelp'),
-                    document.getElementById('dataset_info_amazon'),
-                    document.getElementById('dataset_info_trec'),
-                    document.getElementById('dataset_info_yahoo'),
-                    document.getElementById('dataset_info_ag_news'),
-                    document.getElementById('dataset_info_sogou_news'),
-                    document.getElementById('dataset_info_dbpedia')];
+var infos = [document.getElementById('dataset_info_lasolananews'),
+                    document.getElementById('dataset_info_imdb')];
 
 function pickDatasetExample()
 {
@@ -437,8 +424,8 @@ carousels.forEach(function(elem) {
 </div>
 
 
-<div id="general_view">
-<h1>General View</h1>
+<div id="estructurad_vs_desestructurado">
+<h2>Datos estructurados vs. datos no estructurados</h2>
 
     <p class="data_text" style="color:#888;">Here we provide a general view on classification and
         introduce the notation.
