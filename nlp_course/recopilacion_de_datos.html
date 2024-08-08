@@ -219,8 +219,8 @@ for (i = 0; i < dropdown.length; i++) {
         <fieldset class="data_text" style="border: 1px solid #d8e8b5;border-radius:5px;margin-left:20px;">
             <legend><font color="#79a123"><strong>Pick a dataset</strong></font></legend>
 
-              <input type="radio" id="dataset_example_sst" name="dataset_example" value="sst" checked  onclick="pickDatasetExample()">
-              <label for="dataset_example_sst"  style="margin-right:15px;">LaSolanaNews</label>
+              <input type="radio" id="dataset_example_lasolananews" name="dataset_example" value="sst" checked  onclick="pickDatasetExample()">
+              <label for="dataset_example_lasolananews"  style="margin-right:15px;">LaSolanaNews</label>
 
               <input type="radio" id="dataset_example_imdb" name="dataset_example" value="imdb" onclick="pickDatasetExample()">
               <label for="dataset_example_imdb"  style="margin-right:15px;">IMDb Review</label>
@@ -297,32 +297,12 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
-
-
-
-
-
-
                 <div id="dataset_info_sst" style="margin-left:20px;">
             <details>
                 <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
-            <p>SST is a sentiment classification dataset which consists of movie reviews
-                (from Rotten Tomatoes html files). The dataset consists of parse trees of the sentences,
-                and not only entire sentences, but also smaller phrases have a sentiment label.</p>
-
-
-                <p>There are five labels: 1 (very negative), 2 (negative), 3 (neutral), 4 (positive),
-                and 5 (very positive) (alternatively, labels can be 0-4). Depending on the used labels, you can get either
-                    binary <strong>SST-2</strong> dataset (if you only consider positivity
-                    and negativity) or fine-grained sentiment <strong>SST-5</strong> (when using all labels).</p>
-
-            <p>Note that the dataset size mentioned above (8.5k/2.2k/1.1k for train/dev/test) is in the number of
-            sentences. However, it also has 215,154 phrases that compose each sentence in the dataset.
-            </p>
-            <p>For more details, see <a href="https://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf" target="_blank">
-            the original paper</a>.</p>
+            <p>SST is a sentiment classification dataset
             </div>
             </details>
             <p>Look how sentiment of a sentence is composed from its parts.</p>
@@ -370,14 +350,8 @@ for (i = 0; i < dropdown.length; i++) {
          </center>
          </div>
 
-
-
-
-
-
-
 </div>
-
+    <br><br>
         
 
 <script>
