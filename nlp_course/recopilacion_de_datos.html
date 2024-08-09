@@ -110,12 +110,12 @@ for (i = 0; i < dropdown.length; i++) {
      <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true }'
      style="width:50%; margin-bottom:30px; margin-left:10px; float:right;">
               <div class="carousel-cell" style="width:100%"><center>
-                    <img width=70% src="../resources/lectures/text_clf/intro/pelis.png"/></center>
+                    <img width=70% src="../resources/lectures/recopilacion_de_datos/intro/pelis.png"/></center>
                   <p style="text-align:center;margin-left:30px;margin-right:30px;">
                       Clasificación multiclase:<br> hay muchas etiquetas, pero solo una es correcta</p>
               </div>
               <div class="carousel-cell" style="width:100%"><center>
-                    <img width=70% src="../resources/lectures/text_clf/intro/spam.png"/></center>
+                    <img width=70% src="../resources/lectures/recopilacion_de_datos/intro/spam.png"/></center>
                   <p style="text-align:center;margin-left:30px;margin-right:30px;">
                       Clasificación binaria:<br> hay dos etiquetas y solo una de ellas es correcta</p>
               </div>
@@ -124,16 +124,6 @@ for (i = 0; i < dropdown.length; i++) {
     <p>Los datos mencionados anteriormente son numéricos, pero también existen conjuntos de datos con valores nominales. Por ejemplo, para desarrollar un programa que detecte mensajes spam, es necesario que una persona clasifique manualmente cada mensaje como legítimo o malicioso. Sin embargo, esta tarea es tediosa y cara porque requieren miles de ejemplos etiquetados por especialistas para entrenar un algoritmo eficaz.</p>
 
 
-        <p>
-            The most popular datasets are
-            for <font face="arial">sentiment classification</font>. They consist of reviews of
-            movies, places or restaurants, and products. There are also datasets for question type classification and
-            topic classification.
-        </p>
-
-        <p>To better understand typical classification tasks,
-            below you can look at the examples from different datasets.</p>
-
     <br>
     <!-- <img height="20" src="../resources/lectures/ico/paw_empty.png" style="float:left; margin-top:-10px;"/>
     <div class="box_green_left">-->
@@ -141,24 +131,23 @@ for (i = 0; i < dropdown.length; i++) {
     <div class="box_green_left">
 
         <div class="text_box_green">
-          <p class="data_text"><u>How to:</u> pick a dataset and look at the examples to get a feeling of the task.
-          Or you can come back to this later!</p>
+          <p class="data_text"><u>Ejemplos de datasets:</u> En la cajita más abajo hay nueve ejemplos de conjuntos de datos reales. Puedes explorar algunos ejemplos y leer las descripciones de los dataset pinchando en su nombre. El nombre original de los datasets está en inglés. <strong>Noticias La Solana</strong> y <strong>Colección de SMS</strong> han sido añadidos por la autora de esta entrada. El resto provienen de Voita, E. (2020, septiembre). NLP course for you. https://lena-voita.github.io/nlp_course.html</p>
         </div>
 <br>
         <fieldset class="data_text" style="border: 1px solid #C43116;border-radius:5px;margin-left:20px;">
             <legend><font color="#C43116"><strong>Pick a dataset</strong></font></legend>
 
               <input type="radio" id="dataset_example_lasolananews" name="dataset_example" value="sst" checked  onclick="pickDatasetExample()">
-              <label for="dataset_example_lasolananews"  style="margin-right:15px;">LaSolanaNews</label>
+              <label for="dataset_example_lasolananews"  style="margin-right:15px;">Noticias La Solana</label>
 
               <input type="radio" id="dataset_example_imdb" name="dataset_example" value="imdb" onclick="pickDatasetExample()">
-              <label for="dataset_example_imdb"  style="margin-right:15px;">IMDb Review</label>
+              <label for="dataset_example_imdb"  style="margin-right:15px;">Reseñas de IMDb</label>
 
               <input type="radio" id="dataset_example_yelp" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
-              <label for="dataset_example_yelp"  style="margin-right:15px;">SMS Spam Collection</label>
+              <label for="dataset_example_yelp"  style="margin-right:15px;">Colleción de SMS</label>
 
              <input type="radio" id="dataset_example_amazon" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
-              <label for="dataset_example_amazon"  style="margin-right:15px;">Amazon Review</label>
+              <label for="dataset_example_amazon"  style="margin-right:15px;">Reseñas de Amazon</label>
 
             <br>
 
@@ -166,13 +155,13 @@ for (i = 0; i < dropdown.length; i++) {
               <label for="dataset_example_trec" style="margin-right:15px;">TREC</label>
 
               <input type="radio" id="dataset_example_yahoo" name="dataset_example" value="yahoo" onclick="pickDatasetExample()">
-              <label for="dataset_example_yahoo" style="margin-right:15px;">Yahoo! Answers</label>
+              <label for="dataset_example_yahoo" style="margin-right:15px;">Yahoo! Respuestas</label>
 
               <input type="radio" id="dataset_example_ag_news" name="dataset_example" value="ag_news" onclick="pickDatasetExample()">
-              <label for="dataset_example_ag_news"  style="margin-right:15px;">AG's News</label>
+              <label for="dataset_example_ag_news"  style="margin-right:15px;">Noticias AG</label>
 
               <input type="radio" id="dataset_example_sogou_news" name="dataset_example" value="sogou_news" onclick="pickDatasetExample()">
-              <label for="dataset_example_sogou_news"  style="margin-right:15px;">Sogou News</label>
+              <label for="dataset_example_sogou_news"  style="margin-right:15px;">Noticias Sogou</label>
 
               <input type="radio" id="dataset_example_dbpedia" name="dataset_example" value="dbpedia" onclick="pickDatasetExample()">
               <label for="dataset_example_dbpedia"  style="margin-right:15px;">DBPedia</label>
@@ -184,10 +173,12 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_lasolananews" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
-            <p>LaSolananews
+            <p>LaSolanaNews dataset es una colección de 1093 artículos de prensa en español sobre la localidad de La Solana (Ciudad Real, Castilla-La Mancha) desde marzo de 2010 hasta febrero de 2024. Surge como un intento de promover la digitalización en zonas rurales, sentando las bases para su uso en tareas de PLN más avanzadas en el futuro, como la clasificación de textos, la predicción de autores o el perfeccionamiento de modelos RAG.
+              <p>Más detalles en<a href="https://www.kaggle.com/datasets/mgabve/lasolananews" target="_blank">
+
             </div>
             </details>
         </div>
@@ -247,17 +238,15 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_imdb" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
-            <p>IMDb is a large dataset of informal movie reviews from the Internet Movie Database.
-                The collection allows no more than 30 reviews per movie. The dataset contains an even number
-                of positive and negative reviews, so randomly guessing yields 50% accuracy.
-                The reviews are highly polarized: they are only negative (with the highest score 4 out of 10)
-                or positive (with the lowest score 7 out of 10).
+            <p>IMDb es una gran colección de reseñas de películas procedentes de la página web Internet Movie Database.
+                Hay máximo 30 críticas por película. Las reseñas están muy polarizadas: sólo son negativas (con una puntuación máxima de 4 sobre 10) o positivas (con una puntuación mínima de 7 sobre 10).
+
             </p>
-                <p>For more details, see <a href="https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf" target="_blank">
-                    the original paper</a>.</p>
+                <p>Más detalles en<a href="https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf" target="_blank">
+                    
             </div>
             </details>
         </div>
@@ -269,9 +258,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: negative<br/><br/>
+                     <u>Etiqueta</u>: negative<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                     Hobgoblins .... Hobgoblins .... where do I begin?!?<br /><br />This film gives Manos -
                      The Hands of Fate and Future War a run for their money as the worst film ever made .
                      This one is fun to laugh at , where as Manos was just painful to watch . Hobgoblins will
@@ -291,9 +280,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Etiqueta</u>: positive<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                     One of my favorite movies I saw at preview in Seattle . Tom Hulce was amazing , with out words could
                      convey his feelings / thoughts . I actually sent Mike Ferrell some donation money to help the film
                      get distributed . It is good . System says I need more lines but do not want to give away plot stuff .
@@ -309,9 +298,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: negative<br/><br/>
+                     <u>Etiqueta</u>: negative<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    Okay , if you have a couple hours to waste , or if you just really hate your life , I would say watch
                      this movie . If anything it 's good for a few laughs . Not only do you have obese , topless natives ,
                      but also special effects so bad they are probably outlawed in most states . Seriuosly ,
@@ -328,9 +317,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Etiqueta</u>: positive<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    I really liked this movie ... it was cute . I enjoyed it , but if you did n't , that is your fault .
                      Emma Roberts played a good Nancy Drew , even though she is n't quite like the books . The old fashion
                      outfits are weird when you see them in modern times , but she looks good on them . To me , the rich
@@ -347,9 +336,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: negative<br/><br/>
+                     <u>Etiqueta</u>: negative<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    I always found Betsy Drake rather creepy , and this movie reinforces that . As another review said ,
                      this is a stalker movie that is n't very funny . I watched it because it has CG in it ,
                      but he hardly gets any screen time . It 's no " North by Northwest " ... </p>
@@ -361,9 +350,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: negative<br/><br/>
+                     <u>Etiqueta</u>: negative<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    This movie was on t.v the other day , and I did n't enjoy it at all . The first George of the
                      jungle was a good comedy , but the sequel .... completely awful . The new actor and
                      actress to play the lead roles were n't good at all , they should of had the original
@@ -381,9 +370,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Etiqueta</u>: positive<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    I loved This Movie . When I saw it on Febuary 3rd I knew I had to buy It ! ! ! It comes out to buy
                      on July 24th ! ! ! It has cool deaths scenes , Hot girls , great cast , good story , good
                      acting . Great Slasher Film . the Movies is about some serial killer killing off four girls .
@@ -396,9 +385,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Etiqueta</u>: positive<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    gone in 60 seconds is a very good action comedy film that made over $ 100 million but got blasted
                      by most critics . I personally thought this was a great film . The story was believable and
                      has probobly the greatest cast ever for this type of movie including 3 academy award winners
@@ -413,9 +402,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Etiqueta</u>: positive<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    This is one of the most interesting movies I have ever seen . I love the backwoods feel of this movie .
                      The movie is very realistic and believable . This seems to take place in another era , maybe
                      the late 60 's or early 70 's . Henry Thomas works well with the young baby . Very moving story
@@ -428,9 +417,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Etiqueta</u>: positive<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    I admit it 's very silly , but I 've practically memorized the damn thing ! It holds a lot of good
                      childhood memories for me ( my brother and I saw it opening day ) and I have respect for
                      any movie with FNM on the soundtrack .</p>
@@ -442,9 +431,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: positive<br/><br/>
+                     <u>Etiqueta</u>: positive<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    I love the series ! Many of the stereotypes portraying Southerrners as hicks are very apparent ,
                      but such people do exist all too frequently . The portrayal of Southern government rings
                      all too true as well , but the sympathetic characters reminds one of the many good things
@@ -461,7 +450,7 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_yelp" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
             <p>Spam</p>
@@ -476,9 +465,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: spam<br/><br/>
+                     <u>Etiqueta</u>: spam<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    URGENT! You have won a 1 week FREE membership in our �100,000 Prize Jackpot!</p>
              </div>
          </center>
@@ -489,9 +478,9 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: ham<br/><br/>
+                     <u>Etiqueta</u>: ham<br/><br/>
 
-                     <u>Review</u><br/>
+                     <u>Reseña</u><br/>
                    I'm gonna be home soon and i don't want to talk about this stuff anymore tonight, k? I've cried enou....<br/>
 
              </div>
@@ -504,7 +493,7 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_amazon" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
             <p>The Amazon reviews dataset consists of reviews from amazon
@@ -532,7 +521,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: 4<br/><br/>
+                     <u>Etiqueta</u>: 4<br/><br/>
 
                      <u>Review Title</u>: good for a young reader<br/><br/>
 
@@ -550,7 +539,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 2<br/><br/>
+                     <u>Etiqueta</u>: 2<br/><br/>
 
                      <u>Review Title</u>: The Castle in the Attic<br/><br/>
 
@@ -569,7 +558,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 1<br/><br/>
+                     <u>Etiqueta</u>: 1<br/><br/>
 
                      <u>Review Title</u>: worst book in the world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br/><br/>
 
@@ -586,7 +575,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 3<br/><br/>
+                     <u>Etiqueta</u>: 3<br/><br/>
 
                      <u>Review Title</u>: It's okay.<br/><br/>
 
@@ -604,7 +593,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 5<br/><br/>
+                     <u>Etiqueta</u>: 5<br/><br/>
 
                      <u>Review Title</u>: Time Well Spent<br/><br/>
 
@@ -624,7 +613,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 2<br/><br/>
+                     <u>Etiqueta</u>: 2<br/><br/>
 
                      <u>Review Title</u>: Not a brilliant book but...<br/><br/>
 
@@ -640,7 +629,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 3<br/><br/>
+                     <u>Etiqueta</u>: 3<br/><br/>
 
                      <u>Review Title</u>: Simple<br/><br/>
 
@@ -659,7 +648,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 1<br/><br/>
+                     <u>Etiqueta</u>: 1<br/><br/>
 
                      <u>Review Title</u>: WHY???????????????????????????????????????????????????<br/><br/>
 
@@ -676,7 +665,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 4<br/><br/>
+                     <u>Etiqueta</u>: 4<br/><br/>
 
                      <u>Review Title</u>: looking back<br/><br/>
 
@@ -693,7 +682,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 5<br/><br/>
+                     <u>Etiqueta</u>: 5<br/><br/>
 
                      <u>Review Title</u>: Great Puzzle<br/><br/>
 
@@ -710,7 +699,7 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_trec" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
             <p>TREC is a dataset for classification of free factual questions.
@@ -732,19 +721,19 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: How did serfdom develop in and then leave Russia ?<br/><br/>
 
-                      <u>Label</u>: ENTY (entity)<br/>
+                      <u>Etiqueta</u>: ENTY (entity)<br/>
 
                      <u>Question</u>: What films featured the character Popeye Doyle ?<br/><br/>
 
-                     <u>Label</u>: HUM (human)<br/>
+                     <u>Etiqueta</u>: HUM (human)<br/>
 
                      <u>Question</u>: What team did baseball 's St. Louis Browns become ?<br/><br/>
 
-                     <u>Label</u>: HUM (human)<br/>
+                     <u>Etiqueta</u>: HUM (human)<br/>
 
                      <u>Question</u>: What is the oldest profession ?
 
@@ -758,19 +747,19 @@ for (i = 0; i < dropdown.length; i++) {
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
 
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: How can I find a list of celebrities ' real names ?<br/><br/>
 
-                     <u>Label</u>: ENTY (entity)<br/>
+                     <u>Etiqueta</u>: ENTY (entity)<br/>
 
                      <u>Question</u>: What fowl grabs the spotlight after the Chinese Year of the Monkey ?<br/><br/>
 
-                     <u>Label</u>: ABBR (abbreviation)<br/>
+                     <u>Etiqueta</u>: ABBR (abbreviation)<br/>
 
                      <u>Question</u>: What is the full form of .com ?<br/><br/>
 
-                     <u>Label</u>: ENTY (entity)<br/>
+                     <u>Etiqueta</u>: ENTY (entity)<br/>
 
                      <u>Question</u>: What 's the second - most - used vowel in English ?
 
@@ -785,19 +774,19 @@ for (i = 0; i < dropdown.length; i++) {
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
 
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: What are liver enzymes ?<br/><br/>
 
-                     <u>Label</u>: HUM (human)<br/>
+                     <u>Etiqueta</u>: HUM (human)<br/>
 
                      <u>Question</u>: Name the scar-faced bounty hunter of The Old West .<br/><br/>
 
-                     <u>Label</u>: NUM (numeric value)<br/>
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
 
                      <u>Question</u>: When was Ozzy Osbourne born ?<br/><br/>
 
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: Why do heavier objects travel downhill faster ?
 
@@ -812,19 +801,19 @@ for (i = 0; i < dropdown.length; i++) {
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
 
-                     <u>Label</u>: HUM (human)<br/>
+                     <u>Etiqueta</u>: HUM (human)<br/>
 
                      <u>Question</u>: Who was The Pride of the Yankees ?<br/><br/>
 
-                     <u>Label</u>: HUM (human)<br/>
+                     <u>Etiqueta</u>: HUM (human)<br/>
 
                      <u>Question</u>: Who killed Gandhi ?<br/><br/>
 
-                     <u>Label</u>: LOC (location)<br/>
+                     <u>Etiqueta</u>: LOC (location)<br/>
 
                      <u>Question</u>: What sprawling U.S. state boasts the most airports ?<br/><br/>
 
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: What did the only repealed amendment to the U.S. Constitution deal with ?
 
@@ -838,19 +827,19 @@ for (i = 0; i < dropdown.length; i++) {
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
 
-                     <u>Label</u>: NUM (numeric value)<br/>
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
 
                      <u>Question</u>: How many Jews were executed in concentration camps during WWII ?<br/><br/>
 
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: What is " Nine Inch Nails " ?<br/><br/>
 
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: What is an annotated bibliography ?<br/><br/>
 
-                     <u>Label</u>: NUM (numeric value)<br/>
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
 
                      <u>Question</u>: What is the date of Boxing Day ?
 
@@ -864,19 +853,19 @@ for (i = 0; i < dropdown.length; i++) {
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
 
-                     <u>Label</u>: ENTY (entity)<br/>
+                     <u>Etiqueta</u>: ENTY (entity)<br/>
 
                      <u>Question</u>: What articles of clothing are tokens in Monopoly ?<br/><br/>
 
-                     <u>Label</u>: HUM (human)<br/>
+                     <u>Etiqueta</u>: HUM (human)<br/>
 
                      <u>Question</u>: Name 11 famous martyrs .<br/><br/>
 
-                     <u>Label</u>: DESC (description)<br/>
+                     <u>Etiqueta</u>: DESC (description)<br/>
 
                      <u>Question</u>: What 's the Olympic motto ?<br/><br/>
 
-                     <u>Label</u>: NUM (numeric value)<br/>
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
 
                      <u>Question</u>: What is the origin of the name ` Scarlett ' ?
 
@@ -890,7 +879,7 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_yahoo" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
             <p>The dataset is gathered from
@@ -924,7 +913,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Society & Culture<br/><br/>
+                     <u>Etiqueta</u>: Society & Culture<br/><br/>
 
                      <u>Question Title</u>: Why do people have the bird, turkey for thanksgiving?<br/><br/>
 
@@ -945,7 +934,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Science & Mathematics<br/><br/>
+                     <u>Etiqueta</u>: Science & Mathematics<br/><br/>
 
                      <u>Question Title</u>: What is an "imaginary number"?<br/><br/>
 
@@ -970,7 +959,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Health<br/><br/>
+                     <u>Etiqueta</u>: Health<br/><br/>
 
                      <u>Question Title</u>: Does echinacea really help prevent colds?<br/><br/>
 
@@ -990,7 +979,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Education & Reference<br/><br/>
+                     <u>Etiqueta</u>: Education & Reference<br/><br/>
 
                      <u>Question Title</u>: How do I find an out of print book?<br/><br/>
 
@@ -1013,7 +1002,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Computers & Internet<br/><br/>
+                     <u>Etiqueta</u>: Computers & Internet<br/><br/>
 
                      <u>Question Title</u>: How can I record audio directly from the browser to the web server?<br/><br/>
 
@@ -1035,7 +1024,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                   <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Sports<br/><br/>
+                     <u>Etiqueta</u>: Sports<br/><br/>
 
                      <u>Question Title</u>: Why doesn't the NBA implement a minor leagues?<br/><br/>
 
@@ -1058,7 +1047,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Business & Finance<br/><br/>
+                     <u>Etiqueta</u>: Business & Finance<br/><br/>
 
                      <u>Question Title</u>: When will Google buy Yahoo?<br/><br/>
 
@@ -1081,7 +1070,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                 <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Entertainment & Music<br/><br/>
+                     <u>Etiqueta</u>: Entertainment & Music<br/><br/>
 
                      <u>Question Title</u>: Can someone tell me what happened in Buffy's series finale?<br/><br/>
 
@@ -1103,7 +1092,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Family & Relationships<br/><br/>
+                     <u>Etiqueta</u>: Family & Relationships<br/><br/>
 
                      <u>Question Title</u>: How do you know if you're in love?<br/><br/>
 
@@ -1124,7 +1113,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Politics & Government<br/><br/>
+                     <u>Etiqueta</u>: Politics & Government<br/><br/>
 
                      <u>Question Title</u>: How come it seems like Lottery winners are always the
                      ones that buy tickets in low income areas.?<br/><br/>
@@ -1148,7 +1137,7 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_ag_news" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
             <p>The AG’s corpus was obtained from
@@ -1173,7 +1162,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Sci/Tech<br/><br/>
+                     <u>Etiqueta</u>: Sci/Tech<br/><br/>
 
                      <u>Title</u>: Learning to write with classroom blogs<br/><br/>
 
@@ -1189,7 +1178,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Sports<br/><br/>
+                     <u>Etiqueta</u>: Sports<br/><br/>
 
                      <u>Title</u>: Schumacher Triumphs as Ferrari Seals Formula One Title<br/><br/>
 
@@ -1205,7 +1194,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Business<br/><br/>
+                     <u>Etiqueta</u>: Business<br/><br/>
 
                      <u>Title</u>: DoCoMo and Motorola talk phones<br/><br/>
 
@@ -1221,7 +1210,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: World<br/><br/>
+                     <u>Etiqueta</u>: World<br/><br/>
 
                      <u>Title</u>: Sharon 'backs settlement homes'<br/><br/>
 
@@ -1236,7 +1225,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Business<br/><br/>
+                     <u>Etiqueta</u>: Business<br/><br/>
 
                      <u>Title</u>: Why Hugo Chavez Won a Landslide Victory<br/><br/>
 
@@ -1253,7 +1242,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                   <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Sci/Tech<br/><br/>
+                     <u>Etiqueta</u>: Sci/Tech<br/><br/>
 
                      <u>Title</u>: Free-Speech for Online Gambling Ads Sought<br/><br/>
 
@@ -1270,7 +1259,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: World<br/><br/>
+                     <u>Etiqueta</u>: World<br/><br/>
 
                      <u>Title</u>: Kerry takes legal action against Vietnam critics (AFP)<br/><br/>
 
@@ -1286,7 +1275,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                 <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Sports<br/><br/>
+                     <u>Etiqueta</u>: Sports<br/><br/>
 
                      <u>Title</u>: O'Leary: I won't quit<br/><br/>
 
@@ -1302,7 +1291,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: World<br/><br/>
+                     <u>Etiqueta</u>: World<br/><br/>
 
                      <u>Title</u>: Egypt eyes possible return of ambassador to Israel<br/><br/>
 
@@ -1319,7 +1308,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Sports<br/><br/>
+                     <u>Etiqueta</u>: Sports<br/><br/>
 
                      <u>Title</u>: Henry wants silverware<br/><br/>
 
@@ -1336,7 +1325,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Sci/Tech<br/><br/>
+                     <u>Etiqueta</u>: Sci/Tech<br/><br/>
 
                      <u>Title</u>: Scientists Focus on Algae in Maine Lake (AP)<br/><br/>
 
@@ -1352,7 +1341,7 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_sogou_news" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
             <p>The Sogou News corpus
@@ -1394,7 +1383,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: automobile<br/><br/>
+                     <u>Etiqueta</u>: automobile<br/><br/>
 
                      <u>Title</u>: tu2 we2n -LG be1i be3n sa4i di4 2 lu2n zha4n ba4
                      cha2ng ha4o ko3ng jie2 de3ng qi2 sho3u fu4 pa2n ta3o lu4n<br/><br/>
@@ -1413,7 +1402,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: automobile<br/><br/>
+                     <u>Etiqueta</u>: automobile<br/><br/>
 
                      <u>Title</u>:  qi4 che1 pi2n da4o<br/><br/>
 
@@ -1431,7 +1420,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: finance<br/><br/>
+                     <u>Etiqueta</u>: finance<br/><br/>
 
                      <u>Title</u>: shi2 da2 qi1 huo4 : hua2ng ji1n za3o pi2ng (06-11)<br/><br/>
 
@@ -1448,7 +1437,7 @@ for (i = 0; i < dropdown.length; i++) {
 
         <div id="dataset_info_dbpedia" style="margin-left:20px;">
             <details>
-                <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
             <p>DBpedia is a crow-sourced community effort to extract structured
@@ -1476,7 +1465,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Company<br/><br/>
+                     <u>Etiqueta</u>: Company<br/><br/>
 
                      <u>Title</u>: Marvell Software Solutions Israel<br/><br/>
 
@@ -1493,7 +1482,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: EducationalInstitution<br/><br/>
+                     <u>Etiqueta</u>: EducationalInstitution<br/><br/>
 
                      <u>Title</u>:  Adarsh English Boarding School<br/><br/>
 
@@ -1510,7 +1499,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Artist<br/><br/>
+                     <u>Etiqueta</u>: Artist<br/><br/>
 
                      <u>Title</u>: Esfandiar Monfaredzadeh<br/><br/>
 
@@ -1527,7 +1516,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Athlete<br/><br/>
+                     <u>Etiqueta</u>: Athlete<br/><br/>
 
                      <u>Title</u>: Elena Yakovishina<br/><br/>
 
@@ -1544,7 +1533,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: OfficeHolder<br/><br/>
+                     <u>Etiqueta</u>: OfficeHolder<br/><br/>
 
                      <u>Title</u>: Jack Masters<br/><br/>
 
@@ -1560,7 +1549,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: MeanOfTransportation<br/><br/>
+                     <u>Etiqueta</u>: MeanOfTransportation<br/><br/>
 
                      <u>Title</u>: HMS E35<br/><br/>
 
@@ -1576,7 +1565,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Building<br/><br/>
+                     <u>Etiqueta</u>: Building<br/><br/>
 
                      <u>Title</u>: Aspira<br/><br/>
 
@@ -1593,7 +1582,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: NaturalPlace<br/><br/>
+                     <u>Etiqueta</u>: NaturalPlace<br/><br/>
 
                      <u>Title</u>: Sierra de Alcaraz<br/><br/>
 
@@ -1609,7 +1598,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Village<br/><br/>
+                     <u>Etiqueta</u>: Village<br/><br/>
 
                      <u>Title</u>: Piskarki<br/><br/>
 
@@ -1626,7 +1615,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Animal<br/><br/>
+                     <u>Etiqueta</u>: Animal<br/><br/>
 
                      <u>Title</u>: Lesser small-toothed rat<br/><br/>
 
@@ -1642,7 +1631,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Plant<br/><br/>
+                     <u>Etiqueta</u>: Plant<br/><br/>
 
                      <u>Title</u>: Vangueriopsis gossweileri<br/><br/>
 
@@ -1658,7 +1647,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Album<br/><br/>
+                     <u>Etiqueta</u>: Album<br/><br/>
 
                      <u>Title</u>: Dreamland Manor<br/><br/>
 
@@ -1674,7 +1663,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: Film<br/><br/>
+                     <u>Etiqueta</u>: Film<br/><br/>
 
                      <u>Title</u>: The Case of the Lucky Legs<br/><br/>
 
@@ -1690,7 +1679,7 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: WrittenWork<br/><br/>
+                     <u>Etiqueta</u>: WrittenWork<br/><br/>
 
                      <u>Title</u>: Everybody Loves a Good Drought<br/><br/>
 
