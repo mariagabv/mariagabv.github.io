@@ -248,6 +248,7 @@ for (i = 0; i < dropdown.length; i++) {
               <input type="radio" id="dataset_example_sogou_news" name="dataset_example" value="sogou_news" onclick="pickDatasetExample()">
               <label for="dataset_example_sogou_news"  style="margin-right:15px;">Sogou News</label>
 
+              
         </fieldset>
 
 <br>
@@ -1691,7 +1692,262 @@ Be careful when you come though, if there is a game on, you'll have to get there
          </div>
 </div>
 
+        <div id="dataset_info_dbpedia" style="margin-left:20px;">
+            <details>
+                <summary><font color="#79a123" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>DBpedia is a crow-sourced community effort to extract structured
+            information from Wikipedia.
+                The DBpedia ontology classification dataset is constructed by picking 14 non-overlapping
+                classes from
+                <a href="https://wiki.dbpedia.org/services-resources/dbpedia-data-set-2014" target="_blank">DBpedia 2014</a>.
+                From each of the 14 ontology classes,
+                the dataset contains
+                 40,000 randomly chosen training samples and 5,000 testing samples.
+                Therefore, the total size of the training dataset is 560,000, the testing dataset - 70,000.
+            </p>
 
+                <p>The dataset was introduced in
+                    <a href="https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification.pdf" target="_blank">
+                    this paper</a>.</p>
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_dbpedia_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Company<br/><br/>
+
+                     <u>Title</u>: Marvell Software Solutions Israel<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Marvell Software Solutions Israel known as RADLAN Computer Communications
+                     Limited before 2007 is a wholly owned subsidiary of Marvell Technology Group that
+                     specializes in local area network (LAN) technologies. </p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: EducationalInstitution<br/><br/>
+
+                     <u>Title</u>:  Adarsh English Boarding School<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Adarsh English Boarding School is coeducational boarding school in Phulbari a suburb
+                     of Pokhara Nepal. Nabaraj Thapa is the founder and chairman of the school. The School
+                     motto reads Education For Better Citizen.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Artist<br/><br/>
+
+                     <u>Title</u>: Esfandiar Monfaredzadeh<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Esfandiar Monfaredzadeh (Persian : اسفندیار منفردزاده) is an Iranian composer and director.
+                     He was born in 1941 in Tehran His major works are Gheisar Dash Akol Tangna Gavaznha. He has
+                     2 daughters Bibinaz Monfaredzadeh and Sanam Monfaredzadeh Woods (by marriage).
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Athlete<br/><br/>
+
+                     <u>Title</u>: Elena Yakovishina<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Elena Yakovishina (born September 17 1992 in Petropavlovsk-Kamchatsky Russia) is
+                     an alpine skier from Russia. She competed for Russia at the 2014 Winter Olympics
+                     in the alpine skiing events.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: OfficeHolder<br/><br/>
+
+                     <u>Title</u>: Jack Masters<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    John Gerald (Jack) Masters (born September 27 1931) is a former Canadian politician.
+                     He served as mayor of the city of Thunder Bay Ontario and as a federal Member of Parliament.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: MeanOfTransportation<br/><br/>
+
+                     <u>Title</u>: HMS E35<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    HMS E35 was a British E class submarine built by John Brown Clydebank.
+                     She was laid down on 20 May 1916 and was commissioned on 14 July 1917.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Building<br/><br/>
+
+                     <u>Title</u>: Aspira<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Aspira is a 400 feet (122 m) tall skyscraper in the Denny Triangle neighborhood
+                     of Seattle Washington. It has 37 floors and mostly consists of apartments.
+                     Construction began in 2007 and was completed in late 2009.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: NaturalPlace<br/><br/>
+
+                     <u>Title</u>: Sierra de Alcaraz<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    The Sierra de Alcaraz is a mountain range of the Cordillera Prebética located in Albacete
+                     Province southeast Spain. Its highest peak is the Pico Almenara with an altitude of 1796 m.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Village<br/><br/>
+
+                     <u>Title</u>: Piskarki<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Piskarki [pisˈkarki] is a village in the administrative district of Gmina Jeżewo
+                     within Świecie County Kuyavian-Pomeranian Voivodeship in north-central Poland.
+                     The village has a population of 135.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Animal<br/><br/>
+
+                     <u>Title</u>: Lesser small-toothed rat<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    The Lesser Small-toothed Rat or Western Small-Toothed Rat (Macruromys elegans) is a
+                     species of rodent in the family Muridae. It is found only in West Papua Indonesia.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Plant<br/><br/>
+
+                     <u>Title</u>: Vangueriopsis gossweileri<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Vangueriopsis gossweileri is a species of flowering plants in the family Rubiaceae.
+                     It occurs in West-Central Tropical Africa (Cabinda Province Equatorial Guinea and Gabon).
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Album<br/><br/>
+
+                     <u>Title</u>: Dreamland Manor<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Dreamland Manor is the debut album of German power metal band Savage Circus.
+                     The album sounds similar to older classic Blind Guardian.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: Film<br/><br/>
+
+                     <u>Title</u>: The Case of the Lucky Legs<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    The Case of the Lucky Legs is a 1935 mystery film the third in a series of Perry
+                     Mason films starring Warren William as the famed lawyer.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Label</u>: WrittenWork<br/><br/>
+
+                     <u>Title</u>: Everybody Loves a Good Drought<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Everybody Loves a Good Drought is a book written by P. Sainath about his research findings of
+                     poverty in the rural districts of India. The book won him the Magsaysay Award.
+                 </p>
+             </div>
+         </center>
+         </div>
+</div>
 
         </div>
         <img height="20" src="../resources/lectures/ico/paw_empty.png" style="float:left; margin-top:-10px;"/>
@@ -1705,7 +1961,8 @@ var carousels = [document.getElementById('carousel_lasolananews_examples'),
                     document.getElementById('carousel_trec_examples'),
                     document.getElementById('carousel_yahoo_examples'),
                     document.getElementById('carousel_ag_news_examples'),
-                    document.getElementById('carousel_sogou_news_examples')];
+                    document.getElementById('carousel_sogou_news_examples'),
+                    document.getElementById('carousel_dbpedia_examples')];
 
 var infos = [document.getElementById('dataset_info_lasolananews'),
                     document.getElementById('dataset_info_imdb'),
@@ -1714,7 +1971,8 @@ var infos = [document.getElementById('dataset_info_lasolananews'),
                     document.getElementById('dataset_info_trec'),
                     document.getElementById('dataset_info_yahoo'),
                     document.getElementById('dataset_info_ag_news'),
-                    document.getElementById('dataset_info_sogou_news')];
+                    document.getElementById('dataset_info_sogou_news'),
+                    document.getElementById('dataset_info_dbpedia')];
 
 function pickDatasetExample()
 {
