@@ -94,11 +94,15 @@ for (i = 0; i < dropdown.length; i++) {
 <div class="wrapper" id="main_page_content">
     <div class="header"><h1>Recopilación de datos</h1></div>
 
-<div id="estructurad_vs_desestructurado">
+<div id="importancia_datos">
+<h2>La importancia de los datos</h2>
+
+
+    <p> En 2017, The Economist publicó un artículo titulado “El recurso más valioso del mundo ya no es el petróleo, sino los datos”. Casi cualquier aspecto de nuestra vida cotidiana puede ser transformado en datos: las horas que dormimos, las calorías que ingerimos, los pasos que damos, nuestro ritmo cardíaco a lo largo del día, el dinero que gastamos, los kilómetros que recorremos en vehículo, los litros de agua que bebemos o las veces que reímos y lloramos. En principio, estos datos aparecen de manera desestructurada; requeriría un meticuloso esfuerzo registrarlos manualmente para estructurarlos y <strong> el resultado sería un registro vital del que se pueden extraer patrones y, con el suficiente número de entradas, podríamos predecir nuestro futuro. </strong> Sin embargo, el siglo XXI nos ofrece herramientas más accesibles: teléfonos y relojes inteligentes que monitorean automáticamente nuestros movimientos y actividades. Al igual que no es oro todo lo que reluce, este registro constante también conlleva riesgos. Por ejemplo, después de que el Tribunal Supremo de EE. UU. tumbara la sentencia Roe contra Wade que respaldaba el aborto en ese país, la preocupación en torno a las aplicaciones que controlan el ciclo menstrual ha aumentado, pues los datos que se introducen todos los meses podrían ser utilizados como evidencia legal para perseguir abortos ilegales. </p>
+
+
+  <div id="estructurad_vs_desestructurado">
 <h2>Datos estructurados vs. datos no estructurados</h2>
-
-
-    <p> En 2017, The Economist publicó un artículo titulado “El recurso más valioso del mundo ya no es el petróleo, sino los datos”. Casi cualquier aspecto de nuestra vida cotidiana puede ser transformado en datos: las horas que dormimos, las calorías que ingerimos, los pasos que damos, nuestro ritmo cardíaco a lo largo del día, el dinero que gastamos, los kilómetros que recorremos en vehículo, los litros de agua que bebemos o las veces que reímos y lloramos. En principio, estos datos aparecen de manera desestructurada; requeriría un meticuloso esfuerzo registrarlos manualmente para estructurarlos. <strong> El resultado sería un registro de nuestra vida del que se pueden extraer patrones y, con el suficiente número de entradas, podríamos predecir nuestro futuro. </strong> Sin embargo, el siglo XXI nos ofrece herramientas más accesibles: teléfonos y relojes inteligentes que monitorean automáticamente nuestros movimientos y actividades. Al igual que no es oro todo lo que reluce, este registro constante también conlleva riesgos. Por ejemplo, después de que el Tribunal Supremo de EE. UU. tumbara la sentencia Roe contra Wade que respaldaba el aborto en ese país, la preocupación en torno a las aplicaciones que controlan el ciclo menstrual ha aumentado, pues los datos que se introducen todos los meses podrían ser utilizados como evidencia legal para perseguir abortos ilegales. </p>
 
 <div id="datos_estructurados">
 <h2>Ejemplo de datos estructurados</h2>
@@ -229,7 +233,7 @@ for (i = 0; i < dropdown.length; i++) {
               <label for="dataset_example_imdb"  style="margin-right:15px;">IMDb Review</label>
 
               <input type="radio" id="dataset_example_yelp" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
-              <label for="dataset_example_yelp"  style="margin-right:15px;">Yelp Review</label>
+              <label for="dataset_example_yelp"  style="margin-right:15px;">SMS Spam Collection</label>
 
              <input type="radio" id="dataset_example_amazon" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
               <label for="dataset_example_amazon"  style="margin-right:15px;">Amazon Review</label>
@@ -538,18 +542,7 @@ for (i = 0; i < dropdown.length; i++) {
                 <summary><font color="#C43116" class="data_text"><strong>Dataset Description (click!)</strong></font></summary>
                 <div  class="data_text" style="font-size:15px;">
                     <br>
-            <p>The Yelp reviews dataset is obtained from the
-                <a href="https://www.kaggle.com/yelp-dataset/yelp-dataset" target="_blank">Yelp Dataset Challenge in 2015</a>.
-                Depending on the number of labels, you can get either
-                <strong>Yelp Full</strong> (all 5 labels) or
-                <strong>Yelp Polarity</strong> (positive and negative classes) dataset.
-                <strong>Full</strong>
-                has 130,000 training samples and 10,000
-                testing samples in each star, and the <strong>Polarity</strong> dataset has 280,000
-                training samples and 19,000 test samples in each polarity.
-            </p>
-                <p>For more details, see <a href="https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf" target="_blank">
-                    the Kaggle Challenge page</a>.</p>
+            <p>Spam</p>
             </div>
             </details>
         </div>
@@ -561,14 +554,10 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:14px;">
-                     <u>Label</u>: 4<br/><br/>
+                     <u>Label</u>: spam<br/><br/>
 
                      <u>Review</u><br/>
-                   I had a serious craving for Roti.  So glad I found this place.
-                     A very small menu selection but it had exactly what I wanted.  The serving for
-                     $8.20 after tax is enough for 2 meals.  I know where to go from now on for a great
-                     meal with leftovers.  This is a noteworthy place to bring my Uncle T.J. who's a Trini
-                     when he comes to visit.</p>
+                   URGENT! You have won a 1 week FREE membership in our �100,000 Prize Jackpot!</p>
              </div>
          </center>
          </div>
@@ -578,171 +567,16 @@ for (i = 0; i < dropdown.length; i++) {
              <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
     background-color: #f5f5f5;">
                  <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 2<br/><br/>
+                     <u>Label</u>: ham<br/><br/>
 
                      <u>Review</u><br/>
-                   The actual restaurant is fine, the service is friendly and good.<br/>
+                   I'm gonna be home soon and i don't want to talk about this stuff anymore tonight, k? I've cried enou....<br/>
 
-I am not going to go in to the food other than to say, no.<br/>
-
-Oh well $340 bucks and all I can muster is a no. </p>
              </div>
          </center>
          </div>
 
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 5<br/><br/>
-
-                     <u>Review</u><br/>
-                   What a cool little place tucked away behind a strip mall.  Would never have found
-                     this if it was not suggested by a good friend who raved about the cappuccino!
-                     He is world traveler, so, it's a  must try if it's the best cup he's ever had.
-                     He was right!  Don't know if it's in the beans or the care that they take to make
-                     it with a fab froth decoration on top.  My hubby and I loved the caramel brulee taste..
-                     My son loved the hot ""warm"" cocoa.  Yeah, we walked in as a family last night and
-                     almost everyone turned our way since we did not fit the hip college crowd.
-
-                     Everyone was really friendly, though. The sweet young man behind the
-                     counter gave my son some micro cinnamon doughnuts and scored major points with the
-                     little dude!   We will be back. </p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 3<br/><br/>
-
-                     <u>Review</u><br/>
-                   Jersey Mike's is okay. It's a chain place, and a bit over priced for fast food.
-                     I ordered a philly cheese steak.  It was mostly bread, with a few
-                     thing microscopic slices of meat.  A little cheese too.  And a sliver or
-                     two of peppers.  But mostly, it was bread.  I think it's funny the people
-                     that work here try to make small talk with you.  "So, what are you guys up to tonight?"
-                     I think it would be fun to just try and f*#k with them, and say something like,
-                     "Oh you know, smoking a little meth and just chilling with some hookers."
-                     See what they say to that. </p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 5<br/><br/>
-
-                     <u>Review</u><br/>
-                   Love it!!! Wish we still lived in Arizona as Chino is the one thing we miss.
-                     Every time I think about Chino Bandido my mouth starts watering.
-                     If I am ever in the state again I will drive out of my way just to go to it again. YUMMY! </p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 4<br/><br/>
-
-                     <u>Review</u><br/>
-                  I have been here a few times, but mainly at dinner.  Dinner Has always been great, great
-                     waiters and staff, with a LCD TV playing almost famous famous bolywood movies.
-
-                     LOL  It cracks me up when they dance.....LOL...anyhow, Great vegetarian choices for
-                     people who eat there veggies, but trust me, I am a MEAT eater,  Chicekn Tika masala,
-                     Little dry but still good.  My favorite is there Palak Paneer. Great for the vegetarian.
-                     I have also tried there lunch Buffet for 11.00.  I give a Thumbs up..  Good,
-                     serve yourself, and pig out!!!!!!</p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 3<br/><br/>
-
-                     <u>Review</u><br/>
-                   Very VERY average. Actually disappointed in the braciole. Kelsey with the pretty smile and form
-                     fitting shorts would probably make me think about going back and trying something different.</p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 1<br/><br/>
-
-                     <u>Review</u><br/>
-                   So, what kind of place serves chicken fingers and NO Ranch dressing?????? The only sauces they
-                     had was honey mustard and ""Canes Secret sauce"" Can I say EEWWWW!! I thought that
-                     the sauce tasted terrible. I am not too big a fan of honey mustard but I do On occasion
-                     eat it if there is nothing else And that wasn't even good! The coleslaw was awful also.
-                     I do have to say that the chicken fingers were very juicy but also very bland.
-                     Those were the only 2 items that I tried, not that there were really any more items  on
-                     the menu, Texas toast? And Fries I think?? Overall, I would never go back.</p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 4<br/><br/>
-
-                     <u>Review</u><br/>
-                   Good food, good drinks, fun bar.
-There are quite a few Buffalo Wild Wings in the valley and they're a fun place to grab a quick lunch or dinner and watch the game.
-They have a pretty good garden burger and their buffalo chips (french fry-ish things) are really good.
-If you like bloody mary's, they have the best one. It's so good...really spicy and filled with celery and olives.
-Be careful when you come though, if there is a game on, you'll have to get there early or you definitely won't get a spot to sit.</p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 5<br/><br/>
-
-                     <u>Review</u><br/>
-                   Excellent in every way.  Attentive and fun owners who tend bar every weekend night - GREAT live music,
-                     excellent wine selection.   Keeping Fountain Hills young.... one weekend at a time.</p>
-             </div>
-         </center>
-         </div>
-
-         <div class="carousel-cell" style="width:100%"><center>
-             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
-    background-color: #f5f5f5;">
-                 <p style="padding:10px;font-family:courier; font-size:15px;">
-                     <u>Label</u>: 1<br/><br/>
-
-                     <u>Review</u><br/>
-                   After repeat visits it just gets worse - the service, that is.  It was as if we were held
-                     hostage and could not leave for a full 25 minutes because that's how long it took to receive
-                     hour check after several requests to several different employees.  Female servers might
-                     be somewhat cute but know absolutely nothing about beer and this is a brewpub.
-                     I asked if they have an seasonal beers and the reply was no, that they only sell
-                     their own beers!  Even more amusing is their ""industrial pale ale"" is an IPA but it
-                     is not bitter.  So, they say it's an IPA but it's not bitter, it's not a true-to-style IPA.
-                     Then people say ""Oh I don't like IPA's"" and want something else.  Their attempt
-                     to rename a beer/style is actually hurting them.  Amazing.</p>
-             </div>
-         </center>
-         </div>
+        
 
 </div>
 
