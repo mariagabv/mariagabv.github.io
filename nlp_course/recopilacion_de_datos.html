@@ -101,106 +101,28 @@ for (i = 0; i < dropdown.length; i++) {
     <p> En 2017, The Economist publicó un artículo titulado “El recurso más valioso del mundo ya no es el petróleo, sino los datos”. Casi cualquier aspecto de nuestra vida cotidiana puede ser transformado en datos: las horas que dormimos, las calorías que ingerimos, los pasos que damos, nuestro ritmo cardíaco a lo largo del día, el dinero que gastamos, los kilómetros que recorremos en vehículo, los litros de agua que bebemos o las veces que reímos y lloramos. En principio, estos datos aparecen de manera desestructurada; requeriría un meticuloso esfuerzo registrarlos manualmente para estructurarlos y <strong> el resultado sería un registro vital del que se pueden extraer patrones y, con el suficiente número de entradas, podríamos predecir nuestro futuro. </strong> Sin embargo, el siglo XXI nos ofrece herramientas más accesibles: teléfonos y relojes inteligentes que monitorean automáticamente nuestros movimientos y actividades. Al igual que no es oro todo lo que reluce, este registro constante también conlleva riesgos. Por ejemplo, después de que el Tribunal Supremo de EE. UU. tumbara la sentencia Roe contra Wade que respaldaba el aborto en ese país, la preocupación en torno a las aplicaciones que controlan el ciclo menstrual ha aumentado, pues los datos que se introducen todos los meses podrían ser utilizados como evidencia legal para perseguir abortos ilegales. </p>
 
 
-  <div id="estructurad_vs_desestructurado">
-<h2>Datos estructurados vs. datos no estructurados</h2>
+ 
 
-<div id="datos_estructurados">
-<h2>Ejemplo de datos estructurados</h2>
+ <div id="estructurad_vs_desestructurado">
+<h2>Datos estructurados vs. datos no estructurados</h2>
 
 
      <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true }'
      style="width:50%; margin-bottom:30px; margin-left:10px; float:right;">
               <div class="carousel-cell" style="width:100%"><center>
-                    <img width=70% src="../resources/lectures/text_clf/intro/example_movie-min.png"/></center>
+                    <img width=70% src="../resources/lectures/text_clf/intro/pelis.png"/></center>
                   <p style="text-align:center;margin-left:30px;margin-right:30px;">
                       Clasificación multiclase:<br> hay muchas etiquetas, pero solo una es correcta</p>
               </div>
               <div class="carousel-cell" style="width:100%"><center>
-                    <img width=70% src="../resources/lectures/text_clf/intro/example_mail-min.png"/></center>
+                    <img width=70% src="../resources/lectures/text_clf/intro/spam.png"/></center>
                   <p style="text-align:center;margin-left:30px;margin-right:30px;">
                       Clasificación binaria:<br> hay dos etiquetas y solo una de ellas es correcta</p>
               </div>
-              <div class="carousel-cell" style="width:100%"><center>
-                    <img width=70% src="../resources/lectures/text_clf/intro/example_twitter-min.png"/></center>
-                  <p style="text-align:center;margin-left:30px;margin-right:30px;">
-                      Clasificación multiclase:<br> hay muchas etiquetas y varias pueden ser correctas</p>
-              </div>
       </div>
 
-    <p>Text classification is an extremely popular task.
-    You enjoy working text classifiers in your mail agent:
-    it classifies letters and filters spam. Other applications include
-    document classification, review classification, etc.</p>
+    <p>Los datos mencionados anteriormente son numéricos, pero también existen conjuntos de datos con valores nominales. Por ejemplo, para desarrollar un programa que detecte mensajes spam, es necesario que una persona clasifique manualmente cada mensaje como legítimo o malicioso. Sin embargo, esta tarea es tediosa y cara porque requieren miles de ejemplos etiquetados por especialistas para entrenar un algoritmo eficaz.</p>
 
-    <p>Text classifiers are often used not as an individual task, but as part of bigger pipelines.
-    For example, a voice assistant classifies your utterance to understand what you want (e.g., set the alarm,
-        order a taxi or just chat) and passes your message to different models depending
-    on the classifier's decision. Another example is a web search engine: it
-        can use classifiers to identify the query language, to predict
-        the type of your query (e.g., informational, navigational, transactional),
-    to understand whether you what to see pictures or video in addition to documents, etc. </p>
-
-    <p>Since most of the classification datasets assume that only one label is correct (you will see this right now!),
-        in the lecture we deal with this type of classification, i.e. the <font face="arial">single-label
-        classification</font>.
-        We mention multi-label classification in a separate section
-        (<a href="#multi_label">Multi-Label Classification</a>).
-    </p>
-
-
-
-
-    <div id="dataset_examples">
-    <h2>Datasets for Classification</h2>
-
-
-        <p>Datasets for text classification are very different in
-            terms of size (both dataset size and examples' size),
-            what is classified, and the number of labels. Look at the statistics below.
-        </p>
-
-        <p>
-<center>
-<table class="data_text text_table" style="padding:5px;margin-bottom:0px;">
-  <tr>
-    <th style="text-align:left;">Dataset</th>
-    <th>Type</th>
-      <th>Number</br> of labels</th>
-
-      <th> Size </br>(train/test)</th>
-
-      <th>Avg. length</br> (tokens)</th>
-  </tr>
-
-
-   <tr>
-      <td style="text-align:left;">
-        <a href="https://www.kaggle.com/datasets/mgabve/lasolananews" target="_blank">LaSolanaNews</a></td>
-      <td>tema</td>
-      <td>7</td>
-      <td>1093</td>
-      <td>200</td>
-  </tr>
-
-
-  <tr>
-    <td style="text-align:left;"><a href="https://ai.stanford.edu/~amaas/data/sentiment/" target="_blank">IMDb Review</a></td>
-    <td>opinión</td>
-    <td>2</td>
-      <td>25k / 25k</td>
-      <td>271</td>
-  </tr>
-
-
-
-
-
-
-</table>
-
-</center>
-
-        </p>
 
         <p>
             The most popular datasets are
