@@ -1,0 +1,330 @@
+---
+layout: lecture
+title: Motivación
+description: >
+Methods for learning word vectors: from count-based to prediction-based, including the most recent results.
+---
+
+
+<div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
+   style="text-align:center;font-size:30px;padding:0px;">⇤</a>
+    <a class="active" href="../nlp_course.html" style=" align-items: center; font-weight: bold;">
+    <img height="32" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 0px;margin-top: -4px;"/>
+        RAG en   <font color="#C43116" id="for_you_in_sidebar">español</font></a>
+    <div class="dropdown-scope">
+           <a class="dropdown-btn" style="font-weight: bold;">Motivación
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container">
+              <a href="#que_es_pnl"><span style="margin-right:15px;font-size:14px;">&#8226;</span>¿Qué es el PNL?</a>
+              <a href="#pnl_preservar_tradicion"><span style="margin-right:15px;font-size:14px;">&#8226;</span>¿Puede el PNL ayudar a preservar la cultura, tradiciones y memoria histórica de nuestros pueblos?</a>
+          </div>
+          <a href="recopilacion_de_datos.html">Recopilación de datos</a>
+          <a href="corpus_descripcion_lasolana.html">Corpus para La Solana</a>
+          <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+          </a>
+          </div>
+    </div>
+<!-- CREATES A NEW SECTION
+    <div class="dropdown-scope">
+           <a class="dropdown-btn active_caret" >Conclusión
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container" style="display:block;">
+              <a href="#supplementary"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+        Convolutional Networks</a>
+          </div>
+    </div>
+-->
+</div>
+    <div class="sidebar" id="sidebar_small" style="background-color: #f5f5f5;">
+    <a class="active" onclick="openNav()" style="text-align:center;">☰</a>
+        <a href="#main_page_content" style="text-align:center; font-size:20px;color:#C43116"> <i class="fa fa-home"></i></a>
+        <!--<a href="#whats_inside" style="text-align:center; font-size:20px;color:#7ca81e"> <i class="fa fa-search"></i></a>-->
+        <!--<a href="#whats_inside_lectures" id="sidebar_analysis"> <img height="25" src="../resources/lectures/ico/analysis_empty.png"/></a>
+<div class="extra_components">
+    <a href="#whats_inside_research_thinking" id="sidebar_research_thinking"><img height="30" src="../resources/lectures/ico/bulb_empty.png"/></a>
+    <a href="#whats_inside_related_papers" id="sidebar_related_papers"><img height="22" src="../resources/lectures/ico/book_empty.png"/></a>
+  <a href="#whats_inside_fun" id="sidebar_fun"><img height="30" src="../resources/lectures/ico/fun_empty.png" /></a>-->
+    <a href="#lectures" style="text-align:center; font-size:20px;color:#C43116"> <i class="fa fa-list-ul"></i></a>
+</div>
+    </div>
+<script>
+function openNav() {
+  document.getElementById("sidebar").style.display = "block";
+  document.getElementById("sidebar_small").style.display = "none";
+  document.getElementById("close_sidebar_btn").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("sidebar").style.display = "none";
+  document.getElementById("sidebar_small").style.display = "block";
+  document.getElementById("close_sidebar_btn").style.display = "none";
+}
+</script>
+<script>
+function onResize() {
+  if (window.innerWidth >= 800) {
+     document.getElementById("sidebar").style.display = "block";
+     document.getElementById("sidebar_small").style.display = "none";
+     document.getElementById("close_sidebar_btn").style.display = "none";
+  }
+  else {
+     document.getElementById("sidebar").style.display = "none";
+    document.getElementById("sidebar_small").style.display = "block";
+  }
+}
+window.onresize = onResize;
+onResize();
+</script>
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function(event) {
+  this.classList.toggle("active_caret");
+  var dropdownButton = event.target || event.srcElement;
+  while(dropdownButton.className != "dropdown-scope")
+     dropdownButton = dropdownButton.parentElement;
+  var dropdownContent = dropdownButton.getElementsByClassName("dropdown-container")[0];
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+<style>
+        :root{}
+        .quiz_window {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            margin: 10px 5px;
+            padding: 3px;
+            background-color: white;
+            text-align: center;
+        }
+        #semantic_space_surfer {
+            box-shadow: 0 2px 4px #377b94, 0 1px 1px ;
+          }
+        #semantic_space_surfer:hover {
+            box-shadow: 0 6px 12px #377b94, 0 4px 4px #377b94;
+          }
+        .prompt_text {
+            font-size: 24px;
+            font-family: "Comic Neue", "Arial";
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ebf6fa;
+        }
+        .result_header {
+            font-size: 24px;
+            font-family: "Comic Neue", "Arial";
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ebf6fa;
+        }
+        .result_course_mention {
+            font-size: 18px;
+            font-family: "Comic Neue", "Arial";
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: white;
+        }
+        .comment_text {
+            font-size: 16px;
+            font-family: "Gill Sans", sans-serif;
+            font-style: italic;
+            text-align: center;
+        }
+        .answer_button {
+          width: 40%;
+          background-color: #fafafa;
+          font-size: 20px;
+          font-family: "Comic Neue", "Arial";
+          font-weight: bold;
+          color: black;
+          margin-right: 20px;
+          margin-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          border: 0px solid black;
+          border-radius: 12px;
+          padding: 20px;
+          padding-top: 0px;
+          padding-bottom: 0px;
+          text-decoration: none;
+          display: inline-block;
+          text-align: center;
+          box-shadow: 0px 2px 3px #377b94, 0 1px 1px #377b94;
+        }
+        .answer_button:hover {
+            box-shadow: 0 3px 6px #377b94, 0 2px 2px #377b94;
+        }
+        .answer_text_tight {
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+        .quiz_result {
+            font-size: 24px;
+            font-family: "Gill Sans", sans-serif;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .answer_block {
+            display: grid;
+            grid-template-columns: auto 30px;
+        }
+        .next_button {
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-left: 20px solid #1b6f8c;
+            border-bottom: 50px solid transparent;
+        }
+        .next_text {
+            color: #1b6f8c;
+            font-weight: 600;
+            font-family: "Comic Neue", "Arial";
+            margin: 0 auto;
+        }
+        progress[value]::-moz-progress-bar {
+          background-image:
+            -moz-linear-gradient(
+              135deg,
+              transparent 33%,
+              rgba(0, 0, 0, 0.1) 33%,
+              rgba(0, 0, 0, 0.1) 66%,
+              transparent 66%
+            ),
+            -moz-linear-gradient(
+              top,
+              rgba(255, 255, 255, 0.25),
+              rgba(0, 0, 0, 0.25)
+            ),
+            -moz-linear-gradient(
+              left,
+              #09c,
+              #44f
+            );
+          border-radius: 2px;
+          background-size: 35px 20px, 100% 100%, 100% 100%;
+          display: inline-block;
+        }
+    </style>
+<div class="wrapper" id="main_page_content">
+    <div class="header", id="motivacion"><h1>Motivación</h1></div>
+<div id="que_es_pnl">
+<h2>¿Qué es el PLN?</h2>
+<div class="main_content" id="main_content">
+<div id="intro">
+    <div style="float:right; margin-left: 25px; max-width:60%; text-align:center;">
+    <img height="250" src="../resources/lectures/motivación/ñ.png" style="max-width:100%;"/>
+    <div style="font-size:14px; margin-top: 10px; max-width: 200px; margin-left: auto; margin-right: auto;" class="data_text">
+        <font color="#888">
+            El sonido nasal palatal /ɲ/ se representa en español con la grafía «ñ», mientras que en francés se utiliza «gn».
+        </font>
+    </div>
+</div>
+    <p>La invención de la escritura, además de marcar el paso de la Prehistoria a la Historia, puso de manifiesto la capacidad humana de procesar y analizar el lenguaje. Por eso, se dice que la escritura es el primer ejemplo de Procesamiento del Lenguaje Natural (PLN, NLP por sus siglas en inglés).
+    </p>
+
+
+    <p>En la actualidad, el amplísimo campo del PLN cubre todo lo relacionado con la forma en que los ordenadores "entienden", procesan o generan los idiomas que hablamos las personas, es decir, el lenguaje natural. El producto más popular de esta área de estudio son los (Chat)GPT, modelos del lenguaje generativos capaces de resumir textos, escribir poesía o solucionar problemas matemáticos. Sin embargo, en un pasado cercano, generar cualquier tipo de texto con aparente coherencia y cohesión se figuraba imposible: los problemas que intentaba resolver el PLN eran, a simple vista, mucho más sencillos. Por ejemplo:</p>
+
+     <ul>
+        <li>Lematizar automáticamente la raíz de las palabras (¿cómo hacemos que un ordenador sepa que la raíz de la palabra "dijimos" es "decir"?),</li>
+        <li>Reconocer nombres propios de forma automática para anonimizar documentos (¿cómo entiende un ordenador entienda que «Día» se refiere al nombre de un supermercado y no a un periodo de tiempo?),</li>
+        <li>Desambiguar la categoría gramatical de las palabras en una oración (¿es la palabra "como" la primera persona del singular del verbo “comer” o es una conjunción?)</li>
+        <li>Representar palabras de forma numérica (vectores) para que los ordenadores puedan manejarlas sin perder sus significados.
+        <br>
+    <center>
+        <img src="../resources/lectures/motivación/wordembeddings.jpg"
+             style="max-width:90%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Vectores de palabras. Cada palabra está descrita por 150 números. Palabras con significado similar tendrán números similares y por lo tanto su distancia en el espacio vectorial será menor. En el caso de "pleita", las palabras más cercanas son "espuertas", "almendras" y "esparto". </font>
+            </div>
+        </center>
+    </li>
+    </ul>
+
+
+    <p>Con la invención de la escritura hace miles de años, se asignaron símbolos escritos a información que hasta entonces solo se transmitía de forma oral y efímera. Sin embargo, esto requería un cierto entendimiento comunitario, ciertas reglas y estándares para que todos los participantes de una comunidad lingüística asociaran un determinado símbolo a un sonido. Es aquí donde podemos trazar una analogía con el campo del Procesamiento del Lenguaje Natural, pues este se ocupa de convertir información no estructurada (en época prehistórica, ideas orales; en la actualidad, palabras escritas) en una forma estructurada y procesable (antaño, la escritura en piedra, hoja o papel; hogaño, vectores numéricos que representan el significado de las ideas). </p>
+
+    <div id="pnl_preservar_tradicion">
+   <h2>¿Puede el PLN ayudar a preservar la cultura, tradiciones y memoria histórica de nuestros pueblos?</h2>
+    <p>Como hemos apuntado, el área del PLN es inmensa. Se aplica a la detección automática de mensajes de odio en Internet, al análisis de opiniones, a la traducción automática de idiomas, al procesamiento del habla (señales) o a la creación de sistemas de recomendación y publicidad, entre muchos otros. Sin embargo, los denominados Grandes Modelos del Lenguaje (LLM, por sus siglas en inglés) como ChatGPT han revolucionado el mundo del PLN. A fecha de agosto de 2024, el instituto de la Asociación Fraunhofer de Stuttgart (importantísima red de institutos de origen alemán conocida especialmente por inventos como el airbag o el formato MP3) tiene publicada en su página web una vacante para estudiantes universitarios cuya descripción reza:</p>
+
+    <span style="font-size:14px;">
+    <span class="research_question">"</span>
+    Existe una aguda escasez de mano de obra cualificada para el Mantenimiento Industrial. Los conocimientos técnicos no se están transmitiendo a las siguientes generaciones ni a legos en la materia, lo que lleva a investigar y poner en práctica nuevas tecnologías para gestionar y transferir el saber y pericia de los expertos. Un ejemplo de dichas tecnologías son los asistentes conversacionales. En este trabajo de estudios, proponemos desarrollar un chatbot especializado en el Mantenimiento Industrial que desempeñe el papel de un curtido técnico superior.</span>
+    <details>
+      <summary  class="research_summary">
+        <span style="font-size:14px;">Texto original en alemán</span></summary>
+      <div style="font-size:14px; margin-bottom:10px;">
+        In der industriellen Instandhaltung herrscht ein massiver Fachkräftemangel. Das Wissen wird nicht an den Nachwuchs und an Nicht-Experten weitergegeben. Deshalb sollen neue, innovative Technologien für das Wissensmanagement und den Wissenstransfer erprobt und eingesetzt werden. Eine solche Technologie ist der Chatbot. In dieser Abschlussarbeit soll ein Maintenance-Chatbot entwickelt werden, der die Rolle eines erfahrenen Instandhalters übernimmt.
+      </div>
+    </details>
+    <br>
+    <p>Es llamativo el problema que describen y llamativa es la solución que proponen. No obstante, nos preguntamos:</p>
+    <div class="green_left_thought" style="font-size:18px;">
+                <p>¿Qué otros saberes se están quedando en el olvido por no transmitirse a las nuevas generaciones?</p>
+            </div>
+
+    <p>¿Erramos al decir que la sabiduría de nuestros mayores, que también es la sabiduría de nuestros pueblos, no se está transmitiendo a las nuevas generaciones? En realidad, ¿cuántos jóvenes sabemos...</p>
+
+    <ul>
+    <li>qué significa el refrán “En buen año, o malo, parvas hay en mayo”?</li>
+    <br>
+    <center>
+        <img src="../resources/lectures/motivación/eras.jpeg"
+             style="max-width:60%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Foto tomada por la autora en las inmediaciones de La Solana (Ciudad Real).</font>
+            </div>
+        </center>
+    </li>
+    <br>
+    <li>desde cuándo disfrutamos en La Solana de la facilidad de abrir un grifo y tener agua en nuestras propias casas? ¿Cómo se gestionaba antiguamente los suministros de agua?</li>
+    <br>
+    <center>
+        <img src="../resources/lectures/motivación/vallehermoso.jpg"
+             style="max-width:60%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Embalse del Puerto de Vallehermoso. Foto recuperada del blog "Joaquin Costa. La Solana. Legado Bustillo" en la entrada "Río azuer. Sus fuentes".</font>
+            </div>
+        </center>
+    </li>
+    <br>
+    <li>qué es la pleita y cómo se diferencia de la cordeta o el ramal?</li>
+    <br>
+    <center>
+        <img src="../resources/lectures/motivación/calle_pleita.jpeg"
+             style="max-width:60%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Foto tomada por la autora en La Solana (Ciudad Real).</font>
+            </div>
+        </center>
+    </li>
+    <br>
+    <li>qué pasó en nuestro pueblo durante importantes episodios históricos, como la Reconquista, la Guerra de la Independencia, la Guerra Civil, la Transición?</li>
+    </ul>
+    <p>Algunas de estas preguntas las podrían resolver rápidamente nuestros abuelos, otras se encuentran ya en los libros de Historia. En cualquier caso, son cuestiones que, probablemente, las futuras generaciones desconocerán. Planteamos, entonces:</p>
+     <p>¿Si un renombrado centro de investigación mundial sugiere solucionar la falta de transmisión de conocimiento técnico a las nuevas generaciones con un chatbot, por qué nuestro pueblo no puede disponer de una misma tecnología para honrar y preservar el saber popular de nuestros antepasados?</p>
+ 
+    <p>Pero, ¿cómo conseguir que un ordenador trate dudas cuya respuesta es desconocida por una parte de población cada vez más grande?</p>
+    <p>Esta última es una pregunta para el siguiente capítulo: <a href="recopilacion_de_datos.html">Recopilación de datos</a>.</p>
+</div>

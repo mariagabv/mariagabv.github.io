@@ -1,0 +1,24 @@
+- layout: article
+  paper-type: article
+  selected: y
+  year: 2024
+  img: MT_wmt.png
+  title: "Robustness of Fine-Tuned LLMs for Machine Translation with Varying Noise Levels: Insights for Asturian, Aragonese and Aranese"
+  authors: "Martin Bär, Elisa Forcada Rodríguez, <u>María Velasco</u>"
+  doc-url:
+  arxiv: 
+  appendix:
+  booktitle:
+  url: 
+  conf: Coming soon!
+  conf_name: Coming soon!
+  conf_year: 
+  slides:
+  abstract: >
+    We present the LCT-LAP extended abstract for the shared task on Translation into Low-Resource Languages of Spain at WMT24 within the constrained submission category. Our research examines language transferability and robustness of LLMs when fine-tuned on datasets with varying levels of noise. We used BLEU scores of 5, 15, 30, and 60 as thresholds to classify noise levels, focusing on Asturian as the primary target language. The best approach, utilizing a BLEU threshold of 15, was extended to Aranese and Aragonese. Results indicate that filtering the corpora reduces computational costs and improves performance when compared to using nearly raw data or data processed through language identification. However, it still falls short of the performance achieved by the rule-based system Apertium in Aranese and Aragonese.
+  bibtex: >
+    @inproceedings{robustness:2024,
+        title = {Robustness of Fine-Tuned LLMs for Machine Translation with Varying Noise Levels: Insights for Asturian, Aragonese and Aranese},
+        author = {Martin Bär and Elisa Forcada Rodríguez and María García-Abadillo Velasco},
+        year = {2024}
+    }

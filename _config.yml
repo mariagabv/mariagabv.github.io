@@ -1,0 +1,17 @@
+# Site settings
+exclude: [README.md,example1.md,example2.md, post.html]
+title: María Velasco
+email: magarcaa@gmail.com
+github: mariagabv
+description: > # this symbol means ignore newlines until "baseurl:"
+    Hi! I am María and this is my webpage.
+baseurl: "" # keep blank unless you're using sub-paths
+url: "http://mariagabv.github.io" # the base hostname & protocol for your site
+#paginate: 3
+
+# you can also declare arbitrary key-value data here
+#school_of_informatics: "https://www.ed.ac.uk/informatics"
+
+
+# Build settings
+markdown: kramdown
