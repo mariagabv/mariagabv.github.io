@@ -4,9 +4,42 @@ title: Flowise
 description: Demo flowise).
 ---
 
+<div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
+   style="text-align:center;font-size:30px;padding:0px;"></a>
+    <a class="active" href="../nlp_course.html" style=" align-items: center; font-weight: bold;">
+    <img height="32" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 0px;margin-top: -4px;"/>
+        RAG en   <font color="#C43116" id="for_you_in_sidebar">español</font></a>
+
+
+    <div class="dropdown-scope">
+          <a href="motivación.html">Motivación</a>
+          <a href="recopilacion_de_datos.html" >Recopilación de datos</a>
+          <a class="dropdown-btn" style="font-weight: bold;">Corpus para La Solana
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container">
+            <a href="#tabla"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Descripción general del corpus para La Solana</a>
+              <a href="#gaceta_de_lasolana"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Gaceta de La Solana</a>
+              <a href="#wikipedia"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Wikipedia</a>
+              <a href="#lasolananews"><span style="margin-right:15px;font-size:14px;">&#8226;</span>La Solana Noticias</a>
+              <a href="#blogspot"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Blog Joaquín Costa. La Solana. Legado Bustillo.</a>
+              <a href="#libro"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Libro El legado Bustillo de La Solana</a>
+              <a href="#fundación"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Fundación Histórico-Cultural Paulino Sánchez Delgado</a>
+              <a href="#miscelanea"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Miscelánea</a>
+          </div>
+          <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+
+          </a>
+
+          </div>
+
+    </div>
+
+
 
 <flowise-fullchatbot></flowise-fullchatbot>
-<body style="margin: 0">
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.initFull({
@@ -14,46 +47,47 @@ description: Demo flowise).
         apiHost: "http://localhost:3000",
         theme: {
             chatWindow: {
-                showTitle: false,
-                title: 'Chatbot solanero',
+                showTitle: true,
+                title: 'Flowise Bot',
                 titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-                welcomeMessage: '¡Hola! Soy un asistente conversacional especializado en el legado histórico de La Solana (Ciudad Real). ¿Tienes alguna pregunta?',
-                errorMessage: 'Error',
+                welcomeMessage: 'Hello! This is custom welcome message',
+                errorMessage: 'This is a custom error message',
                 backgroundColor: "#ffffff",
-                fontSize: 18,
+                height: 700,
+                width: 400,
+                fontSize: 16,
                 poweredByTextColor: "#303235",
                 botMessage: {
                     backgroundColor: "#f7f8ff",
                     textColor: "#303235",
-                    showAvatar: false,
-                    avatarSrc: "/Users/maria/Desktop/mariagabv.github.io/resources/lectures/ico/plaza_mayor.png",
+                    showAvatar: true,
+                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png",
                 },
                 userMessage: {
-                    backgroundColor: "#C43116",
+                    backgroundColor: "#3B81F6",
                     textColor: "#ffffff",
-                    showAvatar: false,
-                    avatarSrc: "https://github.com/mariagabv/mariagabv.github.io/blob/main/resources/lectures/ico/plaza_mayor.png",
+                    showAvatar: true,
+                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
                 },
                 textInput: {
-                    placeholder: '¿Cuál es tu pregunta?',
+                    placeholder: 'Type your question',
                     backgroundColor: '#ffffff',
                     textColor: '#303235',
-                    sendButtonColor: '#C43116',
+                    sendButtonColor: '#3B81F6',
                     maxChars: 50,
-                    maxCharsWarningMessage: 'La pregunta es demasiado larga. ¿Puedes reformularla en menos de 50 caracteres?',
+                    maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
                     autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
                 },
                 feedback: {
-                    color: '#C43116',
+                    color: '#303235',
                 },
                 footer: {
                     textColor: '#303235',
-                    text: 'Desarrollado con',
+                    text: 'Powered by',
                     company: 'Flowise',
                     companyLink: 'https://flowiseai.com',
                 }
             }
         }
-
     })
-</script>#C43116
+</script>
