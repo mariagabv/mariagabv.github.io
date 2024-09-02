@@ -1,0 +1,59 @@
+---
+layout: lecture
+title: Flowise
+description: Demo flowise).
+---
+
+
+<flowise-fullchatbot></flowise-fullchatbot>
+<body style="margin: 0">
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.initFull({
+        chatflowid: "91705efc-1a89-4ac5-b9d2-291fc88c30cb",
+        apiHost: "http://localhost:3000",
+        theme: {
+            chatWindow: {
+                showTitle: false,
+                title: 'Chatbot solanero',
+                titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+                welcomeMessage: '¡Hola! Soy un asistente conversacional especializado en el legado histórico de La Solana (Ciudad Real). ¿Tienes alguna pregunta?',
+                errorMessage: 'Error',
+                backgroundColor: "#ffffff",
+                fontSize: 18,
+                poweredByTextColor: "#303235",
+                botMessage: {
+                    backgroundColor: "#f7f8ff",
+                    textColor: "#303235",
+                    showAvatar: false,
+                    avatarSrc: "/Users/maria/Desktop/mariagabv.github.io/resources/lectures/ico/plaza_mayor.png",
+                },
+                userMessage: {
+                    backgroundColor: "#C43116",
+                    textColor: "#ffffff",
+                    showAvatar: false,
+                    avatarSrc: "https://github.com/mariagabv/mariagabv.github.io/blob/main/resources/lectures/ico/plaza_mayor.png",
+                },
+                textInput: {
+                    placeholder: '¿Cuál es tu pregunta?',
+                    backgroundColor: '#ffffff',
+                    textColor: '#303235',
+                    sendButtonColor: '#C43116',
+                    maxChars: 50,
+                    maxCharsWarningMessage: 'La pregunta es demasiado larga. ¿Puedes reformularla en menos de 50 caracteres?',
+                    autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
+                },
+                feedback: {
+                    color: '#C43116',
+                },
+                footer: {
+                    textColor: '#303235',
+                    text: 'Desarrollado con',
+                    company: 'Flowise',
+                    companyLink: 'https://flowiseai.com',
+                }
+            }
+        }
+
+    })
+</script>#C43116
