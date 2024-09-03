@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Corpus para La Solana</title>
+    <meta name="description" content="¿Qué datos utilizaremos para crear un asistente conversacional sobre La Solana?">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/nlp_course/corpus_descripcion_lasolana.html">
+
+    <!-- diff from head.html begin -->
+     <link rel="mask-icon" href="../resources/lectures/ico/plaza_mayor.png">
+     <link rel="alternate icon" class="js-site-favicon" type="image/png" href="../resources/lectures/ico/plaza_mayor.png">
+     <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="../resources/lectures/ico/plaza_mayor.png">
+    <!-- diff from head.html end -->
+
+    <!--<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>-->
+
+
+
+</head>
+
+
+  <!--style>
+  p {
+    text-align: justify;
+  }
+  </style-->
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">María Velasco</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/posts.html">Blog</a>
+          
+        
+          
+          <a class="page-link" href="/cv.html">CV</a>
+          
+        
+          
+          <a class="page-link" href="/papers.html">Publications</a>
+          
+        
+          
+          <a class="page-link" href="/nlp_course.html">RAG en <strong><font color="#C43116">español</font></strong></a>
+          
+        
+<!--        <a href="">
+            <img src="image/UoS.ico" alt="DCS">
+        </a>-->
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <!-- the next two lines are inserted once per page even if there are several shtukovinas,
+     the rest is one-per-shtukovina; read more: https://flickity.metafizzy.co/options.html -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" media="screen">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+
+
+.demo_sidebar {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+
+  position: relative;
+    height: auto;
+    width: 290px;
+}
+
+.demo_sidebar_text {
+    font-size: 18px;
+}
+
+.demo_sidebar_comment {
+    font-size:15px;
+    margin-left:10px;
+    font-family: "Comic Neue", "Arial";
+
+}
+
+
+
+.demo_sidebar a {
+  display: block;
+  color: black;
+  padding: 8px;
+  text-decoration: none;
+
+}
+
+.demo_sidebar a li {
+  margin-left: 5px;
+  padding: 0px;
+}
+
+
+
+.demo_sidebar a:hover {
+  box-shadow: 0 3px 6px #6e8f27, 0 1px 1px #6e8f27;
+}
+
+.demo_sidebar a:hover:not(.active) {
+  background-color: #f3f3f3;
+}
+
+.demo_sidebar .main_components {
+  background-color: #f3f3f3;
+}
+.demo_sidebar .extra_components {
+  background-color: #eaeaea;
+}
+
+
+#demo_sidebar_research_thinking:hover {
+  box-shadow: 0 3px 6px #a68305, 0 1px 1px #a68305;
+
+}
+
+
+#demo_sidebar_related_papers:hover {
+  box-shadow: 0 3px 6px #8a4972, 0 1px 1px #8a4972;
+}
+
+
+#demo_sidebar_fun:hover {
+  box-shadow: 0 3px 6px #377b94, 0 1px 1px #377b94;
+}
+
+</style>
+
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap");
+
+
+
+#main_page_content {
+  margin-left: 300px;
+  padding: 30px;
+  padding-left: 70px;
+  text-align: justify;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 270px;
+  background-color: #fafafa;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+}
+
+.sidebar a, .dropdown-btn {
+  display: block;
+  color: black;
+  padding: 8px;
+  text-decoration: none;
+  border-right: 5px solid #C43116;
+}
+
+
+.sidebar a li {
+  margin-left: 10px;
+  padding: 0px;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #f4f4f4;
+}
+
+.active_caret .fa-caret-down
+{
+    color: #C43116;
+    font-size: 30px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+.sidebar a.active {
+  background-color: #e3e3e3;
+  color: black;
+}
+
+.sidebar a:hover {
+  box-shadow: 0 3px 6px #D7472C, 0 1px 1px #D7472C;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #f3f3f3;
+}
+
+.sidebar .extra_components {
+  background-color: #eaeaea;
+}
+
+#sidebar_analysis {
+    padding: 10px;
+}
+
+#sidebar_research_thinking {
+padding: 10px;
+  border-right: 5px solid #fad400;
+}
+#sidebar_research_thinking:hover {
+  box-shadow: 0 3px 6px #a68305, 0 1px 1px #a68305;
+
+}
+
+
+#sidebar_related_papers {
+padding: 10px;
+  border-right: 5px solid #d192ba;
+}
+#sidebar_related_papers:hover {
+  box-shadow: 0 3px 6px #8a4972, 0 1px 1px #8a4972;
+}
+
+
+#sidebar_fun {
+padding: 10px;
+  border-right: 5px solid #6fb7d1;
+}
+#sidebar_fun:hover {
+  box-shadow: 0 3px 6px #377b94, 0 1px 1px #377b94;
+}
+
+
+.sidebar_ico {
+    float: right;
+    height: 20;
+  }
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+#sidebar_small { width: 60px; }
+
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    width: 200px;
+  }
+  #main_page_content {
+  margin-left: 200px;
+  padding-left: 50px;
+}
+#for_you_in_sidebar {display: none;}
+
+  }
+
+
+@media screen and (max-width: 900px) {
+
+  div.content {margin-left: 0;}
+  #main_page_content {margin-left: 80px; padding: 15px;}
+
+  #demo_sidebar {}
+}
+
+
+.softmax_tau_bokeh {
+    font-size: 16px;
+  }
+
+
+
+.card_with_ico {
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+  }
+  .card_with_ico p {
+    padding: 10px;
+  }
+  .card_with_ico ul {
+    padding: 10px;
+  }
+  .card_with_ico .text_box_green {
+    border: 1px solid #d8e8b5;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .text_box_pink {
+    border: 1px solid #dec8d6;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .text_box_yellow {
+    border: 1px solid #f0e4a5;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .ico {
+    float: left;
+    width: 25px;
+  }
+
+
+
+.text_box_green {
+    border: 1px solid #C43116;
+    border-radius: 5px;
+    display: table;
+    margin-left: 20px;
+  }
+
+
+.text_box_grey_background {
+    border: 1px solid #C43116;  /* Increased border thickness to 2px */
+    border-radius: 5px;
+    display: table;
+    margin-left: 20px;
+    background-color: #f0f0f0;  /* Light grey background */
+}
+
+
+  .text_box_green p {
+    padding: 10px;
+    padding-bottom: 0px;
+  }
+
+
+
+.green_left_thought {
+    border-left: 5px solid #C43116;
+    margin: 10px;
+    margin-left: 20px;
+    padding: 0px;
+    background-color: #F4F4F6;
+  }
+  .green_left_thought p {
+
+    margin-left: 10px;
+    padding: 5px;
+  }
+
+
+.box_green_left {
+    border-left: 2px solid #C43116;
+    margin-left: 10px;
+    padding: 10px;
+  }
+
+.box_green_right {
+    border-right: 2px solid #C43116;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
+  .box_violet_right {
+    border-right: 2px solid #67468f;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
+.box_pink_left {
+    border-left: 2px solid #7a3160;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+ .box_yellow_left {
+    border-left: 2px solid #d6b000;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+  .box_blue_left {
+    border-left: 2px solid #0278a1;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+.paper_title {
+    text-align: center;
+    padding: 5px;
+    padding-top: 0px;
+    font-size: 16px;
+
+  }
+  .paper_authors {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p {
+    text-align: justify;
+  }
+
+
+  .greenCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+
+  #thumbnail_green {
+    box-shadow: 0 2px 4px #C43116, 0 1px 1px #C43116;
+  }
+  #thumbnail_green:hover {
+    box-shadow: 0 6px 12px #751D0D, 0 4px 4px #751D0D;
+  }
+
+  #thumbnail_violet {
+    box-shadow: 0 2px 4px #655578, 0 1px 1px #655578;
+  }
+  #thumbnail_violet:hover {
+    box-shadow: 0 6px 12px #655578, 0 4px 4px #655578;
+  }
+
+  #thumbnail_paper {
+    box-shadow: 0 2px 4px #ab859e, 0 1px 1px #ab859e;
+  }
+  #thumbnail_paper:hover {
+    box-shadow: 0 6px 12px #ab859e, 0 4px 4px #ab859e;
+  }
+
+
+
+  #thumbnail_blue {
+    box-shadow: 0 2px 4px #377b94, 0 1px 1px ;
+  }
+  #thumbnail_blue:hover {
+    box-shadow: 0 6px 12px #377b94, 0 4px 4px #377b94;
+  }
+
+  .paperCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .paperIntro {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+
+  .showMePaper {
+    box-shadow: 0 2px 4px #a68305, 0 2px 1px #a68305;
+  }
+  .showMePaper:hover {
+    box-shadow: 0 3px 6px #ab859e, 0 4px 4px #ab859e;
+  }
+
+
+  .cardContent {
+    padding: 10px;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .conf_name {
+    float: right;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 0px;
+    background-color: #f7edf4;
+    border: 1px solid #d1a1c3;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+  }
+
+
+
+  .paper_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #cf99be;
+    border: 1px solid #8c2b6e;
+    border-radius: 50%;
+  }
+
+  .research_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #ffda00;
+    border: 1px solid #998300;
+    border-radius: 50%;
+  }
+
+  .fun_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #68c7e8;
+    border: 1px solid #0278a1;
+    border-radius: 50%;
+  }
+  .green_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #DB8373;
+    border: 1px solid #C43116;
+    border-radius: 50%;
+  }
+
+.violet_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #b59fcf;
+    border: 1px solid #67468f;
+    border-radius: 50%;
+  }
+
+  .data_text {
+    font-family: "Comic Neue", "Arial";
+  }
+
+
+
+
+   .researchCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .researchIntro {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+    #thumbnail_research {
+    box-shadow: 0 2px 4px #a68305, 0 1px 1px #a68305;
+  }
+  #thumbnail_research:hover {
+    box-shadow: 0 6px 12px #a68305, 0 4px 4px #a68305;
+  }
+  .research_title {
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    font-family: "Comic Neue", "Arial";
+    background-color: #fafaf5;
+
+
+  }
+   .research_tag {
+    float: right;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 0px;
+    background-color: #f5f0d5;
+    border: 1px solid #fad400;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+  }
+
+    .research_question {
+    font-weight:bold;
+    font-size:18px;
+    background-color:#F4F4F6;
+    margin-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .research_summary {
+    padding: 5px;
+    font-size: 18px;
+    font-family: "Comic Neue", "Arial";
+    background-color: #F4F4F6;
+    margin-left:10px;
+  }
+
+
+    .text_table td, .text_table th {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #dedeca; /* Add border for horizontal lines */
+}
+
+
+  </style>
+
+<!--##################################################-->
+
+    <div>
+        <div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
+   style="text-align:center;font-size:30px;padding:0px;"></a>
+    <a class="active" href="../nlp_course.html" style=" align-items: center; font-weight: bold;">
+    <img height="32" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 0px;margin-top: -4px;"/>
+        RAG en   <font color="#C43116" id="for_you_in_sidebar">español</font></a>
+
+
+    <div class="dropdown-scope">
+          <a href="motivación.html">Motivación</a>
+          <a href="recopilacion_de_datos.html" >Recopilación de datos</a>
+          <a class="dropdown-btn" style="font-weight: bold;">Corpus para La Solana
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container">
+            <a href="#tabla"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Descripción general del corpus para La Solana</a>
+              <a href="#gaceta_de_lasolana"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Gaceta de La Solana</a>
+              <a href="#wikipedia"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Wikipedia</a>
+              <a href="#lasolananews"><span style="margin-right:15px;font-size:14px;">&#8226;</span>La Solana Noticias</a>
+              <a href="#blogspot"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Blog Joaquín Costa. La Solana. Legado Bustillo.</a>
+              <a href="#libro"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Libro El legado Bustillo de La Solana</a>
+              <a href="#fundación"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Fundación Histórico-Cultural Paulino Sánchez Delgado</a>
+              <a href="#miscelanea"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Miscelánea</a>
+          </div>
+          <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+
+          </a>
+
+          </div>
+
+    </div>
+
+
+
+<script>
+function openNav() {
+  document.getElementById("sidebar").style.display = "block";
+  document.getElementById("sidebar_small").style.display = "none";
+  document.getElementById("close_sidebar_btn").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("sidebar").style.display = "none";
+  document.getElementById("sidebar_small").style.display = "block";
+  document.getElementById("close_sidebar_btn").style.display = "none";
+}
+
+</script>
+
+
+<script>
+function onResize() {
+  if (window.innerWidth >= 800) {
+     document.getElementById("sidebar").style.display = "block";
+     document.getElementById("sidebar_small").style.display = "none";
+     document.getElementById("close_sidebar_btn").style.display = "none";
+  }
+  else {
+     document.getElementById("sidebar").style.display = "none";
+     document.getElementById("sidebar_small").style.display = "block";
+  }
+}
+window.onresize = onResize;
+onResize();
+</script>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function(event) {
+  this.classList.toggle("active_caret");
+  var dropdownButton = event.target || event.srcElement;
+  while(dropdownButton.className != "dropdown-scope")
+     dropdownButton = dropdownButton.parentElement;
+  var dropdownContent = dropdownButton.getElementsByClassName("dropdown-container")[0];
+
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+
+
+
+<div class="wrapper" id="main_page_content">
+    <div class="header"><h1>Corpus para La Solana</h1></div>
+      <p>En esta entrada describimos los datos que se utilizarán para crear el asistente conversacional. Al final de nuestra investigación, determinaremos si todos los conjuntos de datos contribuyen a mejorar nuestro asistente o si podemos prescindir de algunos de ellos. </p>
+
+
+<div class="main_content" id="main_content">
+
+<div id="tabla">
+  <h2>Descripción general del corpus para La Solana</h2>
+
+<p>En la tabla se encuentra el nombre del conjunto de datos, el tipo de archivo, el número de ejemplos o ediciones, el número de palabras de cada conjunto (si es posible calcularlo) y la fuente de donde se ha adquirido.</p>
+
+<br>
+<table class="text_table">
+        <thead>
+            <tr>
+                <th style="text-align:left;">Dataset</th>
+                <th>Tipo</th>
+                <th>Instancias</th>
+                <th>Palabras</th>
+                <th>Fuentes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align:left;"><a href="#gaceta_de_lasolana" target="_blank"><strong>Gaceta de La Solana</strong></td>
+                <td>pdf con OCR</td>
+                <td>203 ediciones</td>
+                <td> - </td>
+                <td>
+                    <a href="https://www.lasolana.es/ayuntamiento/radio-horizonte/la-gaceta" target="_blank">Ayto. La Solana</a>, 
+                    <a href="https://ceclmdigital.uclm.es/details.vm?q=id:0002509276&lang=es&view=global" target="_blank">BVCL</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left;"><a href="#wikipedia" target="_blank"><strong>Wikipedia</strong></td>
+                <td>html/txt</td>
+                <td>93 entradas</td>
+                <td> 111 500</td>
+                <td><a href="https://es.wikipedia.org/w/index.php?title=Especial:LoQueEnlazaAqu%C3%AD/La_Solana&namespace=0&limit=500&offset=0%7C4779406" target="_blank">Lo que enlaza aquí</a></td>
+            </tr>
+            <tr>
+                <td style="text-align:left;"><a href="#lasolananews" target="_blank"><strong>LaSolanaNews</strong></td>
+                <td>tsv/excel</td>
+                <td>1093 artículos</td>
+                <td>366 000</td>
+                <td>
+                    <a href="https://www.lasolana.es/laciudad/noticias" target="_blank">Ayto. La Solana</a>, 
+                    <a href="https://www.kaggle.com/datasets/mgabve/lasolananews" target="_blank">Kaggle</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left;"><a href="#blogspot" target="_blank"><strong>Blog Joaquín Costa. La Solana. Legado bustillo.</strong></td>
+                <td>txt</td>
+                <td>85 entradas</td>
+                <td>92 251</td>
+                <td><a href="https://joaquincostalasolanalegadobustillo.blogspot.com/" target="_blank">Blogspot</a></td>
+            </tr>
+            <tr>
+                <td style="text-align:left;"><a href="#legado" target="_blank"><strong>Libro El legado Bustillo de La Solana de García-Gallego</strong></td>
+                <td>pdf con OCR</td>
+                <td>65 páginas</td>
+                <td>15 900</td>
+                <td>-<a href="https://bdh.bne.es/bnesearch/CompleteSearch.do?showYearItems=&field=todos&advanced=false&exact=on&textH=&completeText=&text=El+legado+Bustillo+de+La+Solana&pageSize=1&pageSizeAbrv=30&pageNumber=2" target="_blank">Biblioteca Digital Hispánica</a></td>
+            </tr>
+            <tr>
+                <td style="text-align:left;"><a href="#fundacion" target="_blank"><strong>Fundación Histórico-Cultural Paulino Sánchez Delgado</strong></td>
+                <td>txt</td>
+                <td>14 archivos</td>
+                <td>3645</td>
+                <td>-<a href="https://fundacionpaulinosanchez.es/index.php/historia" target="_blank">Sitio web de la fundación</a></td>
+            </tr>
+            <tr>
+                <td style="text-align:left;"><a href="#gaceta_de_lasolana" target="_blank"><strong>Miscelánea</strong></td>
+                <td>pdf con OCR, txt</td>
+                <td>6 archivos, unas 60 páginas</td>
+                <td>-</td>
+                <td>
+                  <a href="https://www.lasolana.es/index.php" target="_blank">Ayto. de La Solana (1-4)</a>,
+                  <a href="https://www.viajesporcastillalamancha.es/downloads/rutas/129/la-solana.pdf" target="_blank">Página Web Turismo de Castilla la Mancha (5)</a>, 
+                  <a href="https://campomontiel.wordpress.com/wp-content/uploads/2012/01/laruta_29.pdf" target="_blank">Revista de la Asociación Amigos del Campo de Montiel (6)</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+ <p> En las siguientes secciones se muestra una descripción pormenorizada de los diferentes conjuntos de datos.</p>
+
+
+<br>
+<div id="gaceta_de_lasolana">
+  <h2 style="background-color: #FCE7E3;">Gaceta de La Solana</h2>
+
+
+
+  <p>La Gaceta de La Solana es una publicación periódica bimensual financiada por el Ayuntamiento de La Solana y gestionada por Radio Horizonte. Está en circulación desde julio de 1980 y cubre temas de información e historia local de La Solana. A fecha en la que se escribe esta sección, existen 302 ediciones (la edición 282 y 283, publicadas durante la pandemia, se consolidaron en una sola), aunque solo disponemos de 204 digitalizadas con reconocimiento óptico de caracteres. En total, estas ediciones:
+
+  <ul>
+<li>suman 11 075 páginas, con un promedio de 55 páginas por edición.</li>
+<li>La más extensa cuenta con 124 páginas.</li>
+<li>La más breve tiene 32 páginas.</li>
+<li>Estas variaciones que suelen estar relacionadas con ediciones especiales, como las que anuncian las Fiestas de Santiago y Santa Ana, o con la antigüedad de las mismas, pues ediciones más antiguas tienden a tener menos páginas.</p></li>
+</ul>
+<br>
+
+
+ <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true }'
+     style="width:100%; margin-bottom:0px; margin-left:0px; float:right;">
+              <div class="carousel-cell" style="width:60%"><center>
+                    <img width=70% src="../resources/lectures/corpus_lasolana/portada_51.png"/></center>
+                  <p style="text-align:center;margin-left:0px;margin-right:0px;">
+                    <br>
+                      Portada de la Gaceta de La Solana edicición 51 en el año 1985.</p>
+              </div>
+              <div class="carousel-cell" style="width:60%"><center>
+                    <img width=70% src="../resources/lectures/corpus_lasolana/portada_300.png"/></center>
+                  <p style="text-align:center;margin-left:0px;margin-right:0px;">
+                    <br>
+                      Portada de la Gaceta de La Solana edicición 300 en el año 2023.</p>
+              </div>
+              <div class="carousel-cell" style="width:60%"><center>
+                    <img width=70% src="../resources/lectures/corpus_lasolana/energia_solar.png"/></center>
+                  <p style="text-align:center;margin-left:0px;margin-right:0px;">
+                    <br>
+                      Maquetación de la Gaceta de La Solana en 1985.</p>
+              </div>
+              <div class="carousel-cell" style="width:60%"><center>
+                    <img width=70% src="../resources/lectures/corpus_lasolana/placas_solares.png"/></center>
+                  <p style="text-align:center;margin-left:0px;margin-right:0px;">
+                    <br>
+                      Maquetación de la Gaceta de La Solana en 2023.</p>
+              </div>
+              <div class="carousel-cell" style="width:60%"><center>
+                    <img width=70% src="../resources/lectures/corpus_lasolana/cooperativa.png"/></center>
+                  <p style="text-align:center;margin-left:0px;margin-right:0px;">
+                    <br>
+                      Publicidad en la Gaceta de La Solana en 1985.</p>
+              </div>
+              <div class="carousel-cell" style="width:60%"><center>
+                    <img width=70% src="../resources/lectures/corpus_lasolana/pedrin.png"/></center>
+                  <p style="text-align:center;margin-left:0px;margin-right:0px;">
+                    <br>
+                      Publicidad en la Gaceta de La Solana en 2023.</p>
+                      
+              </div>
+      </div>
+      <div style="clear: both;"></div>
+      
+  </div>
+      <br>
+      <br>
+
+
+        <fieldset style="background-color: #f0f0f0;">
+        <legend style="color: #C43116; font-weight: bold;">¿Por qué Gaceta de La Solana?</legend>
+        <p>La Gaceta de La Solana cubre la temática que buscamos para el asistente conversacional y los autores y editores son expertos en la materia. Sin embargo, hay ciertas dificultades que denemos que tener en cuenta:</p>
+        <ul>
+            <li>La Gaceta lleva publicándose más de 40 años. Se han producido <strong>cambios de formato y estructura que afectan la forma en que el ordenador procesa la información</strong>, por lo que no todas las ediciones se procesarán igual. </li>
+            <li>Hay gráficas o imágenes con <strong>información relevante que no han sido procesada con reconocimiento óptico de caracteres</strong> y, por lo tanto, puede que nuestro asistente no sea capaz de utilizarlas. </li>
+            <li><strong>Las gacetas no están estructuradas</strong> según lo visto en la sección <a href="recopilacion_de_datos.html"></span>Recopilación de datos</a>. Esto significa que, a pesar de que las revistas tienen un índice organizado, no podemos acceder a él fácilmente ni extraer datos estadísticos.</li>
+    </fieldset>
+</div>
+<br>
+
+ 
+<br>
+<div id="wikipedia">
+  <h2 style="background-color: #FCE7E3;">Wikipedia</h2>
+    "Páginas que enlazan con" (en inglés, "What links here") es una herramienta que Wikipedia pone a disposición de los usuarios. Permite extraer una lista de entradas que dirigen al artículo indicado por el usuario. Esto es útil por numerosas razones; por ejemplo, el número de enlaces que dirigen a una página muestra su popularidad e importancia. Además, ayuda a desambiguar entidades homónimas. En nuestro caso, estamos interesados en obtener contexto sobre La Solana y partimos de la base que las entradas que mencionan la villa pueden ser útiles para nuestro objetivo. Al pulsar en la flecha de abajo, se puede ver la lista de enlaces que llevan a la entrada de La Solana.
+  <details>
+
+    <br>
+
+      <summary  class="research_summary">
+          <span style="font-size:14px;">Lista de entradas en Wikipedia que llevan a La Solana</span></summary>
+        <div style="font-size:14px; margin-bottom:10px;">
+
+          <ul>
+            <li>214.ª Brigada Mixta (Ejército Popular de la República) </li>
+            <li>Aceite Campo de Montiel </li>
+            <li>Agrociudad </li>
+            <li>Alfarería en la provincia de Ciudad Real </li>
+            <li>Alhambra (Ciudad Real) </li>
+            <li>Álvaro II de Bazán </li>
+            <li>Álvaro de Bazán </li>
+            <li>Amparo Pacheco </li>
+            <li>Ancha es Castilla-La Mancha </li>
+            <li>Ángel Romero de Ávila </li>
+            <li>Antonio Serrano (atleta) </li>
+            <li>Argamasilla de Alba </li>
+            <li>Autovía del Guadiana </li>
+            <li>Autovía del Sur </li>
+            <li>Azafrán de La Mancha </li>
+            <li>CM-3129 </li>
+            <li>Camino de Guadalupe de Levante </li>
+            <li>Campillo de Aragón </li>
+            <li>Campo de Montiel (Ciudad Real) </li>
+            <li>Campo de Montiel (histórico) </li>
+            <li>Carmen Velacoracho de Lara </li>
+            <li>Casimiro García-Abadillo </li>
+            <li>Castillo de Peñarroya (Ciudad Real) </li>
+            <li>Cóbreces </li>
+            <li>Dialecto navarro del euskera </li>
+            <li>Dolores de Lara </li>
+            <li>Eduardo Barreiros </li>
+            <li>Eduardo Serrano Branat </li>
+            <li>Elecciones municipales de 2015 en la provincia de Ciudad Real </li>
+            <li>Federico Romero </li>
+            <li>Felipe Benjumea Llorente </li>
+            <li>Felipe I de Parma </li>
+            <li>Fernando I de Parma </li>
+            <li>Fernando del Rey Reguillo </li>
+            <li>Fiestas de Interés Turístico de Castilla-La Mancha </li>
+            <li>Fran López Castillo </li>
+            <li>Fran Manzanara </li>
+            <li>Gabriel García Maroto </li>
+            <li>Herminia Parra </li>
+            <li>Iglesia de Santa Catalina (La Solana) </li>
+            <li>Inmaculado Corazón de María (Torreblanca) </li>
+            <li>Isidro Antequera </li>
+            <li>Iván Romero </li>
+            <li>José Aureliano de la Guía </li>
+            <li>Josefina Meneses </li>
+            <li>La Mancha (Ciudad Real) </li>
+            <li>La Ruta de Don Quijote, el itinerario ecoturístico </li>
+            <li>La Solana </li>
+            <li>La mujer en la alfarería </li>
+            <li>Liga EBA 2022-23 </li>
+            <li>Liga EBA 2023-24 </li>
+            <li>Luis de Borbón y Farnesio </li>
+            <li>Luis de Etruria </li>
+            <li>Luis de la Cueva y Toledo </li>
+            <li>Manzanares (Ciudad Real) </li>
+            <li>Marquesado de Paradas </li>
+            <li>Máximo Díaz-Cano </li>
+            <li>Membrilla </li>
+            <li>Miss Grand España 2018 </li>
+            <li>Montiel </li>
+            <li>Moralzarzal </li>
+            <li>Murla </li>
+            <li>N-430 </li>
+            <li>Partido judicial de Manzanares </li>
+            <li>Paula Sevilla </li>
+            <li>Pedro Fernández de Castro el Castellano </li>
+            <li>Pedro Reguillo </li>
+            <li>Pilar de Vicente-Gella </li>
+            <li>Pozo de la Serna </li>
+            <li>Premio Searus de Poesía </li>
+            <li>Primera Autonómica Preferente de Castilla-La Mancha 2010-11 </li>
+            <li>Primera Autonómica Preferente de Castilla-La Mancha 2011-12 </li>
+            <li>Primera Autonómica Preferente de Castilla-La Mancha 2012-13 </li>
+            <li>Primera Autonómica Preferente de Castilla-La Mancha 2013-14 </li>
+            <li>Primera Autonómica Preferente de Castilla-La Mancha 2014-15 </li>
+            <li>Provincia de Ciudad Real </li>
+            <li>Quiteria </li>
+            <li>Regimiento de Caballería «Lusitania» n.º 8 </li>
+            <li>Río Alhambra </li>
+            <li>Río Azuer </li>
+            <li>Ruta de don Quijote </li>
+            <li>Ruy Pérez II de Villegas </li>
+            <li>Santos Montoya </li>
+            <li>Segunda División Femenina de España 2017-18 </li>
+            <li>Segunda División Femenina de España 2020-21 </li>
+            <li>Segunda División Femenina de España 2021-22 </li>
+            <li>Servicio Público de Empleo de Castilla-La Mancha </li>
+            <li>TeleValdepeñas </li>
+            <li>Tercera Federación - Grupo XVIII 2022-23 </li>
+            <li>Tercera Federación - Grupo XVIII 2023-24 </li>
+            <li>Tomás Barrera </li>
+            <li>Trifón Medrano </li>
+            <li>Valdepeñas (Ciudad Real)</li>
+          </ul>
+                <br>
+        </div>
+      </details>
+                <br>
+  
+  <fieldset style="background-color: #f0f0f0;">
+        <legend style="color: #C43116; font-weight: bold;">¿Por qué Wikipedia?</legend>
+        <p>Wikipedia es una de las fuentes más populares para adquirir información. Esta información se puede extraer de manera automática en diferentes formatos que presentan ventajas y desventajas:</p>
+        <ul>
+            <li>Como texto plano: es fácil manipular el texto, pero <strong>mantener el formato de las tablas, tan abundantes en Wikipedia, resulta más complicado</strong>. </li>
+            <li>Como html, formato de página web: este formato mantiene la estructura original que vemos en Wikipedia, pero puede necesitar un procesamiento algo más complejo que el texto plano para poder ser utilizado en el asistente conversacional. </li>
+        </ul>
+        <strong>¡Ojo!</strong> Los enlaces a Wikipedia <strong>no siempre son correctos</strong>. Por ejemplo, en nuestra investigación encontramos que La Solana (Ciudad Real) aparece en la entrada titulada "Dialecto navarro del euskera". Probablemente se ha confundido la villa manchega con la localidad navarra Muniáin de la Solana. En  Procesamiento del Lenguaje Natural, este área de investigación se llama "Entity Linking".
+  </fieldset>
+</div>
+<br>
+
+
+<br>
+<div id="lasolananews">
+  <h2 style="background-color: #FCE7E3;">La Solana Noticias</h2>
+
+  <p>Este es uno de los dataset que podemos explorar en la sección <a href="recopilacion_de_datos.html">Recopilación de datos</a>. La recopilación contiene 1093 noticias sobre la localidad de La Solana y el archivo original está dividido en seis columnas: enlace, título del artículo, fecha de publicación, texto del artículo, autor y tema. El tema (política, deporte, economía, cultura, sociedad, sucesos, educación) se ha añadido manualmente por la autora de este sitio web siguiendo estas directrices:</p>
+
+  <ul>
+    <li><strong>política</strong>: medidas o discrepancias políticas y regulaciones.
+        <ul>
+            <li><em>El PP critica a los socialistas “porque no están a la altura de la sociedad solanera”</em></li>
+        </ul>
+    </li>
+
+    <li><strong>deporte</strong>: todo tipo de deportes, incluidos los fichajes.
+        <ul>
+            <li><em>El CF La Solana abusa de un flojo Casasimarro (6-0) y escala hasta el quinto puesto en la tabla</em></li>
+        </ul>
+    </li>
+
+    <li><strong>economía</strong>: agricultura, gastronomía, comercio local, emprendimiento local y desempleo.
+        <ul>
+            <li><em>Los agricultores, de uñas con los primeros precios en tablilla: “Hay parcelas que tendrían pérdidas”</em></li>
+        </ul>
+    </li>
+
+    <li><strong>cultura</strong>: arte, espectáculos, actuaciones, poesía, música o literatura.
+        <ul>
+            <li><em>Más de 10.000 personas pasaron por el 'Oasis Sound' en su segunda edición</em></li>
+        </ul>
+    </li>
+
+    <li><strong>sociedad</strong>: un término más amplio que abarca todos los temas relacionados con la sociedad, incluyendo religión, compromiso social, festividades, eventos taurinos, bienestar o salud. Las noticias sobre el coronavirus también se incluyeron en esta sección.
+        <ul>
+            <li><em>Eugenio Velasco: “Los jóvenes fuman más y los adultos menos”</em></li>
+            <li><em>Las fiestas del Cristo del Amor terminan con récord de recaudación tras venderse todos los dulces</em></li>
+            <li><em>La Hermandad de Santiago presenta los actos del patrón</em></li>
+        </ul>
+    </li>
+
+    <li><strong>sucesos</strong>: condiciones meteorológicas, actualizaciones de tráfico, incidentes y otros eventos notables donde las fuerzas del orden y otras autoridades suelen estar involucradas.
+        <ul>
+            <li><em>La Policía Local atiende cinco requerimientos en Nochebuena y otros sucesos durante el fin de semana</em></li>
+            <li><em>Crónica de una tarde de súbito viento huracanado</em></li>
+        </ul>
+    </li>
+
+    <li><strong>educación</strong>: escuelas e institutos del municipio. También noticias sobre medidas educativas para combatir el desempleo.
+        <ul>
+            <li><em>El IES Clara Campoamor hace públicos los datos finales de 2º de Bachillerato</em></li>
+        </ul>
+    </li>
+</ul>
+
+
+    <div class="green_left_thought" style="font-size:15px;">
+                <p>Como veíamos en la sección <a href="recopilacion_de_datos.html"></span>Recopilación de datos</a>, este conjunto de datos sí está estructurado. ¿Qué información podemos extraer de este corpus que no podamos extraer de las gacetas?</p>
+            </div>
+    <br>
+
+    <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true }'
+     style="width:100%; margin-bottom:0px; margin-left:0px; float:right;">
+              <div class="carousel-cell" style="width:100%"><center>
+                    <img width=80% src="../resources/lectures/corpus_lasolana/temas_year.png"/></center>
+                  <p style="text-align:center;margin-left:30px;margin-right:30px;">
+                    <br>
+                      En el eje horizontal se representan los años en los que se han publicado artículos. El año con mayor número de publicaciones es 2011, mientras que 2020 tiene el menor, posiblemente debido a la pandemia de coronavirus. Cabe destacar que los datos de 2024 aún no están completos. Los temas más frecuentes son sociedad, sucesos y deportes.</p>
+              </div>
+              <div class="carousel-cell" style="width:100%"><center>
+                    <img width=80% src="../resources/lectures/corpus_lasolana/autor_porcentaje.png"/></center>
+                    <br>
+                  <p style="text-align:center;margin-left:30px;margin-right:30px;">
+                      El eje horizontal representa el número de artículos escritos por cada autor desde el comienzo de las publicaciones. Los tres autores más productivos han escrito alrededor del 90% de todos los artículos. Cabe destacar que no todas los artículos están atribuidos a un autor en la fuente original. 
+              </div>
+              <div class="carousel-cell" style="width:100%"><center>
+                <br>
+                    <img width=80% src="../resources/lectures/corpus_lasolana/autor_tema.png"/></center>
+                  <p style="text-align:center;margin-left:30px;margin-right:30px;">
+                      La gráfica muestra cierto balance entre los autores y temas de acuerdo con su número de publicaciones. Observamos que el autor más prolífero es el que más artículos escribe sobre deporte. </p>
+              </div>
+      </div>
+      <div style="clear: both;"></div>
+    <br>
+
+
+<br>
+<div id="blogspot">
+<h2 style="background-color: #FCE7E3;">Blog Joaquín Costa. La Solana. Legado Bustillo.</h2>
+  <p> El blog "Joaquín Costa. La Solana. Legado Bustillo" de Julián Simón contiene 85 artículos sobre el legado histórico de La Solana. La longitud de los artículos varía considerablemente: el más corto tiene apenas 30 palabras, mientras que el más largo consta de casi 8500 palabras.</p>
+<details>
+
+    <br>
+
+      <summary  class="research_summary">
+          <span style="font-size:14px;">Títulos de las entradas en el blog de Julián Simón</span></summary>
+        <div style="font-size:14px; margin-bottom:10px;">
+
+          <ul>
+            <li>1 CH.- LAS CHOZAS DE LA SOLANA  </li>
+            <li>1.882. MOLINO DE VIENTO </li>
+            <li>1.884. ROGATIVAS. SEQUÍA. LANGOSTA. </li>
+            <li>2 CH.- CONSTRUCCIÓN DE LAS CHOZAS </li>
+            <li>3 CH.- INTERIOR DE LAS CHOZAS </li>
+            <li>A LA MEMORIA DE DON ANTONIO MACHADO </li>
+            <li>ACOMODO DE PASTOS EN LA SOLANA  </li>
+            <li>ALFOMBRAS. DÍA DEL CORPUS. CALLE CONVENTO </li>
+            <li>AYUNTAMIENTOS DEMOCRÁTICOS PRIMERAS ELECCIONES 3 DE ABRIL DE 1.979  </li>
+            <li>CALLES DEDICADAS A MUJERES  </li>
+            <li>CAPILLAS DE LA PARROQUIA DE SANTA CATALINA  </li>
+            <li>CARTA DEL OBISPO DE C. REAL AL DIARIO DE ZARAGOZA </li>
+            <li>CASO DE RUPTURA DE LA NOVIEZ O FALLECIMIENTO DE UNO DE LOS NOVIOS. (3)  </li>
+            <li>COLEGIO DE Ntra, Sra. DE PEÑARROYA (DEL AVE MARÍA)  </li>
+            <li>COLEGIO DE SAN LUIS GONZAGA </li>
+            <li>COLEGIO ROMERO PEÑA. LA SOLANA  </li>
+            <li>COMPOSTURA DE LA TORRE AÑO 1.881  </li>
+            <li>CONVENTO DE TRINITARIOS </li>
+            <li>COOPERATIVA LA UNIÓN. FÁBRICA DE HARINAS Y PANADERÍA  </li>
+            <li>COSTA ABOGADO DEFENSOR  </li>
+            <li>D. JOAQUÍN COSTA: LA NOVIEZ EN LA SOLANA EN 1.897 </li>
+            <li>DEMANDA PRESENTADA POR COSTA EN LA SOLANA </li>
+            <li>DON JOAQUÍN COSTA. BREVE BIOGRAFÍA  </li>
+            <li>DON MANUEL CIGES APARICIO AUTOR DE LA BIOGRAFÍA : "COSTA EL GRAN FRACASADO" </li>
+            <li>EL AGUA POTABLE EN LA SOLANA. COMISIÓN ADMINISTRADORA DE LOS BIENES DEL LEGADO  </li>
+            <li>EL ASILO  </li>
+            <li>EL CALVARIO </li>
+            <li>EL CEMENTERIO NUEVO </li>
+            <li>EL CEMENTERIO VIEJO </li>
+            <li>EL CÓLERA DE 1.834  </li>
+            <li>EL CUADERNO MANUSCRITO DE LA SOLANA </li>
+            <li>EL DESPOSORIO </li>
+            <li>EL ESPARTO. LA PLEITA. LOS PLEITISTAS.  </li>
+            <li>EL LEGADO BUSTILLO  </li>
+            <li>EL LIBERAL INFORMA DEL ACTO (12-07-1904)  </li>
+            <li>EL PAÍS INFORMA (I) ACTO DEL 10 JULIO DE 1904 EN LA PLAZA MAYOR. </li>
+            <li>EL PAÍS INFORMA (II). EL MITIN </li>
+            <li>EL RELOJ DE LA VILLA (1.874)  </li>
+            <li>EL YESO DE LA SOLANA  </li>
+            <li>EMIGRANTES SOLANEROS  </li>
+            <li>EPÍLOGO. EL AYUNTAMIENTO ADMINISTRADOR. PATRONATO </li>
+            <li>ERMITA DE NUESTRA SEÑORA DE LA CONCEPCIÓN O LOS ALAMILLOS (El cristo del Amor)  </li>
+            <li>ERMITA DE SAN ANTONIO ABAD  </li>
+            <li>ERMITA DE SAN MIGUEL  </li>
+            <li>ERMITA DE SAN SEBASTIÁN </li>
+            <li>ERMITA DE SANTA ANA </li>
+            <li>ERMITA DE SANTA QUITERIA Y SAN ISIDRO </li>
+            <li>ESTUDIANTES BACHILLERATO 1.960  </li>
+            <li>FAROLAS 1.899 </li>
+            <li>FUNDACIÓN DE LA SOLANA  </li>
+            <li>HONORARIOS PERCIBIDOS POR COSTA </li>
+            <li>HOSPITAL CALLE SAGRARIO </li>
+            <li>IGLESIA PARROQUIAL DE SANTA CATALINA  </li>
+            <li>LA CAL VIVA </li>
+            <li>LA CALLE COMISARIO  </li>
+            <li>LA GUERRA DE SUCESIÓN </li>
+            <li>LA HARINERA </li>
+            <li>LA SOLANA EN LAS RELACIONES DEL REY FELIPE II </li>
+            <li>LA SOLANA Y EL AGUA. APUNTES HISTÓRICOS </li>
+            <li>LA SOLANA Y EL AZAFRÁN  </li>
+            <li>LA SOLANA Y EL CATASTRO DEL MARQUÉS DE LA ENSENADA  </li>
+            <li>LA SOLANA Y LA CONSTITUCIÓN DE 1812" </li>
+            <li>LA VIRGEN DE PEÑARROYA  </li>
+            <li>LAS ERAS DE EMPARVAR  </li>
+            <li>LAS ESCUELAS NACIONALES DEL CONVENTO DE LOS AÑOS CINCUENTA  </li>
+            <li>LAS FLORES DE NUESTROS CAMPOS </li>
+            <li>LOS BAÑOS DE FRASCO: REFRESCADERO DE SAN ISIDRO </li>
+            <li>LOS CINCO VOTOS QUE HABÍA EN LA SOLANA  </li>
+            <li>LOS HONORARIOS DEl SR. COSTA  </li>
+            <li>LOS MANIFIESTOS POSTERIORES </li>
+            <li>LOS MOLINOS DE LA SOLANA  </li>
+            <li>LOS SACERDOTES FIDUCIARIOS  </li>
+            <li>LUZ ELÉCTRICA </li>
+            <li>MEMORIA LEÍDA POR COSTA EN LA PLAZA MAYOR </li>
+            <li>MONASTERIO DE LAS MONJAS DOMINICAS  </li>
+            <li>MUERTE DE DON JOAQUÍN COSTA </li>
+            <li>PLAZA MAYOR DE LA SOLANA  </li>
+            <li>POR SANTA TERESA ROSA EN MESA </li>
+            <li>PSOE Y UGT  </li>
+            <li>RÍO AZUER. SUS FUENTES  </li>
+            <li>TELÉGRAFO Y CARRETERA </li>
+            <li>TESTAMENTOS DE BUSTILLO </li>
+            <li>TRABAJAR EN EL CAMPO.EN LOS AÑOS CINCUENTA Y SESENTA  </li>
+            <li>VENTA AL OBISPADO DE LA MITAD DE LAS FINCAS </li>
+            <li>ZARAGOZA 1.906. ACONTECIMIENTOS CLARIFICADORES</li>
+          </ul>
+                <br>
+        </div>
+      </details>
+                <br>
+
+
+<fieldset style="background-color: #f0f0f0;">
+        <legend style="color: #C43116; font-weight: bold;">¿Por qué el blog Blog Joaquín Costa. La Solana. Legado Bustillo?</legend>
+        <p>Julián Simón González, "solanero de pro, entregado en cuerpo y alma a sus convecinos" (Gaceta de La Solana, edición 51) fue el segundo alcalde democrático de La Solana, entre 1983 y 1987. En 2012 comenzó un blog que estuvo activo hasta 2019 con el objetivo de divulgar el legado histórico de La Solana. Las entradas del blog se caracterizan por su precisión lingüística y el uso de terminología especializada relacionada con las tradiciones y la cultura de la localidad. Esto hace que los datos sean de gran calidad para generar respuestas adecuadas.</p>
+  </fieldset>
+
+
+</div>
+<br>
+    
+
+
+ 
+ <br>
+<div id="libro">
+
+</div>
+<h2 style="background-color: #FCE7E3;">Libro El Legado Bustillo de La Solana</h2>
+  <p>El libro sobre el Legado Bustillo data de 1935 y fue escrito por José María García Gallego, un médico que escribió sobre un polémico pleito ocurrido en La Solana a principios del siglo pasado. La disputa legal llevó a la localidad al aclamado político y abogado Joaquín Costa. No hemos podido encontrar más información sobre el autor. En cuanto al libro, contiene 65 páginas y está dividido en 18 capítulos con un total de 15 900 palabras.</p>
+
+  <fieldset style="background-color: #f0f0f0;">
+        <legend style="color: #C43116; font-weight: bold;">¿Por qué el libro Legado Bustillo de La Solana?</legend>
+        <p>El libro narra un suceso de la historia contemporánea de La Solana que tuvo y sigue teniendo gran trascendencia para la vida y la economía de la localidad. No obstante, el formato presenta algunos retos, ya que se trata de un libro antiguo escrito con una tipografía difícil de digitalizar. Esto provoca saltos de línea innecesarios, particiones incorrectas de palabras y errores de transcripción. Con un adecuado preprocesamiento, hemos logrado un archivo legible que puede ser útil para la creación de un asistente conversacional.  </p>
+  </fieldset>
+       
+     <br>
+  <div id="fundacion">
+  
+<h2 style="background-color: #FCE7E3;">Fundación Histórico-Cultural Paulino Sánchez Delgado</h2>
+
+
+        <div style="float:right; margin-left: 0px; max-width:40%; text-align:center;">
+            <img src="../resources/lectures/corpus_lasolana/logo_fundacion.png"
+                 style="max-width:40%; margin-bottom:0px;"/>
+            <div style="font-size:14px; margin: 10px;" class="data_text">
+                <font color="#888">
+                Logo de la Fundación Histórico-Cultural Paulino Sánchez Delgado adquirido en su página web.
+                </font>
+            </div>
+        </div>
+
+
+  <p>La Fundación Histórico Cultural Paulino Sánchez Delgado, constituida oficialmente en 2002, tiene como objetivo principal promover la cultura y la investigación en La Solana y su entorno. Sus actividades también incluyen la edición de publicaciones, la concesión de becas y premios, y la organización de cursos, conferencias, y exposiciones. Además, la Fundación se dedica a la preservación y catalogación de archivos y colecciones, principalmente relacionados con La Solana y otras localidades de Castilla-La Mancha. </p>
+
+
+  <p>En la página web de esta fundación encontramos varias pestañas con la descripción del sitio, la historia y las publicaciones fruto de esta fundación. Para nuestro fin, hemos extraído automáticamente el texto de la pestaña de inicio y las pestañas sobre las diferentes publicaciones. En total, hemos obtenido 14 archivos de texto plano con un total de 3645 palabras.</p>
+
+  <details>
+
+    <br>
+
+      <summary  class="research_summary">
+          <span style="font-size:14px;">Publicaciones cuya descripción ha sido extraída automáticamente</span></summary>
+        <div style="font-size:14px; margin-bottom:10px;">
+
+          <ul>
+            <li>Arte en La Solana</li>
+            <li>El Franquismo en La Solana II. 1947-1959 Tiempo de silencio</li>
+            <li>El agua en La Solana I. De los orígenes a 1963</li>
+            <li>El agua en La Solana II. 1963-2011-</li>
+            <li>Estampas de La Solana</li>
+            <li>Evolución y futuro de las comarcas de Ciudad Real</li>
+            <li>La Iglesia de Santa Catalina de La Solana (Siglos XII-XV). Orígenes de la Villa</li>
+            <li>La Inquisición en La Solana y otras villas del Campo de Montiel</li>
+            <li>La Solana y Santiago Apóstol. Del origen de la Villa al Patronazgo de la Feria</li>
+            <li>La Solana y las hoces. La Barcelona de La Mancha</li>
+            <li>Partidos políticos en La Solana en periodos democráticos I. De la Restauración de 1874 a la II República de 1931</li>
+            <li>Población y poblamiento de La Solana durante el siglo XX</li>
+            <li>Tiempo de favores (El motín de las mujeres)</li>
+          </ul>
+        </div>
+      </details>
+                <br>
+
+  <fieldset style="background-color: #f0f0f0;">
+        <legend style="color: #C43116; font-weight: bold;">¿Por qué la página web de la Fundación Paulino Sánchez Delgado?</legend>
+        <p>Nuestro objetivo es crear un asistente conversacional sobre el legado histórico y cultural de La Solana utilizando datos de libre acceso. Es posible que ciertas preguntas no puedan ser respondidas con este tipo de datos, pero quizá podamos indicar al usuario dónde encontrar la información. Por lo tanto, la página de la Fundación puede ser un buen lugar para recomendar publicaciones oficiales sobre temas relacionados con La Solana.</p>
+  </fieldset>
+       
+     <br>
+    
+
+ 
+ <br>
+<div id="miscelánea">
+<h2 style="background-color: #FCE7E3;">Miscelánea</h2>
+  <div style="float:left; margin-left: 0px; max-width:60%; text-align:center;">
+    <img src="../resources/lectures/corpus_lasolana/iglesia_vertical.jpg"
+         style="max-width:60%; margin-bottom:15px;"/>
+    <div style="font-size:14px; margin: 0;" class="data_text">
+        <font color="#888">
+        Foto adquirida de Turismo de Castilla-La Mancha.
+        </font>
+    </div>
+</div>
+ <p>Contamos con una serie de artículos procedentes de diversas fuentes que pueden sernos útiles para alcanzar nuestro objetivo. Se trata de:</p>
+<ul>
+    <li>
+        <a href="https://www.lasolana.es/images/TURISMO/Conocimientos_sobre_el_mundo_del_Vino.pdf" target="_blank">
+            Conocimientos sobre el mundo del vino:</a>: archivo de once páginas procedente de la página del Ayuntamiento de La Solana sobre tipos de uva y vinos.
+    </li>
+    <li>
+        <a href="https://www.lasolana.es/laciudad/oficina-de-turismo/85-la-ciudad/contenidos-turismo/2006-fiestas-y-tradiciones" target="_blank">
+            Fiestas y tradiciones
+        </a>: pestaña procedente de la página web del Ayuntamiento de La Solana sobre las fiestas y tradiciones de la localidad.
+    </li>
+    <li>
+        <a href="https://www.lasolana.es/images/stories/laciudad/agenda/guia%20turistica%202012%20%28noviembre%2011%29.pdf" target="_blank">
+            Guía turística 2012
+        </a>: documento digitalizado de 28 páginas con los principales lugares de interés en La Solana. Publicada en la página web del Ayuntamiento de La Solana.
+    </li>
+    <li>
+        <a href="https://www.lasolana.es/images/TURISMO/Informacion-Ruta_del_Vino_de_la_mancha.pdf" target="_blank">
+            Ruta del vino de La Mancha
+        </a>: documento de 19 páginas publicado en la página web del Ayuntamiento de La Solana sobre los pueblos de la región que pertenecen a la ruta. Contiene una descripción de cada localidad y lugares o actividades de interés.
+    </li>
+    <li>
+        <a href="https://campomontiel.wordpress.com/wp-content/uploads/2012/01/laruta_29.pdf" target="_blank">
+            La Solana: Santiago Apóstol, patronazgo y hermandad
+        </a>: artículo de dos páginas procedente de la Revista de la Asociación de Amigos del Campo de Montiel sobre La Solana y su relación con Santiago Apóstol.
+    </li>
+    <li>
+        <a href="https://www.viajesporcastillalamancha.es/downloads/rutas/129/la-solana.pdf" target="_blank">
+            Extracto del libro 101 VIAJES POR CASTILLA-LA MANCHA
+        </a>: documento de una página sobre La Solana publicado por Turismo Castilla-La Mancha.
+    </li>
+</ul>
+
+    <br>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <table >
+          <tr class="contact-list">
+
+
+            <td>
+              <div class="media">
+                <a class="pull-left thumbnail" href="https://linkedin.com/">
+                  <img src="/img/ico/linkedin.png" height=20px alt=""/>
+                </a>
+              </div>
+            </td>
+
+            <td>
+              <div class="media">
+                <a class="pull-left thumbnail" href="https://github.com/mariagabv">
+                  <img src="/img/ico/git.png" height=20px alt=""/>
+                </a>
+              </div>
+            </td>
+
+
+          </tr>
+        </table>
+      </div>
+
+      <!--<div class="footer-col  footer-col-2">
+      </div> -->
+
+      <div class="footer-col  footer-col-3">
+          <p class="text" align="right">Last updated September 03, 2024.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

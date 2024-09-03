@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Text Classification</title>
+    <meta name="description" content="Text classification from classical approaches to neural networks.">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/nlp_course/recopilacion_de_datos.html">
+
+    <!-- diff from head.html begin -->
+     <link rel="mask-icon" href="../resources/lectures/ico/plaza_mayor.png">
+     <link rel="alternate icon" class="js-site-favicon" type="image/png" href="../resources/lectures/ico/plaza_mayor.png">
+     <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="../resources/lectures/ico/plaza_mayor.png">
+    <!-- diff from head.html end -->
+
+    <!--<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>-->
+
+
+
+</head>
+
+
+  <!--style>
+  p {
+    text-align: justify;
+  }
+  </style-->
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">María Velasco</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/posts.html">Blog</a>
+          
+        
+          
+          <a class="page-link" href="/cv.html">CV</a>
+          
+        
+          
+          <a class="page-link" href="/papers.html">Publications</a>
+          
+        
+          
+          <a class="page-link" href="/nlp_course.html">RAG en <strong><font color="#C43116">español</font></strong></a>
+          
+        
+<!--        <a href="">
+            <img src="image/UoS.ico" alt="DCS">
+        </a>-->
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <!-- the next two lines are inserted once per page even if there are several shtukovinas,
+     the rest is one-per-shtukovina; read more: https://flickity.metafizzy.co/options.html -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" media="screen">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+
+
+.demo_sidebar {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+
+  position: relative;
+    height: auto;
+    width: 290px;
+}
+
+.demo_sidebar_text {
+    font-size: 18px;
+}
+
+.demo_sidebar_comment {
+    font-size:15px;
+    margin-left:10px;
+    font-family: "Comic Neue", "Arial";
+
+}
+
+
+
+.demo_sidebar a {
+  display: block;
+  color: black;
+  padding: 8px;
+  text-decoration: none;
+
+}
+
+.demo_sidebar a li {
+  margin-left: 5px;
+  padding: 0px;
+}
+
+
+
+.demo_sidebar a:hover {
+  box-shadow: 0 3px 6px #6e8f27, 0 1px 1px #6e8f27;
+}
+
+.demo_sidebar a:hover:not(.active) {
+  background-color: #f3f3f3;
+}
+
+.demo_sidebar .main_components {
+  background-color: #f3f3f3;
+}
+.demo_sidebar .extra_components {
+  background-color: #eaeaea;
+}
+
+
+#demo_sidebar_research_thinking:hover {
+  box-shadow: 0 3px 6px #a68305, 0 1px 1px #a68305;
+
+}
+
+
+#demo_sidebar_related_papers:hover {
+  box-shadow: 0 3px 6px #8a4972, 0 1px 1px #8a4972;
+}
+
+
+#demo_sidebar_fun:hover {
+  box-shadow: 0 3px 6px #377b94, 0 1px 1px #377b94;
+}
+
+</style>
+
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap");
+
+
+
+#main_page_content {
+  margin-left: 300px;
+  padding: 30px;
+  padding-left: 70px;
+  text-align: justify;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 270px;
+  background-color: #fafafa;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+}
+
+.sidebar a, .dropdown-btn {
+  display: block;
+  color: black;
+  padding: 8px;
+  text-decoration: none;
+  border-right: 5px solid #C43116;
+}
+
+
+.sidebar a li {
+  margin-left: 10px;
+  padding: 0px;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #f4f4f4;
+}
+
+.active_caret .fa-caret-down
+{
+    color: #C43116;
+    font-size: 30px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+.sidebar a.active {
+  background-color: #e3e3e3;
+  color: black;
+}
+
+.sidebar a:hover {
+  box-shadow: 0 3px 6px #D7472C, 0 1px 1px #D7472C;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #f3f3f3;
+}
+
+.sidebar .extra_components {
+  background-color: #eaeaea;
+}
+
+#sidebar_analysis {
+    padding: 10px;
+}
+
+#sidebar_research_thinking {
+padding: 10px;
+  border-right: 5px solid #fad400;
+}
+#sidebar_research_thinking:hover {
+  box-shadow: 0 3px 6px #a68305, 0 1px 1px #a68305;
+
+}
+
+
+#sidebar_related_papers {
+padding: 10px;
+  border-right: 5px solid #d192ba;
+}
+#sidebar_related_papers:hover {
+  box-shadow: 0 3px 6px #8a4972, 0 1px 1px #8a4972;
+}
+
+
+#sidebar_fun {
+padding: 10px;
+  border-right: 5px solid #6fb7d1;
+}
+#sidebar_fun:hover {
+  box-shadow: 0 3px 6px #377b94, 0 1px 1px #377b94;
+}
+
+
+.sidebar_ico {
+    float: right;
+    height: 20;
+  }
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+#sidebar_small { width: 60px; }
+
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    width: 200px;
+  }
+  #main_page_content {
+  margin-left: 200px;
+  padding-left: 50px;
+}
+#for_you_in_sidebar {display: none;}
+
+  }
+
+
+@media screen and (max-width: 900px) {
+
+  div.content {margin-left: 0;}
+  #main_page_content {margin-left: 80px; padding: 15px;}
+
+  #demo_sidebar {}
+}
+
+
+.softmax_tau_bokeh {
+    font-size: 16px;
+  }
+
+
+
+.card_with_ico {
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+  }
+  .card_with_ico p {
+    padding: 10px;
+  }
+  .card_with_ico ul {
+    padding: 10px;
+  }
+  .card_with_ico .text_box_green {
+    border: 1px solid #d8e8b5;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .text_box_pink {
+    border: 1px solid #dec8d6;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .text_box_yellow {
+    border: 1px solid #f0e4a5;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .ico {
+    float: left;
+    width: 25px;
+  }
+
+
+
+.text_box_green {
+    border: 1px solid #C43116;
+    border-radius: 5px;
+    display: table;
+    margin-left: 20px;
+  }
+
+
+.text_box_grey_background {
+    border: 1px solid #C43116;  /* Increased border thickness to 2px */
+    border-radius: 5px;
+    display: table;
+    margin-left: 20px;
+    background-color: #f0f0f0;  /* Light grey background */
+}
+
+
+  .text_box_green p {
+    padding: 10px;
+    padding-bottom: 0px;
+  }
+
+
+
+.green_left_thought {
+    border-left: 5px solid #C43116;
+    margin: 10px;
+    margin-left: 20px;
+    padding: 0px;
+    background-color: #F4F4F6;
+  }
+  .green_left_thought p {
+
+    margin-left: 10px;
+    padding: 5px;
+  }
+
+
+.box_green_left {
+    border-left: 2px solid #C43116;
+    margin-left: 10px;
+    padding: 10px;
+  }
+
+.box_green_right {
+    border-right: 2px solid #C43116;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
+  .box_violet_right {
+    border-right: 2px solid #67468f;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
+.box_pink_left {
+    border-left: 2px solid #7a3160;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+ .box_yellow_left {
+    border-left: 2px solid #d6b000;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+  .box_blue_left {
+    border-left: 2px solid #0278a1;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+.paper_title {
+    text-align: center;
+    padding: 5px;
+    padding-top: 0px;
+    font-size: 16px;
+
+  }
+  .paper_authors {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p {
+    text-align: justify;
+  }
+
+
+  .greenCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+
+  #thumbnail_green {
+    box-shadow: 0 2px 4px #C43116, 0 1px 1px #C43116;
+  }
+  #thumbnail_green:hover {
+    box-shadow: 0 6px 12px #751D0D, 0 4px 4px #751D0D;
+  }
+
+  #thumbnail_violet {
+    box-shadow: 0 2px 4px #655578, 0 1px 1px #655578;
+  }
+  #thumbnail_violet:hover {
+    box-shadow: 0 6px 12px #655578, 0 4px 4px #655578;
+  }
+
+  #thumbnail_paper {
+    box-shadow: 0 2px 4px #ab859e, 0 1px 1px #ab859e;
+  }
+  #thumbnail_paper:hover {
+    box-shadow: 0 6px 12px #ab859e, 0 4px 4px #ab859e;
+  }
+
+
+
+  #thumbnail_blue {
+    box-shadow: 0 2px 4px #377b94, 0 1px 1px ;
+  }
+  #thumbnail_blue:hover {
+    box-shadow: 0 6px 12px #377b94, 0 4px 4px #377b94;
+  }
+
+  .paperCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .paperIntro {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+
+  .showMePaper {
+    box-shadow: 0 2px 4px #a68305, 0 2px 1px #a68305;
+  }
+  .showMePaper:hover {
+    box-shadow: 0 3px 6px #ab859e, 0 4px 4px #ab859e;
+  }
+
+
+  .cardContent {
+    padding: 10px;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .conf_name {
+    float: right;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 0px;
+    background-color: #f7edf4;
+    border: 1px solid #d1a1c3;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+  }
+
+
+
+  .paper_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #cf99be;
+    border: 1px solid #8c2b6e;
+    border-radius: 50%;
+  }
+
+  .research_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #ffda00;
+    border: 1px solid #998300;
+    border-radius: 50%;
+  }
+
+  .fun_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #68c7e8;
+    border: 1px solid #0278a1;
+    border-radius: 50%;
+  }
+  .green_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #DB8373;
+    border: 1px solid #C43116;
+    border-radius: 50%;
+  }
+
+.violet_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #b59fcf;
+    border: 1px solid #67468f;
+    border-radius: 50%;
+  }
+
+  .data_text {
+    font-family: "Comic Neue", "Arial";
+  }
+
+
+
+
+   .researchCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .researchIntro {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+    #thumbnail_research {
+    box-shadow: 0 2px 4px #a68305, 0 1px 1px #a68305;
+  }
+  #thumbnail_research:hover {
+    box-shadow: 0 6px 12px #a68305, 0 4px 4px #a68305;
+  }
+  .research_title {
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    font-family: "Comic Neue", "Arial";
+    background-color: #fafaf5;
+
+
+  }
+   .research_tag {
+    float: right;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 0px;
+    background-color: #f5f0d5;
+    border: 1px solid #fad400;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+  }
+
+    .research_question {
+    font-weight:bold;
+    font-size:18px;
+    background-color:#F4F4F6;
+    margin-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .research_summary {
+    padding: 5px;
+    font-size: 18px;
+    font-family: "Comic Neue", "Arial";
+    background-color: #F4F4F6;
+    margin-left:10px;
+  }
+
+
+    .text_table td, .text_table th {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #dedeca; /* Add border for horizontal lines */
+}
+
+
+  </style>
+
+<!--##################################################-->
+
+    <div>
+        <div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
+   style="text-align:center;font-size:30px;padding:0px;"></a>
+    <a class="active" href="../nlp_course.html" style=" align-items: center; font-weight: bold;">
+    <img height="32" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 0px;margin-top: -4px;"/>
+        RAG en   <font color="#C43116" id="for_you_in_sidebar">español</font></a>
+
+
+    <div class="dropdown-scope">
+          <a href="motivación.html">Motivación</a>
+           <a class="dropdown-btn" style="font-weight: bold;">Recopilación de datos
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container">
+              <a href="#importancia_datos"><span style="margin-right:15px;font-size:14px;">&#8226;</span>La importancia de los datos</a>
+              <a href="#estructurad_vs_desestructurado"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Datos estructurados vs. datos no estructurados</a>
+              <a href="#datos_indispensables"><span style="margin-right:15px;font-size:14px;">&#8226;</span>¿Son los datos estructurados indispensables?</a>
+              <a href="#recursos"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Fuentes para recopilar datos</a>
+          </div>
+          <a href="corpus_descripcion_lasolana.html">Corpus para La Solana</a>
+          <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+
+          </a>
+
+          </div>
+
+    </div>
+
+
+
+
+
+<script>
+function openNav() {
+  document.getElementById("sidebar").style.display = "block";
+  document.getElementById("sidebar_small").style.display = "none";
+  document.getElementById("close_sidebar_btn").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("sidebar").style.display = "none";
+  document.getElementById("sidebar_small").style.display = "block";
+  document.getElementById("close_sidebar_btn").style.display = "none";
+}
+
+</script>
+
+
+<script>
+function onResize() {
+  if (window.innerWidth >= 800) {
+     document.getElementById("sidebar").style.display = "block";
+     document.getElementById("sidebar_small").style.display = "none";
+     document.getElementById("close_sidebar_btn").style.display = "none";
+  }
+  else {
+     document.getElementById("sidebar").style.display = "none";
+    document.getElementById("sidebar_small").style.display = "block";
+
+  }
+}
+window.onresize = onResize;
+onResize();
+</script>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function(event) {
+  this.classList.toggle("active_caret");
+  var dropdownButton = event.target || event.srcElement;
+  while(dropdownButton.className != "dropdown-scope")
+     dropdownButton = dropdownButton.parentElement;
+  var dropdownContent = dropdownButton.getElementsByClassName("dropdown-container")[0];
+
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+
+
+<div class="wrapper" id="main_page_content">
+    <div class="header"><h1>Recopilación de datos</h1></div>
+    <p>En esta entrada explicamos a qué nos referiremos en los siguientes capítulos cuando hablemos de "datos". Si no se está interesado en la explicación, se puede acceder directamente a la sección <a href="#recursos">Fuentes para recopilar datos</a>.</p>
+
+<div id="importancia_datos">
+<h2>La importancia de los datos</h2>
+
+
+    <p> En 2017, The Economist publicó un artículo titulado “El recurso más valioso del mundo ya no es el petróleo, sino los datos”. Casi cualquier aspecto de nuestra vida cotidiana puede transformarse en datos: las horas que dormimos, las calorías que ingerimos, los pasos que damos, nuestro ritmo cardíaco a lo largo del día, el dinero que gastamos, los kilómetros que recorremos en vehículo, los litros de agua que bebemos o las veces que reímos y lloramos. En principio, estos datos aparecen de manera desestructurada; requeriría un meticuloso esfuerzo por nuestra parte anotarlos  manualmente. Si lo hiciéramos, <strong> obtendríamos un registro de nuestro ritmo de vida que nos permitiría extraer patrones y, con una cantidad suficiente, podríamos predecir nuestro futuro.</strong> Sin embargo, el siglo XXI nos ofrece herramientas más accesibles, como teléfonos y relojes inteligentes que monitorean automáticamente nuestros movimientos y actividades. </p>
+
+    <div class="green_left_thought" style="font-size:12px;">
+                <p>Al igual que no es oro todo lo que reluce, este registro constante también conlleva riesgos. Por ejemplo, después de que el Tribunal Supremo de EE. UU. tumbara la sentencia Roe contra Wade que respaldaba el aborto en ese país, la preocupación en torno a las aplicaciones que controlan el ciclo menstrual ha aumentado, pues los datos que se introducen todos los meses podrían ser utilizados como evidencia legal para perseguir abortos ilegales.</p>
+            </div>
+    <br>
+
+
+
+ <div id="estructurad_vs_desestructurado">
+<h2>Datos estructurados vs. datos no estructurados</h2>
+
+
+     <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true }'
+     style="width:50%; margin-bottom:30px; margin-left:10px; float:right;">
+              <div class="carousel-cell" style="width:100%"><center>
+                    <img width=70% src="../resources/lectures/recopilacion_de_datos/intro/pelis.png"/></center>
+                  <p style="text-align:center;margin-left:30px;margin-right:30px;">
+                      Clasificación multiclase:<br> hay muchas etiquetas, pero solo una es correcta</p>
+              </div>
+              <div class="carousel-cell" style="width:100%"><center>
+                    <img width=70% src="../resources/lectures/recopilacion_de_datos/intro/spam.png"/></center>
+                  <p style="text-align:center;margin-left:30px;margin-right:30px;">
+                      Clasificación binaria:<br> hay dos etiquetas y solo una de ellas es correcta</p>
+              </div>
+      </div>
+
+    <p>Existen datos numéricos como los mencionados anteriormente, pero también hay conjuntos de datos con valores nominales. Por ejemplo, para desarrollar un programa que detecte mensajes spam, es necesario que una persona clasifique manualmente cada mensaje como "legítimo" o "malicioso" (véase "Colección de SMS" más abajo). Sin embargo, esta tarea es tediosa y cara porque requiere miles de ejemplos etiquetados por especialistas para entrenar un algoritmo eficaz.</p>
+
+
+    <br>
+    <!-- <img height="20" src="../resources/lectures/ico/paw_empty.png" style="float:left; margin-top:-10px;"/>
+    <div class="box_green_left">-->
+
+    <div class="box_green_left">
+
+        <div class="text_box_green">
+          <p class="data_text"><u>Ejemplos de datasets:</u> en la caja hay nueve ejemplos de conjuntos de datos reales. Puedes explorar algunos ejemplos y leer las descripciones de los dataset pinchando en su nombre. Hemos traducido los nombres al español. <strong>Noticias La Solana</strong> (creado por la autora de esta página) y <strong>Colección de SMS</strong> han sido añadidos para esta entrada. El resto provienen de Voita, E. (2020, septiembre). NLP course for you. https://lena-voita.github.io/nlp_course.html</p>
+        </div>
+<br>
+        <fieldset class="data_text" style="border: 1px solid #C43116;border-radius:5px;margin-left:20px;">
+            <legend><font color="#C43116"><strong>Pulsa en un conjunto de datos para explorarlo</strong></font></legend>
+
+              <input type="radio" id="dataset_example_lasolananews" name="dataset_example" value="sst" checked  onclick="pickDatasetExample()">
+              <label for="dataset_example_lasolananews"  style="margin-right:15px;">Noticias La Solana</label>
+
+
+              <input type="radio" id="dataset_example_trec" name="dataset_example" value="trec" onclick="pickDatasetExample()">
+              <label for="dataset_example_trec" style="margin-right:15px;">Reseñas de IMDb</label>
+
+
+              <input type="radio" id="dataset_example_yelp" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
+              <label for="dataset_example_yelp"  style="margin-right:15px;">Colección de SMS</label>
+
+            <br>
+
+             <input type="radio" id="dataset_example_amazon" name="dataset_example" value="yelp" onclick="pickDatasetExample()">
+              <label for="dataset_example_amazon"  style="margin-right:15px;">Reseñas de Amazon</label>
+
+            <br>
+
+              <input type="radio" id="dataset_example_imdb" name="dataset_example" value="imdb" onclick="pickDatasetExample()">
+              <label for="dataset_example_imdb"  style="margin-right:15px;">TREC</label>
+
+              <input type="radio" id="dataset_example_yahoo" name="dataset_example" value="yahoo" onclick="pickDatasetExample()">
+              <label for="dataset_example_yahoo" style="margin-right:15px;">Yahoo! Respuestas</label>
+
+              
+
+              <input type="radio" id="dataset_example_ag_news" name="dataset_example" value="ag_news" onclick="pickDatasetExample()">
+              <label for="dataset_example_ag_news"  style="margin-right:15px;">Noticias AG</label>
+
+              <input type="radio" id="dataset_example_sogou_news" name="dataset_example" value="sogou_news" onclick="pickDatasetExample()">
+              <label for="dataset_example_sogou_news"  style="margin-right:15px;">Noticias Sogou</label>
+              <br>
+
+              <input type="radio" id="dataset_example_dbpedia" name="dataset_example" value="dbpedia" onclick="pickDatasetExample()">
+              <label for="dataset_example_dbpedia"  style="margin-right:15px;">DBPedia</label>
+        </fieldset>
+
+<br>
+
+
+
+        <div id="dataset_info_lasolananews" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>LaSolanaNews dataset es una colección de 1093 artículos de prensa en español sobre la localidad de La Solana (Ciudad Real, Castilla-La Mancha) desde marzo de 2010 hasta febrero de 2024. Surge como un intento de promover la digitalización en zonas rurales, sentando las bases para su uso en tareas de PLN más avanzadas en el futuro, como la clasificación de textos, la predicción de autores o el perfeccionamiento de modelos RAG.</p>
+              <p>Más detalles en este <a href="https://www.kaggle.com/datasets/mgabve/lasolananews">enlace.</a></p>
+
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_lasolananews_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+
+            <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: cultura<br/>
+                     <u>Autor</u>: María Muñoz<br/>
+                     <u>Fecha</u>:2023-07-04<br/>
+
+                     <u>Título</u>:<br/>
+                     Más de 10.000 personas pasaron por el 'Oasis Sound' en su segunda edición
+                     </p>
+             </div>
+         </center>
+         </div>
+
+
+           <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: sociedad<br/>
+                     <u>Autor</u>: Paulino Sánchez<br/>
+                     <u>Fecha</u>:2010-03-17<br/>
+
+                     <u>Título</u>:<br/>
+                     Paqui Ruiz: "La TDT supondrá un cambio como lo fue el paso del blanco y negro al color"
+                     </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: deporte<br/>
+                     <u>Autor</u>: Aurelio Maroto<br/>
+                     <u>Fecha</u>:2017-10-04<br/>
+
+                     <u>Título</u>:<br/>
+                     La Solana huye de euforias en vísperas del clásico contra el Manzanares
+                     </p>
+             </div>
+         </center>
+         </div>
+</div>
+
+
+
+        <div id="dataset_info_imdb" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>IMDb es una colección de reseñas de películas procedentes de la página web Internet Movie Database y contiene 50000 ejemplos en total.
+                Hay un máximo de 30 reseñas por película y se escogieron las más polarizadas, es decir, aquellas con una puntuación máxima de 4 sobre 10 (negativas) o aquellas con una puntuación mínima de 7 sobre 10 (positivas).
+
+            </p>
+                <p>Más detalles en este <a href="https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf">enlace. </a></p>
+                    
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_imdb_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: negative<br/><br/>
+
+                     <u>Reseña</u><br/>
+                    Hobgoblins .... Hobgoblins .... where do I begin?!?<br /><br />This film gives Manos -
+                     The Hands of Fate and Future War a run for their money as the worst film ever made .
+                     This one is fun to laugh at , where as Manos was just painful to watch . Hobgoblins will
+                     end up in a time capsule somewhere as the perfect movie to describe the term : " 80 's cheeze " .
+                     The acting ( and I am using this term loosely ) is atrocious , the Hobgoblins are some of the worst
+                     puppets you will ever see , and the garden tool fight has to be seen to be believed .
+                     The movie was the perfect vehicle for MST3 K , and that version is the only way to watch this mess .
+                     This movie gives Mike and the bots lots of ammunition to pull some of the funniest one -
+                     liners they have ever done . If you try to watch this without the help of Mike and the bots .....
+                     God help you ! ! </p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: positive<br/><br/>
+
+                     <u>Reseña</u><br/>
+                    One of my favorite movies I saw at preview in Seattle . Tom Hulce was amazing , with out words could
+                     convey his feelings / thoughts . I actually sent Mike Ferrell some donation money to help the film
+                     get distributed . It is good . System says I need more lines but do not want to give away plot stuff .
+                     I was in the audience in Seattle with Hulce and director , a writer I think and Mike Ferrell .
+                     They talked for about an hour afterwords . Not really a dry eye in the house . Why Hollywood continues
+                     to be stupid I do not know . ( actually I do know , it is our fault , look what we watch)Well you get
+                     what you pay for guys . Get this and see it with someone special . It is a gem . </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: negative<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   Okay , if you have a couple hours to waste , or if you just really hate your life , I would say watch
+                     this movie . If anything it 's good for a few laughs . Not only do you have obese , topless natives ,
+                     but also special effects so bad they are probably outlawed in most states . Seriuosly ,
+                     the rating of ' PG ' is pretty humorous too , once you see the Native Porn Extravaganza .
+                     I would n't give this movie to my retarded nephew . You could n't even show this to Iraqi
+                     prisoners without violating the Geneva Convention . The plot is sketchy , and cliché , and dumb ,
+                     and stupid . The acting is horrible , and the ending is so painful to watch I actually began pouring
+                     salt into my eye just to take my mind off of the idiocy filling my TV screen . </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: positive<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   I really liked this movie ... it was cute . I enjoyed it , but if you did n't , that is your fault .
+                     Emma Roberts played a good Nancy Drew , even though she is n't quite like the books . The old fashion
+                     outfits are weird when you see them in modern times , but she looks good on them . To me , the rich
+                     girls did n't have outfits that made them look rich . I mean , it looks like they got all the clothes
+                     -blindfolded- at a garage sale and just decided to put it on all together . All of the outfits
+                     were tacky , especially when they wore the penny loafers with their regular outfits . I do not
+                     want to make the movie look bad , because it definitely was n't ! Just go to the theater and
+                     watch it ! ! ! You will enjoy it ! </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: negative<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   I always found Betsy Drake rather creepy , and this movie reinforces that . As another review said ,
+                     this is a stalker movie that is n't very funny . I watched it because it has CG in it ,
+                     but he hardly gets any screen time . It 's no " North by Northwest " ... </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: negative<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   This movie was on t.v the other day , and I did n't enjoy it at all . The first George of the
+                     jungle was a good comedy , but the sequel .... completely awful . The new actor and
+                     actress to play the lead roles were n't good at all , they should of had the original
+                     actor ( Brendon Fraiser ) and original actress ( i forgot her name ) so this movie gets
+                     the 0 out of ten rating , not a film that you can sit down and watch and enjoy ,
+                     this is a film that you turn to another channel or take it back to the shop if hired or
+                     bought . It was good to see Ape the ape back , but was n't as fun as the first ,
+                     they should of had the new George as Georges son grown up , and still had Bredon and
+                     ( what s her face ) in the film , that would 've been a bit better then it was .</p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: positive<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   I loved This Movie . When I saw it on Febuary 3rd I knew I had to buy It ! ! ! It comes out to buy
+                     on July 24th ! ! ! It has cool deaths scenes , Hot girls , great cast , good story , good
+                     acting . Great Slasher Film . the Movies is about some serial killer killing off four girls .
+                     SEE this movies</p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: positive<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   gone in 60 seconds is a very good action comedy film that made over $ 100 million but got blasted
+                     by most critics . I personally thought this was a great film . The story was believable and
+                     has probobly the greatest cast ever for this type of movie including 3 academy award winners
+                     nicolas cage , robert duvall and the very hot anjolina jolie . other than the lame stunt
+                     at the end this is a perfect blend of action comedy and drama .
+                     my score is * * * * ( out of * * * * )</p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: positive<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   This is one of the most interesting movies I have ever seen . I love the backwoods feel of this movie .
+                     The movie is very realistic and believable . This seems to take place in another era , maybe
+                     the late 60 's or early 70 's . Henry Thomas works well with the young baby . Very moving story
+                     and worth a look .</p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: positive<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   I admit it 's very silly , but I 've practically memorized the damn thing ! It holds a lot of good
+                     childhood memories for me ( my brother and I saw it opening day ) and I have respect for
+                     any movie with FNM on the soundtrack .</p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: positive<br/><br/>
+
+                     <u>Reseña</u><br/>
+                   I love the series ! Many of the stereotypes portraying Southerrners as hicks are very apparent ,
+                     but such people do exist all too frequently . The portrayal of Southern government rings
+                     all too true as well , but the sympathetic characters reminds one of the many good things
+                     about the South as well . Some things never change , and we see the " good old boys " every day !
+                     There is a Lucas Buck in every Southern town who has only to make a phone call to make things
+                     happen , and the storybook " po ' white trash " are all too familiar . Aside from the supernatural
+                     elements , everything else could very well happen in the modern South ! I somehow think Trinity ,
+                     SC must have been in Barnwell County !</p>
+             </div>
+         </center>
+         </div>
+
+</div>
+
+        <div id="dataset_info_yelp" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>La Colección de SMS es un conjunto de SMS etiquetados en dos categorías: ham (mensajes legítimos) y spam. Contiene 5574 mensajes en inglés y el archivo original solo cuenta con dos columnas: una para la etiqueta y otra con el texto SMS original.
+              <p>Más detalles en este <a href="https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset">enlace.</a></p>
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_yelp_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: spam<br/><br/>
+
+                     <u>SMS</u><br/>
+                   URGENT! You have won a 1 week FREE membership in our �100,000 Prize Jackpot!</p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: ham<br/><br/>
+
+                     <u>SMS</u><br/>
+                   I'm gonna be home soon and i don't want to talk about this stuff anymore tonight, k? I've cried enou....<br/>
+
+             </div>
+         </center>
+         </div>
+
+        
+
+</div>
+
+        <div id="dataset_info_amazon" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>Este dataset contiene reseñas de Amazon. Incluye el información sobre el producto y el usuario, la puntuación dada por el usuario y la reseña escrita.
+                El conjunto de datos se puedo obtener en <a href="https://snap.stanford.edu/data/web-Amazon.html" target="_blank">
+                     Stanford Network Analysis Project (SNAP)</a>.
+                Hay ejemplos que pueden pertenecer a cinco categorías diferentes (<strong>Amazon Full</strong>) o a dos categorías (<strong>Amazon Polarity</strong>, solo positivo o negativo). El dataset denominado <strong>Full</strong> tiene 600000 ejemplos para entrenar algoritmos y 130 ejemplos para evaluarlos. El conjunto de datos llamado <strong>Polarity</strong> tiene 1800000 ejemplos para el entrenamiento y 200000 para la evaluación. Abajo mostramos únicamente el título de la reseña y la reseña en sí.
+            </p>
+
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_amazon_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: 4<br/><br/>
+
+                     <u>Título de la reseña</u>: good for a young reader<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     just got this book since i read it when i was younger and loved it. i will reread it one
+                     of these days, but i bet its pretty lame 15 years later, oh well.
+
+                 </p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 2<br/><br/>
+
+                     <u>Título de la reseña</u>: The Castle in the Attic<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     i read the castle in the attic and i thoght it wasn't very entrtaning.
+                     but that's just my opinion. i thought on some of the chapters it dragged
+                     on and lost me alot. like it would talk about one thing and then another without
+                     alot of detail. for my opinion, it was an ok book. it had it's moments like whats
+                     going to happen next then it was really boring.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 1<br/><br/>
+
+                     <u>Título de la reseña</u>: worst book in the world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     This was the worst book I have ever read in my entire life! I was forced to read it for
+                     school. It was complicated and very boring. I would not recommend this book to anyone!!
+                     Please don't waste your time and money to read this book!! Read something else!!
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 3<br/><br/>
+
+                     <u>Título de la reseña</u>: It's okay.<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     I'm using it for track at school as a sprinter. It's okay, but to hold it together
+                     is a velcro strap. So you either use the laces or take them out and use only the velcro.
+                     Also, if you order them, order them a half size or a full size biggerthen your normal
+                     size or else it'll be a tight squeeze. Plus side, you can still run on your toes in them.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 5<br/><br/>
+
+                     <u>Título de la reseña</u>: Time Well Spent<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     For those beginning to read the classics this one is a great hook. While the characters are
+                     complex the story is linear and the allusions are simple enough to follow. One can't help
+                     but hope Tess's life will somehow turn out right although knowing it will not. The burdens
+                     she encounters seem to do little to stop her from moving forward. Life seems so unfair
+                     to her, but Hardy handles her masterfully; indeed it is safe to say Hardy loves her more
+                     than God does.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 2<br/><br/>
+
+                     <u>Título de la reseña</u>: Not a brilliant book but...<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     I didn't like this book very much. It was silly. I'm sorry that I've wasted time reading
+                     this book. There are better books to read.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 3<br/><br/>
+
+                     <u>Título de la reseña</u>: Simple<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     This book was not anything special. Although I love romances, it was too simple.
+                     The symbolism was spelled out to the readers in a blunt manner. The less educated
+                     readers may appreciate it. The wording was quite beautiful at times and the plot was
+                     enchanting (perfect for a movie) but it is not heart wrenching like the movie Titantic
+                     (which was a must see!) ;)
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 1<br/><br/>
+
+                     <u>Título de la reseña</u>: WHY???????????????????????????????????????????????????<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     WHY are poor, innocent school kids forced to read this intensly dull text? It is
+                     enough to put anyone off English Lit for LIFE. If anyone in authority is reading
+                     this, PLEASE take this piece of junk OFF the sylabus...PLEASE!!!!!!!!!!!
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 4<br/><br/>
+
+                     <u>Título de la reseña</u>: looking back<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     I have read several Thomas Hardy novels starting with The Mayor of Casterbridge many years
+                     ago in high school and I never really appreciated the style and the fact that like other Hardy
+                     novels Tess is a love story and a very good story. Worth reading
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: 5<br/><br/>
+
+                     <u>Título de la reseña</u>: Great Puzzle<br/><br/>
+
+                     <u>Contenido de la reseña</u>:<br/>
+                     This is an excellent puzzle for very young children. Melissa & Doug products are well made and kids
+                     love them. This puzzle is wooden so kids wont destroy it if they try to roughly put the pieces in.
+                     The design is adorable and makes a great gift for any young animal lover.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+</div>
+
+        <div id="dataset_info_trec" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>El nombre de TREC viene de Text REtrieval Conference y es un conjunto de datos sobre clasificación de preguntas. Contiene 5500 preguntas para el entrenar algoritmos y otras 500 para evaluarlos. Los datos pueden pertenecer a 6 etiquetas y 47 subetiquetas.
+            </p>
+                <p>Más información en el  <a href="https://www.aclweb.org/anthology/C02-1150.pdf" target="_blank">
+                    artículo científico</a> oficial.</p>
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_trec_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: How did serfdom develop in and then leave Russia ?<br/><br/>
+
+                      <u>Etiqueta</u>: ENTY (entity)<br/>
+
+                     <u>Pregunta</u>: What films featured the character Popeye Doyle ?<br/><br/>
+
+                     <u>Etiqueta</u>: HUM (human)<br/>
+
+                     <u>Pregunta</u>: What team did baseball 's St. Louis Browns become ?<br/><br/>
+
+                     <u>Etiqueta</u>: HUM (human)<br/>
+
+                     <u>Pregunta</u>: What is the oldest profession ?
+
+                     </p>
+             </div>
+         </center>
+         </div>
+
+            <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: How can I find a list of celebrities ' real names ?<br/><br/>
+
+                     <u>Etiqueta</u>: ENTY (entity)<br/>
+
+                     <u>Pregunta</u>: What fowl grabs the spotlight after the Chinese Year of the Monkey ?<br/><br/>
+
+                     <u>Etiqueta</u>: ABBR (abbreviation)<br/>
+
+                     <u>Pregunta</u>: What is the full form of .com ?<br/><br/>
+
+                     <u>Etiqueta</u>: ENTY (entity)<br/>
+
+                     <u>Pregunta</u>: What 's the second - most - used vowel in English ?
+
+                     </p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: What are liver enzymes ?<br/><br/>
+
+                     <u>Etiqueta</u>: HUM (human)<br/>
+
+                     <u>Pregunta</u>: Name the scar-faced bounty hunter of The Old West .<br/><br/>
+
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
+
+                     <u>Pregunta</u>: When was Ozzy Osbourne born ?<br/><br/>
+
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: Why do heavier objects travel downhill faster ?
+
+                     </p>
+             </div>
+         </center>
+         </div>
+
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+
+                     <u>Etiqueta</u>: HUM (human)<br/>
+
+                     <u>Pregunta</u>: Who was The Pride of the Yankees ?<br/><br/>
+
+                     <u>Etiqueta</u>: HUM (human)<br/>
+
+                     <u>Pregunta</u>: Who killed Gandhi ?<br/><br/>
+
+                     <u>Etiqueta</u>: LOC (location)<br/>
+
+                     <u>Pregunta</u>: What sprawling U.S. state boasts the most airports ?<br/><br/>
+
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: What did the only repealed amendment to the U.S. Constitution deal with ?
+
+                     </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
+
+                     <u>Pregunta</u>: How many Jews were executed in concentration camps during WWII ?<br/><br/>
+
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: What is " Nine Inch Nails " ?<br/><br/>
+
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: What is an annotated bibliography ?<br/><br/>
+
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
+
+                     <u>Pregunta</u>: What is the date of Boxing Day ?
+
+                     </p>
+             </div>
+         </center>
+         </div>
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:15px;">
+
+                     <u>Etiqueta</u>: ENTY (entity)<br/>
+
+                     <u>Pregunta</u>: What articles of clothing are tokens in Monopoly ?<br/><br/>
+
+                     <u>Etiqueta</u>: HUM (human)<br/>
+
+                     <u>Pregunta</u>: Name 11 famous martyrs .<br/><br/>
+
+                     <u>Etiqueta</u>: DESC (description)<br/>
+
+                     <u>Pregunta</u>: What 's the Olympic motto ?<br/><br/>
+
+                     <u>Etiqueta</u>: NUM (numeric value)<br/>
+
+                     <u>Pregunta</u>: What is the origin of the name ` Scarlett ' ?
+
+                     </p>
+             </div>
+         </center>
+         </div>
+
+
+</div>
+
+        <div id="dataset_info_yahoo" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>El artículo científico de este conjunto de datos es
+                <a href="https://webscope.sandbox.yahoo.com/catalog.php?datatype=l" target="_blank">
+                    Yahoo! Answers Comprehensive Preguntas and Answers version 1.0 dataset</a>.
+                Contiene 10 categorías:
+
+                "Sociedad y Cultura",
+"Ciencia y Matemáticas",
+"Salud
+"Educación",
+"Informática e Internet",
+"Deportes",
+"Negocios y Finanzas",
+"Entretenimiento y música",
+"Familia y relaciones",
+"Política y Gobierno".
+                Cada clase contiene 140 000 para entrenar algoritmos y 5000 para evaluarlos.
+                Los datos consisten en el título, el contenido de la pregunta y la mejor respuesta.
+
+            </p>
+
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_yahoo_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Society & Culture<br/><br/>
+
+                     <u>Pregunta en el título</u>: Why do people have the bird, turkey for thanksgiving?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: Why this bird? Any Significance?<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    It is believed that the pilgrims and indians shared wild turkey and venison on the
+                     original Thanksgiving. <br/><br/>Turkey's "Americanness" was established by
+                     Benjamin Franklin, who had advocated for the turkey, not the bald eagle,
+                     becoming the national bird.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Science & Mathematics<br/><br/>
+
+                     <u>Pregunta en el título</u>: What is an "imaginary number"?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: What is an "imaginary number",
+                     and how is it treated in algebra equations?<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    Imaginary numbers are numbers than when squared equal a negative number, as in i^2 = -1,
+                     where i is the imaginary number. You'll also often see them represented as i = √-1
+                     (that's the square root of -1).<br/>Don't be confused by the poorly chosen name -
+
+                     imaginary numbers do indeed exist and are used in advanced math, such as in the
+                     physics of electromagnetic fields. The analogy that Wikipedia uses is a good one -
+                     just like you don't need the concept of fractions to count stones, it doesn't mean that
+                     fractions don't exist. :)
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Health<br/><br/>
+
+                     <u>Pregunta en el título</u>: Does echinacea really help prevent colds?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: Or is a waste of money...<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    Well, there appears to be some controvery about this.  While some people swear by the
+                     stuff, others say that it has no real effect on overcoming a cold.  <br/>Here are some
+                     links, one of which is from a National Institute of Health study.  I hope these help
+                     you decide whether to head to the health store or not.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Education & Reference<br/><br/>
+
+                     <u>Pregunta en el título</u>: How do I find an out of print book?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: When I was a kid I remember seeing a book that was like an
+                     yearbook of all newspapers published by the Times during WW II.
+                     Each of the years is compiled into a different book. It gave one a very
+                     uniqie perspecitev into the UK druing the war, and even had advertisements
+                     from thaat time. Anybody out there know how to track such books?<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    here are several websites that you can find rare or out of print books.
+                     A couple would be alibris.com or abebooks.com.  These sites list books by
+                     booksellers all over the country and some internationally.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Computers & Internet<br/><br/>
+
+                     <u>Pregunta en el título</u>: How can I record audio directly from the browser to the web server?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: For a podcasting application, I'd like my web server
+                     to be able to receive audio straight from the browser. Something like a "Push to talk"
+                     button. It seems it's possible to do this with Flash. Is there any other way?<br/><br/>With
+                     Flash, do I need to buy a Macromedia server licence, or are there alternatives to have
+                     Flash on the browser talk to my server?<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    Userplane has an audio/video recorder that will do that -
+                     you can check it out at http://www.userplane.com/apps/videoRecorder.cfm
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                  <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Sports<br/><br/>
+
+                     <u>Pregunta en el título</u>: Why doesn't the NBA implement a minor leagues?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: I don't want to see any more High School kids on the court,
+                      shooting airballs and missing defensive assignments.<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    The NBA does have minor leagues - they're called the CBA, and the International leagues. :)
+                      <br/>Seriously - because viewers seem to value explosiveness over efficiency,
+                      I think we're seeing a major shift in the average age of NBA players towards
+                      young athletes that are quicker, high-flying and more resilient to injury.
+                      I wouldn't be surprised at all if by the end of this decade the average age of the
+                      league allstars is well under 25.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Business & Finance<br/><br/>
+
+                     <u>Pregunta en el título</u>: When will Google buy Yahoo?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: The two businesses are very complementary in terms
+                     of strengths and weaknesses. Do we want to beat ourselves up competing with
+                     each other for resources and market share, or unite to beat MSFT?<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    Their respective market caps are too close for this to ever happen.<br/>Interestingly,
+                     many reporters, analysts and tech pundits that I talk to think that the supposed
+                     competition between Google and Yahoo is fallacious, and that they are very different
+                     companies with very different strategies. Google's true competitor is often seen as
+                     being Microsoft, not Yahoo. This would support your claim that they are complementary.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Entertainment & Music<br/><br/>
+
+                     <u>Pregunta en el título</u>: Can someone tell me what happened in Buffy's series finale?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: I had to work and missed the ending.<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    The gang makes an attack on the First's army, aided by Willow, who performs a powerful
+                    spell to imbue all of the Potentials with Slayer powers. Meanwhile, wearing the amulet
+                    that Angel brought, Spike becomes the decisive factor in the victory, and Sunnydale is
+                    eradicated. Buffy and the gang look back on what's left of Sunnydale, deciding what
+                    to do next...<br/>--but more importantly, there will no longer be any slaying in Sunnydale,
+                    or is that Sunnyvale....
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Family & Relationships<br/><br/>
+
+                     <u>Pregunta en el título</u>: How do you know if you're in love?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: Is it possible to know for sure?<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    In my experience you just know. It's a long term feeling of always wanting to share
+                     each new experience with the other person in order to make them happy, to laugh or
+                     to know what they think about it. It's jonesing to call even though you just got off
+                     an hour long phone call with them. It's knowing that being with them makes you a
+                     better person. It's all of the above and much more.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Politics & Government<br/><br/>
+
+                     <u>Pregunta en el título</u>: How come it seems like Lottery winners are always the
+                     ones that buy tickets in low income areas.?<br/><br/>
+
+                     <u>Pregunta en el contenido</u>: Pure luck or Government's way of trying to balance the rich and the poor.<br/><br/>
+
+                     <u>Mejor respuesta</u><br/>
+                    I would put it down to psychology. People who feel they are well-off feel no need to participate in the
+                     lottery programs. While those who feel they are less than well off think "Why not bet a buck or two
+                     on the chance to make a few million?". It would seem to make sense to me.<br/><br/>addition: Yes Matt -
+                     agreed. I just didn't state it as eloquently. Feeling 'no need to participate' is as you say related to
+                     education, and those well off tend to have a better education.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+
+
+</div>
+
+        <div id="dataset_info_ag_news" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>Este dataset se puede descargar en este
+                <a href="http://groups.di.unipi.it/~gulli/AG_corpus_of_news_articles.html" target="_blank">enlace</a>.
+                El dataset contiene nueve columnas, pero en los ejemplos más abajo solo veremos la etiqueta que describe el tipo del artículo, el título del artículo y una parte del texto.
+
+            </p>
+                <p>Más información en este
+                    <a href="https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification.pdf" target="_blank">
+                    artículo científico</a>.</p>
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_ag_news_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Sci/Tech<br/><br/>
+
+                     <u>Título</u>: Learning to write with classroom blogs<br/><br/>
+
+                     <u>Descripción</u>:
+                    Last spring Marisa Dudiak took her second-grade class in Frederick County,
+                     Maryland, on a field trip to an American Indian farm. </p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Sports<br/><br/>
+
+                     <u>Título</u>: Schumacher Triumphs as Ferrari Seals Formula One Title<br/><br/>
+
+                     <u>Descripción</u>:
+                    BUDAPEST (Reuters) - Michael Schumacher cruised to a record  12th win of the season in the Hungarian
+                     Grand Prix on Sunday to  hand his Ferrari team a sixth successive constructors' title.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Business<br/><br/>
+
+                     <u>Título</u>: DoCoMo and Motorola talk phones<br/><br/>
+
+                     <u>Descripción</u>:
+                    Japanese mobile phone company DoCoMo is in talks to buy 3G handsets from Motorola,
+                     the world's second largest handset maker.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: World<br/><br/>
+
+                     <u>Título</u>: Sharon 'backs settlement homes'<br/><br/>
+
+                     <u>Descripción</u>:
+                    Reports say Israeli PM Ariel Sharon has given the green light to new homes in West Bank settlements.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Business<br/><br/>
+
+                     <u>Título</u>: Why Hugo Chavez Won a Landslide Victory<br/><br/>
+
+                     <u>Descripción</u>:
+                    When the rule of Venezuelan President Hugo Chavez was reaffirmed in a landslide 58-42 percent
+                     victory on Sunday, the opposition who put the recall vote on the ballot was stunned.
+                     They obviously don't spend much time in the nation's poor neighborhoods.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                  <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Sci/Tech<br/><br/>
+
+                     <u>Título</u>: Free-Speech for Online Gambling Ads Sought<br/><br/>
+
+                     <u>Descripción</u>:
+                    The operator of a gambling news site on the Internet has asked a federal judge to declare that
+                      advertisements in U.S. media for foreign online casinos and sports betting outlets
+                      are protected by free-speech rights.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: World<br/><br/>
+
+                     <u>Título</u>: Kerry takes legal action against Vietnam critics (AFP)<br/><br/>
+
+                     <u>Descripción</u>:
+                    AFP - Democratic White House hopeful John Kerry's campaign formally alleged that a group attacking
+                     his Vietnam war record had illegal ties to US President George W. Bush's reelection bid.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Sports<br/><br/>
+
+                     <u>Título</u>: O'Leary: I won't quit<br/><br/>
+
+                     <u>Descripción</u>:
+                    The Villa manager was said to be ready to leave the midlands club unless his assistants
+                    Roy Aitken and Steve McGregor were also given new three-and-a-half year deals.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: World<br/><br/>
+
+                     <u>Título</u>: Egypt eyes possible return of ambassador to Israel<br/><br/>
+
+                     <u>Descripción</u>:
+                    CAIRO - Egypt raised the possibility Tuesday of returning an ambassador to Israel soon, according
+                     to the official Mena news agency, a move that would signal a revival of full diplomatic ties
+                     after a four-year break.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Sports<br/><br/>
+
+                     <u>Título</u>: Henry wants silverware<br/><br/>
+
+                     <u>Descripción</u>:
+                    Arsenal striker Thierry Henry insisted there must be an end product to the Gunners'
+                     record-breaking run. As Arsenal equalled Nottingham Forest's 42-game unbeaten League
+                     run Henry said:  "Even on the pitch we didn't realise what we had done."
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Sci/Tech<br/><br/>
+
+                     <u>Título</u>: Scientists Focus on Algae in Maine Lake (AP)<br/><br/>
+
+                     <u>Descripción</u>:
+                    AP - Scientists would kill possibly thousands of white perch under a project to help restore
+                     the ecological balance of East Pond in the Belgrade chain of lakes in central Maine.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+</div>
+
+        <div id="dataset_info_sogou_news" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+
+                El conjunto de datos consiste en artículos de noticias etiquetados con 5 categorías:
+                “deportes”, “finanzas”, “entretenimiento”, “automóvil” y “tecnología”.
+                <br><br>
+                El conjunto de datos original está en chino, pero se puede generar Pinyin, una
+                romanización fonética del chino.
+
+            </p>
+
+                <p>Más información en este 
+                    <a href="https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification.pdf" target="_blank">
+                    artículo científico</a>.
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_sogou_news_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: automobile<br/><br/>
+
+                     <u>Título</u>: tu2 we2n -LG be1i be3n sa4i di4 2 lu2n zha4n ba4
+                     cha2ng ha4o ko3ng jie2 de3ng qi2 sho3u fu4 pa2n ta3o lu4n<br/><br/>
+
+                     <u>Contenido</u><br/>
+                    xi1n la4ng ti3 yu4 xu4n   be3i ji1ng shi2 jia1n 5 yue4 28 ri4 ,LG be1i shi4 jie4 qi2 wa2ng sa4i
+                     be3n sa4i di4 2 lu2n za4i ha2n guo2 ka1i zha4n . zho1ng guo2 qi2 sho3u cha2ng ha4o ,
+                     gu3 li4 , wa2ng ya2o , shi2 yue4 ca1n jia1 bi3 sa4i .<br/>  tu2 we2i xia4n cha3ng shu4n jia1n .
+                     <br/>  wa3ng ye4 <br/>  bu4 zhi1 chi2 Flash </p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: automobile<br/><br/>
+
+                     <u>Título</u>:  qi4 che1 pi2n da4o<br/><br/>
+
+                     <u>Contenido</u><br/>
+                    xi1n we2n jia3n suo3 :<br/>  ke4 la2i si1 le4 300C<br/>  go4ng 20  zha1ng <br/>
+                     ke3 shi3 jia4n pa2n ca1o zuo4 [ fa1ng xia4ng jia4n l: sha4ng yi1 zha1ng ;
+                     fa1ng xia4ng jia4n r: xia4 yi1 zha1ng ; hui2 che1 : zha1 ka4n yua2n da4 tu2 ]\<br/>
+                     ge1ng duo1 tu2 pia4n :<br/>  ce4 hua4 : bia1n ji2 : me3i bia1n : zhi4 zuo4 :GOODA  ji4 shu4 :
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: finance<br/><br/>
+
+                     <u>Título</u>: shi2 da2 qi1 huo4 : hua2ng ji1n za3o pi2ng (06-11)<br/><br/>
+
+                     <u>Contenido</u><br/>
+                    shi4 cha3ng jia1 da4 me3i guo2 she1ng xi1 yu4 qi1 , me3i yua2n ji4n qi1 zo3u shi4 ba3o
+                     chi2 de2 xia1ng da1ng pi2ng we3n , ji1n jia4 ga1o we4i mi2ng xia3n sho4u ya1 ,
+                     xia4 jia4ng to1ng da4o ba3o chi2 wa2n ha3o , zhe4n da4ng si1 lu4 ca1o zuo4 .<br/>
+                     gua1n wa4ng <br/>  wa3ng ye4 <br/>  bu4 zhi1 chi2 Flash<br/>  hua2ng ji1n qi1 huo4 zi1 xu4n la2n mu4
+                 </p>
+             </div>
+         </center>
+         </div>
+</div>
+
+        <div id="dataset_info_dbpedia" style="margin-left:20px;">
+            <details>
+                <summary><font color="#C43116" class="data_text"><strong>Pulsa aquí para leer la descripción</strong></font></summary>
+                <div  class="data_text" style="font-size:15px;">
+                    <br>
+            <p>DBpedia es un proyecto abierto para extraer información estructurada
+                de Wikipedia.
+                El conjunto de datos de clasificación de la ontología de DBpedia se construye seleccionando 14 clases no superpuestas
+                de
+                <a href="https://wiki.dbpedia.org/services-resources/dbpedia-data-set-2014" target="_blank">DBpedia 2014</a>.
+                De cada una de las 14 clases,
+                el conjunto de datos contiene
+                40000 muestras para entrenar algoritmos elegidas al azar y 5000 muestras para evaluarlos.
+                El tamaño total del conjunto de datos de entrenamiento es de 560000, y el del conjunto de evaluación es de 70000.
+            </p>
+
+
+                <p>Más información en este 
+                    <a href="https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification.pdf" target="_blank">
+                    artículo científico</a>.</p>
+            </div>
+            </details>
+        </div>
+        <div class="carousel" id="carousel_dbpedia_examples"
+     data-flickity='{ "imagesLoaded": true, "percentPosition": true, "wrapAround": true}'
+     style="width:100%; margin-top:10px; margin-bottom:30px; margin-left:10px;">
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Company<br/><br/>
+
+                     <u>Título</u>: Marvell Software Solutions Israel<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Marvell Software Solutions Israel known as RADLAN Computer Communications
+                     Limited before 2007 is a wholly owned subsidiary of Marvell Technology Group that
+                     specializes in local area network (LAN) technologies. </p>
+             </div>
+         </center>
+         </div>
+
+
+          <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: EducationalInstitution<br/><br/>
+
+                     <u>Título</u>:  Adarsh English Boarding School<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Adarsh English Boarding School is coeducational boarding school in Phulbari a suburb
+                     of Pokhara Nepal. Nabaraj Thapa is the founder and chairman of the school. The School
+                     motto reads Education For Better Citizen.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Artist<br/><br/>
+
+                     <u>Título</u>: Esfandiar Monfaredzadeh<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Esfandiar Monfaredzadeh (Persian : اسفندیار منفردزاده) is an Iranian composer and director.
+                     He was born in 1941 in Tehran His major works are Gheisar Dash Akol Tangna Gavaznha. He has
+                     2 daughters Bibinaz Monfaredzadeh and Sanam Monfaredzadeh Woods (by marriage).
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Athlete<br/><br/>
+
+                     <u>Título</u>: Elena Yakovishina<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Elena Yakovishina (born September 17 1992 in Petropavlovsk-Kamchatsky Russia) is
+                     an alpine skier from Russia. She competed for Russia at the 2014 Winter Olympics
+                     in the alpine skiing events.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: OfficeHolder<br/><br/>
+
+                     <u>Título</u>: Jack Masters<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    John Gerald (Jack) Masters (born September 27 1931) is a former Canadian politician.
+                     He served as mayor of the city of Thunder Bay Ontario and as a federal Member of Parliament.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: MeanOfTransportation<br/><br/>
+
+                     <u>Título</u>: HMS E35<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    HMS E35 was a British E class submarine built by John Brown Clydebank.
+                     She was laid down on 20 May 1916 and was commissioned on 14 July 1917.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Building<br/><br/>
+
+                     <u>Título</u>: Aspira<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Aspira is a 400 feet (122 m) tall skyscraper in the Denny Triangle neighborhood
+                     of Seattle Washington. It has 37 floors and mostly consists of apartments.
+                     Construction began in 2007 and was completed in late 2009.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: NaturalPlace<br/><br/>
+
+                     <u>Título</u>: Sierra de Alcaraz<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    The Sierra de Alcaraz is a mountain range of the Cordillera Prebética located in Albacete
+                     Province southeast Spain. Its highest peak is the Pico Almenara with an altitude of 1796 m.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Village<br/><br/>
+
+                     <u>Título</u>: Piskarki<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Piskarki [pisˈkarki] is a village in the administrative district of Gmina Jeżewo
+                     within Świecie County Kuyavian-Pomeranian Voivodeship in north-central Poland.
+                     The village has a population of 135.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Animal<br/><br/>
+
+                     <u>Título</u>: Lesser small-toothed rat<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    The Lesser Small-toothed Rat or Western Small-Toothed Rat (Macruromys elegans) is a
+                     species of rodent in the family Muridae. It is found only in West Papua Indonesia.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Plant<br/><br/>
+
+                     <u>Título</u>: Vangueriopsis gossweileri<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Vangueriopsis gossweileri is a species of flowering plants in the family Rubiaceae.
+                     It occurs in West-Central Tropical Africa (Cabinda Province Equatorial Guinea and Gabon).
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Album<br/><br/>
+
+                     <u>Título</u>: Dreamland Manor<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Dreamland Manor is the debut album of German power metal band Savage Circus.
+                     The album sounds similar to older classic Blind Guardian.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: Film<br/><br/>
+
+                     <u>Título</u>: The Case of the Lucky Legs<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    The Case of the Lucky Legs is a 1935 mystery film the third in a series of Perry
+                     Mason films starring Warren William as the famed lawyer.
+                 </p>
+             </div>
+         </center>
+         </div>
+
+         <div class="carousel-cell" style="width:100%"><center>
+             <div style="width:80%; border: 0px solid #ccc;border-radius:5px;margin: 10px; padding: 4px;
+    background-color: #f5f5f5;">
+                 <p style="padding:10px;font-family:courier; font-size:14px;">
+                     <u>Etiqueta</u>: WrittenWork<br/><br/>
+
+                     <u>Título</u>: Everybody Loves a Good Drought<br/><br/>
+
+                     <u>Abstract</u><br/>
+                    Everybody Loves a Good Drought is a book written by P. Sainath about his research findings of
+                     poverty in the rural districts of India. The book won him the Magsaysay Award.
+                 </p>
+             </div>
+         </center>
+         </div>
+</div>
+
+        </div>
+        
+    <br><br>
+
+<script>
+var carousels = [document.getElementById('carousel_lasolananews_examples'),
+                    document.getElementById('carousel_imdb_examples'),
+                    document.getElementById('carousel_yelp_examples'),
+                    document.getElementById('carousel_amazon_examples'),
+                    document.getElementById('carousel_trec_examples'),
+                    document.getElementById('carousel_yahoo_examples'),
+                    document.getElementById('carousel_ag_news_examples'),
+                    document.getElementById('carousel_sogou_news_examples'),
+                    document.getElementById('carousel_dbpedia_examples')];
+
+var infos = [document.getElementById('dataset_info_lasolananews'),
+                    document.getElementById('dataset_info_imdb'),
+                    document.getElementById('dataset_info_yelp'),
+                    document.getElementById('dataset_info_amazon'),
+                    document.getElementById('dataset_info_trec'),
+                    document.getElementById('dataset_info_yahoo'),
+                    document.getElementById('dataset_info_ag_news'),
+                    document.getElementById('dataset_info_sogou_news'),
+                    document.getElementById('dataset_info_dbpedia')];
+
+function pickDatasetExample()
+{
+    var radioButtons = document.getElementsByName("dataset_example");
+
+    for(var i = 0; i < radioButtons.length; i++)
+    {
+        if(radioButtons[i].checked == true){
+            carousels[i].style.display = "block";
+            infos[i].style.display = "block";
+        }
+        else{
+            carousels[i].style.display = "none";
+            infos[i].style.display = "none";
+        }
+    }
+}
+
+</script>
+
+<script>
+
+var count = 0;
+var need_count = 9;
+
+function onReadyFunction() {
+  count += 1;
+  if (count == need_count){ pickDatasetExample(); }
+}
+
+carousels.forEach(function(elem) {
+    var flkty = new Flickity(elem,
+                             { "imagesLoaded": true, "percentPosition": true, "wrapAround": true,
+                             on: { ready: onReadyFunction} }
+                            )})
+
+</script>
+
+</div>
+
+</div>
+
+
+
+
+    <div id="datos_indispensables">
+
+    <h2>¿Son los datos estructurados indispensables?</h2>
+<p> Una vez que entendemos la idea de dataset anotados manualmente, resulta evidente que este tipo de estructuras de datos son costosas de generar. Hace unos años, era crucial disponer de datos anotados con una "verdad absoluta" para que el algoritmo de predicción fuera capaz de aprender los patrones de nuestros datos y cumplir correctamente con su tarea (por ejemplo, detectar mensajes spam). Hoy, sin embargo, existen los denominados Grandes Modelos del Lenguaje (LLM) que alivian esa necesidad. ¿Por qué? </p>
+   
+
+    <div id="textos">
+<h3>Textos como datos no estructurados</h3>
+ <p>Los textos escritos también son datos. Estos datos no tienen que ser anotados manualmente como los vistos en la sección anterior, pues los textos poseen de por si unas reglas gramaticales según las cuales se rige una lengua. Por ejemplo, en inglés los homenajes se «pagan», mientras que en alemán se «honran». Si no fuéramos hablantes nativos de español y quisiéramos saber qué se hace en este idioma con los homenajes, podríamos buscar la palabra en un corpus de textos y veríamos que entre los hispanos se «rinde» un homenaje. No nos haría falta nadie que manualmente anotara que verbos acompañan a qué sustantivos, pues ese patrón ya se encontraría intrínseco en un gran corpus de textos. De hecho, los Grandes Modelos del Lenguaje como la familia de ChatGPT se han entrenado en un inmenso corpus (prácticamente todos los textos disponibles en Internet), donde el entrenamiento consistía, básicamente, en predecir la siguiente palabra más probable a partir de un inicio de oración.</p>   
+
+ <br>  
+<p>Para cumplir nuestro objetivo de crear un asistente conversacional sobre nuestros pueblos, necesitaremos un LLM que haya sido entrenado en tareas de generación de texto (por ejemplo, predecir la siguiente palabra). Además, necesitaremos datos de calidad sobre el tema, La Solana en nuestro caso, para que el LLM pueda generar respuestas fidedignas. Veámos ahora dónde podemos conseguir esos datos.</p>
+    </div>
+
+    <div id="recursos">
+
+    <h2>Fuentes para la recopilación de datos</h2>
+<p>Proponemos cuatro fuentes para recopilar datos. En gris, ejemplos concretos utilizados para La Solana.</p>
+<ul>
+    <li><strong>Fuentes públicas, gubernamentales o religiosas:</strong> ayuntamientos, museos, centros culturales, centros de culto, oficinas de turismo…
+    <div style="border: 0px solid #ccc; border-radius:15px; margin: 10px 10px 10px 10px; padding: 10px;
+    background-color: #f5f5f5;">
+        <ul style="margin-top: 0px; padding-left: 20px;">
+            <li><strong>Ayuntamiento de La Solana:</strong> encontramos un enlace a la 
+                <a href="https://www.lasolana.es/laciudad/oficina-de-turismo" target="_blank">oficina de turismo</a> y un 
+                <a href="https://www.lasolana.es/laciudad/noticias" target="_blank">noticiero</a> que se actualiza casi a diario. En esta misma página encontramos información sobre el 
+                <a href="https://www.lasolana.es/laciudad/museo-rosa-del-azafran" target="_blank">Museo del Azafrán</a>.
+            </li>
+            <li><strong><a href="https://www.turismocastillalamancha.es/busqueda/?q=la+solana" target="_blank">Web oficial de Turismo de Castilla-La Mancha</a>:</strong>  se pueden obtener artículos directamente relacionados con nuestra localidad de interés. También ofrecen documentos en pdf con información turística.
+            </li>
+            <li><strong><a href="https://www.dominicaslasolana.org/" target="_blank">Página web de las monjas dominicas</a>:</strong> 
+                 cada vez más organizaciones religiosas tienen su propio sitio web con información de interés histórico.
+            </li>
+        </ul>
+    </div>
+</li>
+    <li><strong>Bibliotecas públicas:</strong> en las páginas web de las bibliotecas virtuales de las Comunidades Autónomas o la Biblioteca Digital Hispánica se pueden encontrar documentos digitalizados fáciles de descargar.</li>
+    <div style="border: 0px solid #ccc; border-radius:15px; margin: 10px 10px 10px 10px; padding: 10px;
+    background-color: #f5f5f5;">
+    <ul>
+        <li><strong><a href="https://patrimoniodigital.castillalamancha.es/bidicam/es/micrositios/inicio.do" target="_blank">
+            Biblioteca Digital de Castilla-La Mancha (BIDICAM)</a>:</strong> 
+            
+            biblioteca perteneciente a la Comunidad Autónoma de Castilla-La Mancha.
+        </li>
+        <li><strong><a href="https://ceclmdigital.uclm.es/" target="_blank">Biblioteca Virtual de Castilla-La Mancha</a>:</strong> 
+          biblioteca asociada a la Universidad de Castilla-La Mancha (UCLM)</li>
+        </ul>
+    </div>
+
+
+</li>
+    <li><strong>Wikipedia:</strong> la herramienta “páginas que enlazan con” (<em>what links here</em> en inglés) busca los denominados “backlinks”, es decir, entradas en Wikipedia que enlacen con La Solana. Un ejemplo en el siguiente <a href="https://es.wikipedia.org/w/index.php?title=Especial:LoQueEnlazaAqu%C3%AD/La_Solana&namespace=0&limit=500&offset=0%7C4779406"> enlace</a>.
+    <div style="border: 0px solid #ccc; border-radius:15px; margin: 10px 10px 10px 10px; padding: 10px;
+    background-color: #f5f5f5;">
+      <p>Hay 93 entradas en Wikipedia en español que redirigen a la entrada de La Solana.</p> 
+    </div>
+    </li>
+
+    <li><strong>Particulares:</strong> blogs o páginas web de ciudadanos sobre la localidad.</li>
+    <div style="border: 0px solid #ccc; border-radius:15px; margin: 10px 10px 10px 10px; padding: 10px;
+    background-color: #f5f5f5;">
+      <p>En La Solana disponemos del blog <a href="https://joaquincostalasolanalegadobustillo.blogspot.com/" target="_blank">
+            Joaquí Costa. La Solana. Legado Bustillo.</a> escrito por Julián Simón, antiguo maestro y exalcalde de la villa. El recurso cuenta con 86 entradas sobre la historia y cultura en el pueblo. </p> 
+    </div>
+    </li>
+</ul>
+</div>
+</div>
+
+<br>
+        <div class="text_box_green">
+          <p class="data_text">Quizá queremos utilizar textos que no están digitalizados. Una buena opción para obtener la mejor calidad y a la vez hacer públicos nuestros datos es acudir a bibliotecas universitarias o de la comunidad. En Castilla-La Mancha, la Biblioteca Virtual de Castilla-La Mancha pone a la disposición del usuario un <a href="https://www.uclm.es/centros-investigacion/ceclm/servicios" target="_blank">taller de digitalización</a>.</p>
+        </div>
+<br>
+
+<p>En el siguiente <a href="corpus_descripcion_lasolana.html">capítulo</a> veremos qué datos exactos se utilizarán para crear nuestro asistenten conversacional.</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <table >
+          <tr class="contact-list">
+
+
+            <td>
+              <div class="media">
+                <a class="pull-left thumbnail" href="https://linkedin.com/">
+                  <img src="/img/ico/linkedin.png" height=20px alt=""/>
+                </a>
+              </div>
+            </td>
+
+            <td>
+              <div class="media">
+                <a class="pull-left thumbnail" href="https://github.com/mariagabv">
+                  <img src="/img/ico/git.png" height=20px alt=""/>
+                </a>
+              </div>
+            </td>
+
+
+          </tr>
+        </table>
+      </div>
+
+      <!--<div class="footer-col  footer-col-2">
+      </div> -->
+
+      <div class="footer-col  footer-col-3">
+          <p class="text" align="right">Last updated September 03, 2024.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

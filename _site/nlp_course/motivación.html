@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Motivación</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/nlp_course/motivacio%CC%81n.html">
+
+    <!-- diff from head.html begin -->
+     <link rel="mask-icon" href="../resources/lectures/ico/plaza_mayor.png">
+     <link rel="alternate icon" class="js-site-favicon" type="image/png" href="../resources/lectures/ico/plaza_mayor.png">
+     <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="../resources/lectures/ico/plaza_mayor.png">
+    <!-- diff from head.html end -->
+
+    <!--<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>-->
+
+
+
+</head>
+
+
+  <!--style>
+  p {
+    text-align: justify;
+  }
+  </style-->
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">María Velasco</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/posts.html">Blog</a>
+          
+        
+          
+          <a class="page-link" href="/cv.html">CV</a>
+          
+        
+          
+          <a class="page-link" href="/papers.html">Publications</a>
+          
+        
+          
+          <a class="page-link" href="/nlp_course.html">RAG en <strong><font color="#C43116">español</font></strong></a>
+          
+        
+<!--        <a href="">
+            <img src="image/UoS.ico" alt="DCS">
+        </a>-->
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <!-- the next two lines are inserted once per page even if there are several shtukovinas,
+     the rest is one-per-shtukovina; read more: https://flickity.metafizzy.co/options.html -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" media="screen">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+
+
+.demo_sidebar {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+
+  position: relative;
+    height: auto;
+    width: 290px;
+}
+
+.demo_sidebar_text {
+    font-size: 18px;
+}
+
+.demo_sidebar_comment {
+    font-size:15px;
+    margin-left:10px;
+    font-family: "Comic Neue", "Arial";
+
+}
+
+
+
+.demo_sidebar a {
+  display: block;
+  color: black;
+  padding: 8px;
+  text-decoration: none;
+
+}
+
+.demo_sidebar a li {
+  margin-left: 5px;
+  padding: 0px;
+}
+
+
+
+.demo_sidebar a:hover {
+  box-shadow: 0 3px 6px #6e8f27, 0 1px 1px #6e8f27;
+}
+
+.demo_sidebar a:hover:not(.active) {
+  background-color: #f3f3f3;
+}
+
+.demo_sidebar .main_components {
+  background-color: #f3f3f3;
+}
+.demo_sidebar .extra_components {
+  background-color: #eaeaea;
+}
+
+
+#demo_sidebar_research_thinking:hover {
+  box-shadow: 0 3px 6px #a68305, 0 1px 1px #a68305;
+
+}
+
+
+#demo_sidebar_related_papers:hover {
+  box-shadow: 0 3px 6px #8a4972, 0 1px 1px #8a4972;
+}
+
+
+#demo_sidebar_fun:hover {
+  box-shadow: 0 3px 6px #377b94, 0 1px 1px #377b94;
+}
+
+</style>
+
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap");
+
+
+
+#main_page_content {
+  margin-left: 300px;
+  padding: 30px;
+  padding-left: 70px;
+  text-align: justify;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 270px;
+  background-color: #fafafa;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+}
+
+.sidebar a, .dropdown-btn {
+  display: block;
+  color: black;
+  padding: 8px;
+  text-decoration: none;
+  border-right: 5px solid #C43116;
+}
+
+
+.sidebar a li {
+  margin-left: 10px;
+  padding: 0px;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #f4f4f4;
+}
+
+.active_caret .fa-caret-down
+{
+    color: #C43116;
+    font-size: 30px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+.sidebar a.active {
+  background-color: #e3e3e3;
+  color: black;
+}
+
+.sidebar a:hover {
+  box-shadow: 0 3px 6px #D7472C, 0 1px 1px #D7472C;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #f3f3f3;
+}
+
+.sidebar .extra_components {
+  background-color: #eaeaea;
+}
+
+#sidebar_analysis {
+    padding: 10px;
+}
+
+#sidebar_research_thinking {
+padding: 10px;
+  border-right: 5px solid #fad400;
+}
+#sidebar_research_thinking:hover {
+  box-shadow: 0 3px 6px #a68305, 0 1px 1px #a68305;
+
+}
+
+
+#sidebar_related_papers {
+padding: 10px;
+  border-right: 5px solid #d192ba;
+}
+#sidebar_related_papers:hover {
+  box-shadow: 0 3px 6px #8a4972, 0 1px 1px #8a4972;
+}
+
+
+#sidebar_fun {
+padding: 10px;
+  border-right: 5px solid #6fb7d1;
+}
+#sidebar_fun:hover {
+  box-shadow: 0 3px 6px #377b94, 0 1px 1px #377b94;
+}
+
+
+.sidebar_ico {
+    float: right;
+    height: 20;
+  }
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+#sidebar_small { width: 60px; }
+
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    width: 200px;
+  }
+  #main_page_content {
+  margin-left: 200px;
+  padding-left: 50px;
+}
+#for_you_in_sidebar {display: none;}
+
+  }
+
+
+@media screen and (max-width: 900px) {
+
+  div.content {margin-left: 0;}
+  #main_page_content {margin-left: 80px; padding: 15px;}
+
+  #demo_sidebar {}
+}
+
+
+.softmax_tau_bokeh {
+    font-size: 16px;
+  }
+
+
+
+.card_with_ico {
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+  }
+  .card_with_ico p {
+    padding: 10px;
+  }
+  .card_with_ico ul {
+    padding: 10px;
+  }
+  .card_with_ico .text_box_green {
+    border: 1px solid #d8e8b5;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .text_box_pink {
+    border: 1px solid #dec8d6;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .text_box_yellow {
+    border: 1px solid #f0e4a5;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+  .card_with_ico .ico {
+    float: left;
+    width: 25px;
+  }
+
+
+
+.text_box_green {
+    border: 1px solid #C43116;
+    border-radius: 5px;
+    display: table;
+    margin-left: 20px;
+  }
+
+
+.text_box_grey_background {
+    border: 1px solid #C43116;  /* Increased border thickness to 2px */
+    border-radius: 5px;
+    display: table;
+    margin-left: 20px;
+    background-color: #f0f0f0;  /* Light grey background */
+}
+
+
+  .text_box_green p {
+    padding: 10px;
+    padding-bottom: 0px;
+  }
+
+
+
+.green_left_thought {
+    border-left: 5px solid #C43116;
+    margin: 10px;
+    margin-left: 20px;
+    padding: 0px;
+    background-color: #F4F4F6;
+  }
+  .green_left_thought p {
+
+    margin-left: 10px;
+    padding: 5px;
+  }
+
+
+.box_green_left {
+    border-left: 2px solid #C43116;
+    margin-left: 10px;
+    padding: 10px;
+  }
+
+.box_green_right {
+    border-right: 2px solid #C43116;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
+  .box_violet_right {
+    border-right: 2px solid #67468f;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
+.box_pink_left {
+    border-left: 2px solid #7a3160;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+ .box_yellow_left {
+    border-left: 2px solid #d6b000;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+  .box_blue_left {
+    border-left: 2px solid #0278a1;
+    margin-left: 5px;
+    padding: 10px;
+  }
+
+.paper_title {
+    text-align: center;
+    padding: 5px;
+    padding-top: 0px;
+    font-size: 16px;
+
+  }
+  .paper_authors {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p {
+    text-align: justify;
+  }
+
+
+  .greenCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+
+  #thumbnail_green {
+    box-shadow: 0 2px 4px #C43116, 0 1px 1px #C43116;
+  }
+  #thumbnail_green:hover {
+    box-shadow: 0 6px 12px #751D0D, 0 4px 4px #751D0D;
+  }
+
+  #thumbnail_violet {
+    box-shadow: 0 2px 4px #655578, 0 1px 1px #655578;
+  }
+  #thumbnail_violet:hover {
+    box-shadow: 0 6px 12px #655578, 0 4px 4px #655578;
+  }
+
+  #thumbnail_paper {
+    box-shadow: 0 2px 4px #ab859e, 0 1px 1px #ab859e;
+  }
+  #thumbnail_paper:hover {
+    box-shadow: 0 6px 12px #ab859e, 0 4px 4px #ab859e;
+  }
+
+
+
+  #thumbnail_blue {
+    box-shadow: 0 2px 4px #377b94, 0 1px 1px ;
+  }
+  #thumbnail_blue:hover {
+    box-shadow: 0 6px 12px #377b94, 0 4px 4px #377b94;
+  }
+
+  .paperCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .paperIntro {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+
+  .showMePaper {
+    box-shadow: 0 2px 4px #a68305, 0 2px 1px #a68305;
+  }
+  .showMePaper:hover {
+    box-shadow: 0 3px 6px #ab859e, 0 4px 4px #ab859e;
+  }
+
+
+  .cardContent {
+    padding: 10px;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .conf_name {
+    float: right;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 0px;
+    background-color: #f7edf4;
+    border: 1px solid #d1a1c3;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+  }
+
+
+
+  .paper_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #cf99be;
+    border: 1px solid #8c2b6e;
+    border-radius: 50%;
+  }
+
+  .research_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #ffda00;
+    border: 1px solid #998300;
+    border-radius: 50%;
+  }
+
+  .fun_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #68c7e8;
+    border: 1px solid #0278a1;
+    border-radius: 50%;
+  }
+  .green_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #DB8373;
+    border: 1px solid #C43116;
+    border-radius: 50%;
+  }
+
+.violet_circle {
+    height: 10px;
+    width: 10px;
+    background-color: #b59fcf;
+    border: 1px solid #67468f;
+    border-radius: 50%;
+  }
+
+  .data_text {
+    font-family: "Comic Neue", "Arial";
+  }
+
+
+
+
+   .researchCard {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin: 10px 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .researchIntro {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+    #thumbnail_research {
+    box-shadow: 0 2px 4px #a68305, 0 1px 1px #a68305;
+  }
+  #thumbnail_research:hover {
+    box-shadow: 0 6px 12px #a68305, 0 4px 4px #a68305;
+  }
+  .research_title {
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    font-family: "Comic Neue", "Arial";
+    background-color: #fafaf5;
+
+
+  }
+   .research_tag {
+    float: right;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 0px;
+    background-color: #f5f0d5;
+    border: 1px solid #fad400;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+  }
+
+    .research_question {
+    font-weight:bold;
+    font-size:18px;
+    background-color:#F4F4F6;
+    margin-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .research_summary {
+    padding: 5px;
+    font-size: 18px;
+    font-family: "Comic Neue", "Arial";
+    background-color: #F4F4F6;
+    margin-left:10px;
+  }
+
+
+    .text_table td, .text_table th {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #dedeca; /* Add border for horizontal lines */
+}
+
+
+  </style>
+
+<!--##################################################-->
+
+    <div>
+        <div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
+   style="text-align:center;font-size:30px;padding:0px;">⇤</a>
+    <a class="active" href="../nlp_course.html" style=" align-items: center; font-weight: bold;">
+    <img height="32" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 0px;margin-top: -4px;"/>
+        RAG en   <font color="#C43116" id="for_you_in_sidebar">español</font></a>
+    <div class="dropdown-scope">
+           <a class="dropdown-btn" style="font-weight: bold;">Motivación
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container">
+              <a href="#que_es_pnl"><span style="margin-right:15px;font-size:14px;">&#8226;</span>¿Qué es el PNL?</a>
+              <a href="#pnl_preservar_tradicion"><span style="margin-right:15px;font-size:14px;">&#8226;</span>¿Puede el PNL ayudar a preservar la cultura, tradiciones y memoria histórica de nuestros pueblos?</a>
+          </div>
+          <a href="recopilacion_de_datos.html">Recopilación de datos</a>
+          <a href="corpus_descripcion_lasolana.html">Corpus para La Solana</a>
+          <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+                     <font color="#888"> Próximos capítulos</font></a>
+          </a>
+          </div>
+    </div>
+<!-- CREATES A NEW SECTION
+    <div class="dropdown-scope">
+           <a class="dropdown-btn active_caret" >Conclusión
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container" style="display:block;">
+              <a href="#supplementary"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
+        Convolutional Networks</a>
+          </div>
+    </div>
+-->
+</div>
+    <div class="sidebar" id="sidebar_small" style="background-color: #f5f5f5;">
+    <a class="active" onclick="openNav()" style="text-align:center;">☰</a>
+        <a href="#main_page_content" style="text-align:center; font-size:20px;color:#C43116"> <i class="fa fa-home"></i></a>
+        <!--<a href="#whats_inside" style="text-align:center; font-size:20px;color:#7ca81e"> <i class="fa fa-search"></i></a>-->
+        <!--<a href="#whats_inside_lectures" id="sidebar_analysis"> <img height="25" src="../resources/lectures/ico/analysis_empty.png"/></a>
+<div class="extra_components">
+    <a href="#whats_inside_research_thinking" id="sidebar_research_thinking"><img height="30" src="../resources/lectures/ico/bulb_empty.png"/></a>
+    <a href="#whats_inside_related_papers" id="sidebar_related_papers"><img height="22" src="../resources/lectures/ico/book_empty.png"/></a>
+  <a href="#whats_inside_fun" id="sidebar_fun"><img height="30" src="../resources/lectures/ico/fun_empty.png" /></a>-->
+    <a href="#lectures" style="text-align:center; font-size:20px;color:#C43116"> <i class="fa fa-list-ul"></i></a>
+</div>
+    </div>
+<script>
+function openNav() {
+  document.getElementById("sidebar").style.display = "block";
+  document.getElementById("sidebar_small").style.display = "none";
+  document.getElementById("close_sidebar_btn").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("sidebar").style.display = "none";
+  document.getElementById("sidebar_small").style.display = "block";
+  document.getElementById("close_sidebar_btn").style.display = "none";
+}
+</script>
+<script>
+function onResize() {
+  if (window.innerWidth >= 800) {
+     document.getElementById("sidebar").style.display = "block";
+     document.getElementById("sidebar_small").style.display = "none";
+     document.getElementById("close_sidebar_btn").style.display = "none";
+  }
+  else {
+     document.getElementById("sidebar").style.display = "none";
+    document.getElementById("sidebar_small").style.display = "block";
+  }
+}
+window.onresize = onResize;
+onResize();
+</script>
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function(event) {
+  this.classList.toggle("active_caret");
+  var dropdownButton = event.target || event.srcElement;
+  while(dropdownButton.className != "dropdown-scope")
+     dropdownButton = dropdownButton.parentElement;
+  var dropdownContent = dropdownButton.getElementsByClassName("dropdown-container")[0];
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+<style>
+        :root{}
+        .quiz_window {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            margin: 10px 5px;
+            padding: 3px;
+            background-color: white;
+            text-align: center;
+        }
+        #semantic_space_surfer {
+            box-shadow: 0 2px 4px #377b94, 0 1px 1px ;
+          }
+        #semantic_space_surfer:hover {
+            box-shadow: 0 6px 12px #377b94, 0 4px 4px #377b94;
+          }
+        .prompt_text {
+            font-size: 24px;
+            font-family: "Comic Neue", "Arial";
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ebf6fa;
+        }
+        .result_header {
+            font-size: 24px;
+            font-family: "Comic Neue", "Arial";
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ebf6fa;
+        }
+        .result_course_mention {
+            font-size: 18px;
+            font-family: "Comic Neue", "Arial";
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: white;
+        }
+        .comment_text {
+            font-size: 16px;
+            font-family: "Gill Sans", sans-serif;
+            font-style: italic;
+            text-align: center;
+        }
+        .answer_button {
+          width: 40%;
+          background-color: #fafafa;
+          font-size: 20px;
+          font-family: "Comic Neue", "Arial";
+          font-weight: bold;
+          color: black;
+          margin-right: 20px;
+          margin-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          border: 0px solid black;
+          border-radius: 12px;
+          padding: 20px;
+          padding-top: 0px;
+          padding-bottom: 0px;
+          text-decoration: none;
+          display: inline-block;
+          text-align: center;
+          box-shadow: 0px 2px 3px #377b94, 0 1px 1px #377b94;
+        }
+        .answer_button:hover {
+            box-shadow: 0 3px 6px #377b94, 0 2px 2px #377b94;
+        }
+        .answer_text_tight {
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+        .quiz_result {
+            font-size: 24px;
+            font-family: "Gill Sans", sans-serif;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .answer_block {
+            display: grid;
+            grid-template-columns: auto 30px;
+        }
+        .next_button {
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-left: 20px solid #1b6f8c;
+            border-bottom: 50px solid transparent;
+        }
+        .next_text {
+            color: #1b6f8c;
+            font-weight: 600;
+            font-family: "Comic Neue", "Arial";
+            margin: 0 auto;
+        }
+        progress[value]::-moz-progress-bar {
+          background-image:
+            -moz-linear-gradient(
+              135deg,
+              transparent 33%,
+              rgba(0, 0, 0, 0.1) 33%,
+              rgba(0, 0, 0, 0.1) 66%,
+              transparent 66%
+            ),
+            -moz-linear-gradient(
+              top,
+              rgba(255, 255, 255, 0.25),
+              rgba(0, 0, 0, 0.25)
+            ),
+            -moz-linear-gradient(
+              left,
+              #09c,
+              #44f
+            );
+          border-radius: 2px;
+          background-size: 35px 20px, 100% 100%, 100% 100%;
+          display: inline-block;
+        }
+    </style>
+<div class="wrapper" id="main_page_content">
+    <div class="header", id="motivacion"><h1>Motivación</h1></div>
+<div id="que_es_pnl">
+<h2>¿Qué es el PLN?</h2>
+<div class="main_content" id="main_content">
+<div id="intro">
+    <div style="float:right; margin-left: 25px; max-width:60%; text-align:center;">
+    <img height="250" src="../resources/lectures/motivación/ñ.png" style="max-width:100%;"/>
+    <div style="font-size:14px; margin-top: 10px; max-width: 200px; margin-left: auto; margin-right: auto;" class="data_text">
+        <font color="#888">
+            El sonido nasal palatal /ɲ/ se representa en español con la grafía «ñ», mientras que en francés se utiliza «gn».
+        </font>
+    </div>
+</div>
+    <p>La invención de la escritura, además de marcar el paso de la Prehistoria a la Historia, puso de manifiesto la capacidad humana de procesar y analizar el lenguaje. Por eso, se dice que la escritura es el primer ejemplo de Procesamiento del Lenguaje Natural (PLN, NLP por sus siglas en inglés).
+    </p>
+
+
+    <p>En la actualidad, el amplísimo campo del PLN cubre todo lo relacionado con la forma en que los ordenadores "entienden", procesan o generan los idiomas que hablamos las personas, es decir, el lenguaje natural. El producto más popular de esta área de estudio son los (Chat)GPT, modelos del lenguaje generativos capaces de resumir textos, escribir poesía o solucionar problemas matemáticos. Sin embargo, en un pasado cercano, generar cualquier tipo de texto con aparente coherencia y cohesión se figuraba imposible: los problemas que intentaba resolver el PLN eran, a simple vista, mucho más sencillos. Por ejemplo:</p>
+
+     <ul>
+        <li>Lematizar automáticamente la raíz de las palabras (¿cómo hacemos que un ordenador sepa que la raíz de la palabra "dijimos" es "decir"?),</li>
+        <li>Reconocer nombres propios de forma automática para anonimizar documentos (¿cómo entiende un ordenador entienda que «Día» se refiere al nombre de un supermercado y no a un periodo de tiempo?),</li>
+        <li>Desambiguar la categoría gramatical de las palabras en una oración (¿es la palabra "como" la primera persona del singular del verbo “comer” o es una conjunción?)</li>
+        <li>Representar palabras de forma numérica (vectores) para que los ordenadores puedan manejarlas sin perder sus significados.
+        <br>
+    <center>
+        <img src="../resources/lectures/motivación/wordembeddings.jpg"
+             style="max-width:90%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Vectores de palabras. Cada palabra está descrita por 150 números. Palabras con significado similar tendrán números similares y por lo tanto su distancia en el espacio vectorial será menor. En el caso de "pleita", las palabras más cercanas son "espuertas", "almendras" y "esparto". </font>
+            </div>
+        </center>
+    </li>
+    </ul>
+
+
+    <p>Con la invención de la escritura hace miles de años, se asignaron símbolos escritos a información que hasta entonces solo se transmitía de forma oral y efímera. Sin embargo, esto requería un cierto entendimiento comunitario, ciertas reglas y estándares para que todos los participantes de una comunidad lingüística asociaran un determinado símbolo a un sonido. Es aquí donde podemos trazar una analogía con el campo del Procesamiento del Lenguaje Natural, pues este se ocupa de convertir información no estructurada (en época prehistórica, ideas orales; en la actualidad, palabras escritas) en una forma estructurada y procesable (antaño, la escritura en piedra, hoja o papel; hogaño, vectores numéricos que representan el significado de las ideas). </p>
+
+    <div id="pnl_preservar_tradicion">
+   <h2>¿Puede el PLN ayudar a preservar la cultura, tradiciones y memoria histórica de nuestros pueblos?</h2>
+    <p>Como hemos apuntado, el área del PLN es inmensa. Se aplica a la detección automática de mensajes de odio en Internet, al análisis de opiniones, a la traducción automática de idiomas, al procesamiento del habla (señales) o a la creación de sistemas de recomendación y publicidad, entre muchos otros. Sin embargo, los denominados Grandes Modelos del Lenguaje (LLM, por sus siglas en inglés) como ChatGPT han revolucionado el mundo del PLN. A fecha de agosto de 2024, el instituto de la Asociación Fraunhofer de Stuttgart (importantísima red de institutos de origen alemán conocida especialmente por inventos como el airbag o el formato MP3) tiene publicada en su página web una vacante para estudiantes universitarios cuya descripción reza:</p>
+
+    <span style="font-size:14px;">
+    <span class="research_question">"</span>
+    Existe una aguda escasez de mano de obra cualificada para el Mantenimiento Industrial. Los conocimientos técnicos no se están transmitiendo a las siguientes generaciones ni a legos en la materia, lo que lleva a investigar y poner en práctica nuevas tecnologías para gestionar y transferir el saber y pericia de los expertos. Un ejemplo de dichas tecnologías son los asistentes conversacionales. En este trabajo de estudios, proponemos desarrollar un chatbot especializado en el Mantenimiento Industrial que desempeñe el papel de un curtido técnico superior.</span>
+    <details>
+      <summary  class="research_summary">
+        <span style="font-size:14px;">Texto original en alemán</span></summary>
+      <div style="font-size:14px; margin-bottom:10px;">
+        In der industriellen Instandhaltung herrscht ein massiver Fachkräftemangel. Das Wissen wird nicht an den Nachwuchs und an Nicht-Experten weitergegeben. Deshalb sollen neue, innovative Technologien für das Wissensmanagement und den Wissenstransfer erprobt und eingesetzt werden. Eine solche Technologie ist der Chatbot. In dieser Abschlussarbeit soll ein Maintenance-Chatbot entwickelt werden, der die Rolle eines erfahrenen Instandhalters übernimmt.
+      </div>
+    </details>
+    <br>
+    <p>Es llamativo el problema que describen y llamativa es la solución que proponen. No obstante, nos preguntamos:</p>
+    <div class="green_left_thought" style="font-size:18px;">
+                <p>¿Qué otros saberes se están quedando en el olvido por no transmitirse a las nuevas generaciones?</p>
+            </div>
+
+    <p>¿Erramos al decir que la sabiduría de nuestros mayores, que también es la sabiduría de nuestros pueblos, no se está transmitiendo a las nuevas generaciones? En realidad, ¿cuántos jóvenes sabemos...</p>
+
+    <ul>
+    <li>qué significa el refrán “En buen año, o malo, parvas hay en mayo”?</li>
+    <br>
+    <center>
+        <img src="../resources/lectures/motivación/eras.jpeg"
+             style="max-width:60%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Foto tomada por la autora en las inmediaciones de La Solana (Ciudad Real).</font>
+            </div>
+        </center>
+    </li>
+    <br>
+    <li>desde cuándo disfrutamos en La Solana de la facilidad de abrir un grifo y tener agua en nuestras propias casas? ¿Cómo se gestionaba antiguamente los suministros de agua?</li>
+    <br>
+    <center>
+        <img src="../resources/lectures/motivación/vallehermoso.jpg"
+             style="max-width:60%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Embalse del Puerto de Vallehermoso. Foto recuperada del blog "Joaquin Costa. La Solana. Legado Bustillo" en la entrada "Río azuer. Sus fuentes".</font>
+            </div>
+        </center>
+    </li>
+    <br>
+    <li>qué es la pleita y cómo se diferencia de la cordeta o el ramal?</li>
+    <br>
+    <center>
+        <img src="../resources/lectures/motivación/calle_pleita.jpeg"
+             style="max-width:60%; margin-bottom:15px;"/>
+            <div style="font-size:14px; margin-left: 30px; margin-right: 30px;" class="data_text">
+                <font color="#888">
+                Foto tomada por la autora en La Solana (Ciudad Real).</font>
+            </div>
+        </center>
+    </li>
+    <br>
+    <li>qué pasó en nuestro pueblo durante importantes episodios históricos, como la Reconquista, la Guerra de la Independencia, la Guerra Civil, la Transición?</li>
+    </ul>
+    <p>Algunas de estas preguntas las podrían resolver rápidamente nuestros abuelos, otras se encuentran ya en los libros de Historia. En cualquier caso, son cuestiones que, probablemente, las futuras generaciones desconocerán. Planteamos, entonces:</p>
+     <p>¿Si un renombrado centro de investigación mundial sugiere solucionar la falta de transmisión de conocimiento técnico a las nuevas generaciones con un chatbot, por qué nuestro pueblo no puede disponer de una misma tecnología para honrar y preservar el saber popular de nuestros antepasados?</p>
+ 
+    <p>Pero, ¿cómo conseguir que un ordenador trate dudas cuya respuesta es desconocida por una parte de población cada vez más grande?</p>
+    <p>Esta última es una pregunta para el siguiente capítulo: <a href="recopilacion_de_datos.html">Recopilación de datos</a>.</p>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <table >
+          <tr class="contact-list">
+
+
+            <td>
+              <div class="media">
+                <a class="pull-left thumbnail" href="https://linkedin.com/">
+                  <img src="/img/ico/linkedin.png" height=20px alt=""/>
+                </a>
+              </div>
+            </td>
+
+            <td>
+              <div class="media">
+                <a class="pull-left thumbnail" href="https://github.com/mariagabv">
+                  <img src="/img/ico/git.png" height=20px alt=""/>
+                </a>
+              </div>
+            </td>
+
+
+          </tr>
+        </table>
+      </div>
+
+      <!--<div class="footer-col  footer-col-2">
+      </div> -->
+
+      <div class="footer-col  footer-col-3">
+          <p class="text" align="right">Last updated September 03, 2024.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,64 +1,37 @@
 ---
 layout: lecture
 title: Flowise
-description: Demo flowise).
+description: Demo flowise.
 ---
-
-<div class="sidebar" id="sidebar">
-    <a href="javascript:void(0)" id="close_sidebar_btn" onclick="closeNav()"
-   style="text-align:center;font-size:30px;padding:0px;"></a>
-    <a class="active" href="../nlp_course.html" style=" align-items: center; font-weight: bold;">
-    <img height="32" class='sidebar_ico' src="../resources/lectures/ico/plaza_mayor.png" style="margin-right: 4px;margin-left: 0px;margin-top: -4px;"/>
-        RAG en   <font color="#C43116" id="for_you_in_sidebar">español</font></a>
-
-
-    <div class="dropdown-scope">
-          <a href="motivación.html">Motivación</a>
-          <a href="recopilacion_de_datos.html" >Recopilación de datos</a>
-          <a class="dropdown-btn" style="font-weight: bold;">Corpus para La Solana
-            <i class="fa fa-caret-down"></i>
-          </a>
-          <div class="dropdown-container">
-            <a href="#tabla"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Descripción general del corpus para La Solana</a>
-              <a href="#gaceta_de_lasolana"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Gaceta de La Solana</a>
-              <a href="#wikipedia"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Wikipedia</a>
-              <a href="#lasolananews"><span style="margin-right:15px;font-size:14px;">&#8226;</span>La Solana Noticias</a>
-              <a href="#blogspot"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Blog Joaquín Costa. La Solana. Legado Bustillo.</a>
-              <a href="#libro"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Libro El legado Bustillo de La Solana</a>
-              <a href="#fundación"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Fundación Histórico-Cultural Paulino Sánchez Delgado</a>
-              <a href="#miscelanea"><span style="margin-right:15px;font-size:14px;">&#8226;</span>Miscelánea</a>
-          </div>
-          <a href="#coming_soon_main_course"><span style="margin-right:15px;font-size:14px;">&#8226;</span>
-                     <font color="#888"> Próximos capítulos</font></a>
-
-          </div>
-
-    </div>
-
-
+<body style="margin: 0; padding: 20px; text-align: center;">
+  <div style="display: inline-block; border: 3px solid #C43116; padding: 20px; max-width: 800px; width: 100%;">
 
 <flowise-fullchatbot></flowise-fullchatbot>
-<body style="margin-left: 30px">
 <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+    import Chatbot from "https://cdn.jsdelivr.net/gh/mariagabv/forked-repo/dist/web.js"
     Chatbot.initFull({
         chatflowid: "91705efc-1a89-4ac5-b9d2-291fc88c30cb",
         apiHost: "http://localhost:3000",
         theme: {
-            chatWindow: {
-                showTitle: false,
-                title: 'Flowise Bot',
-                titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-                welcomeMessage: '¡Bienvenido al chatbot solanero! Respondo preguntas sobre el legado histórico de La Solana. ¿Qué quieres saber?',
-                errorMessage: 'Algo ha ido mal. Esto es un error.',
+            chatWindow: { 
+                showTitle: true,
+                title: '',
+                titleAvatarSrc: 'https://cdn.githubraw.com/mariagabv/mariagabv.github.io/main/resources/lectures/ico/plaza_mayor.png',
+                badgeBackgroundColor:"#ffffff" ,
+                welcomeMessage: '¡Te damos la bienvenida al chatbot solanero! Este asistente conversacional responde preguntas sobre el legado histórico de La Solana. ¿Qué quieres saber?',
+                errorMessage: ['Algo ha ido mal. Esto es un error.', 'No hemos podido solucionar el error.'],
                 backgroundColor: "#ffffff",
+                backgroundImage: 'https://cdn.githubraw.com/mariagabv/mariagabv.github.io/main/resources/lectures/ico/plaza_mayor.png', // If set, this will overlap the background color of the chat window.
                 fontSize: 18,
+                starterPrompts: ['What is a bot?', 'Who are you?'], // It overrides the starter prompts set by the chat flow passed
                 poweredByTextColor: "#303235",
+                clearChatOnReload: true,
                 botMessage: {
                     backgroundColor: "#f7f8ff",
                     textColor: "#303235",
                     showAvatar: false,
-                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png",
+                    avatarSrc: "https://cdn.githubraw.com/mariagabv/mariagabv.github.io/main/resources/lectures/ico/plaza_mayor.png",
                 },
                 userMessage: {
                     backgroundColor: "#C43116",
@@ -83,10 +56,15 @@ description: Demo flowise).
                     text: 'Desarrollado con',
                     company: 'Flowise',
                     companyLink: 'https://flowiseai.com',
-       },
-      },
-    },
-  });
+                }
+            }
+        }
+    })
+
+   </script>
+  </div>
 </body>
-</script>
+
+
+
                        
