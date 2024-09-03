@@ -4,19 +4,32 @@ title: Flowise
 description: Demo flowise.
 ---
 <body style="margin: 0; padding: 20px; text-align: center;">
-  <div style="display: inline-block; border: 3px solid #C43116; padding: 20px; max-width: 800px; width: 100%;">
+  <div style="display: inline-block; border: 1px solid #C43116; padding: 20px; max-width: 800px; width: 100%;">
 
 <flowise-fullchatbot></flowise-fullchatbot>
 <script type="module">
 
-    import Chatbot from "https://cdn.jsdelivr.net/gh/mariagabv/FlowiseChatEmbed/dist/web.js"
+    import Chatbot from "https://unpkg.com/mariagabv/FlowiseChatEmbed/dist/web.js"
     Chatbot.initFull({
         chatflowid: "91705efc-1a89-4ac5-b9d2-291fc88c30cb",
-        apiHost: "http://localhost:4000",
+        apiHost: "http://localhost:3000",
         theme: {
+            button: {
+        backgroundColor: '#fffff', 
+        right: 200,
+        bottom: 40,
+        size: 48, // small | medium | large | number
+        dragAndDrop: true,
+        iconColor: 'white',
+        autoWindowOpen: {
+          autoOpen: true, //parameter to control automatic window opening
+          openDelay: 2, // Optional parameter for delay time in seconds
+          autoOpenOnMobile: false,
+        },
+        },
             chatWindow: { 
                 showTitle: true,
-                title: '',
+                title: 'Chatbot solanero',
                 titleAvatarSrc: 'https://cdn.githubraw.com/mariagabv/mariagabv.github.io/main/resources/lectures/ico/plaza_mayor.png',
                 badgeBackgroundColor:"#ffffff" ,
                 welcomeMessage: '¡Te damos la bienvenida al chatbot solanero! Este asistente conversacional responde preguntas sobre el legado histórico de La Solana. ¿Qué quieres saber?',
@@ -24,7 +37,7 @@ description: Demo flowise.
                 backgroundColor: "#ffffff",
                 backgroundImage: 'https://cdn.githubraw.com/mariagabv/mariagabv.github.io/main/resources/lectures/ico/plaza_mayor.png', // If set, this will overlap the background color of the chat window.
                 fontSize: 18,
-                starterPrompts: ['What is a bot?', 'Who are you?'], // It overrides the starter prompts set by the chat flow passed
+                starterPrompts: ['¿Qué es el Legado Bustillo?', '¿Cuánto mide la torre de la iglesia?'], // It overrides the starter prompts set by the chat flow passed
                 poweredByTextColor: "#303235",
                 clearChatOnReload: true,
                 botMessage: {
